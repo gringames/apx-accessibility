@@ -17,7 +17,7 @@ func _update_complex_nodes() -> void:
 	complex_nodes = get_tree().get_nodes_in_group(complex_group_name)
 
 
-func on_reduce_complexity_changed(new_reduce_complexity: bool) -> void:
+func _on_reduce_complexity_changed(new_reduce_complexity: bool) -> void:
 	# search for nodes each update if requested
 	if update_group_during_runtime:
 		_update_complex_nodes()

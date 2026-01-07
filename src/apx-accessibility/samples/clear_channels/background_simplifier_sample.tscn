@@ -12,7 +12,6 @@ script = ExtResource("1_ettw6")
 [node name="BackgroundSimplifier" type="Node" parent="."]
 script = ExtResource("2_bs7xx")
 complex_group_name = "ComplexBackground"
-update_group_during_runtime = null
 metadata/_custom_type_script = "uid://bl1lsyxe2hph1"
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["ComplexBackground"]]
@@ -45,7 +44,7 @@ texture = ExtResource("3_djt42")
 position = Vector2(80, 88)
 texture = ExtResource("3_djt42")
 
-[node name="ComplexAnimatedSprit2D" type="AnimatedSprite2D" parent="."]
+[node name="ComplexAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(619.99994, 401)
 scale = Vector2(12.5, 12.5)
