@@ -1,56 +1,56 @@
 [gd_scene load_steps=6 format=3 uid="uid://j1t30x17646a"]
 
-[ext_resource type="Script" uid="uid://b7wqitpnnxqdy" path="res://samples/clear_channels/background_test.gd" id="1_ettw6"]
-[ext_resource type="Script" uid="uid://bl1lsyxe2hph1" path="res://addons/apx-accessibility/clear_channels/background_simplifier.gd" id="2_bs7xx"]
-[ext_resource type="Texture2D" uid="uid://ksqpjx02hdfp" path="res://icon.svg" id="3_djt42"]
-[ext_resource type="Script" uid="uid://b8anel4q6yfuy" path="res://addons/apx-accessibility/clear_channels/complex_animated_sprite_2D.gd" id="4_bs7xx"]
-[ext_resource type="SpriteFrames" uid="uid://cmb1l0we875mw" path="res://resources/test_sprite_frames.tres" id="4_djt42"]
+[ext_resource type="Script" uid="uid://b7wqitpnnxqdy" path="res://samples/clear_channels/background_test.gd" id="1_ddnwt"]
+[ext_resource type="Script" uid="uid://bl1lsyxe2hph1" path="res://addons/apx-accessibility/clear_channels/background_simplifier.gd" id="2_7gvj5"]
+[ext_resource type="Texture2D" uid="uid://ksqpjx02hdfp" path="res://icon.svg" id="3_iionn"]
+[ext_resource type="SpriteFrames" uid="uid://cmb1l0we875mw" path="res://resources/test_sprite_frames.tres" id="4_x5036"]
+[ext_resource type="Script" uid="uid://b8anel4q6yfuy" path="res://addons/apx-accessibility/clear_channels/complex_animated_sprite_2D.gd" id="5_nmy10"]
 
 [node name="VisualComplexityTest" type="Node2D"]
-script = ExtResource("1_ettw6")
+script = ExtResource("1_ddnwt")
 
 [node name="BackgroundSimplifier" type="Node" parent="."]
-script = ExtResource("2_bs7xx")
+script = ExtResource("2_7gvj5")
 complex_group_name = "ComplexBackground"
 metadata/_custom_type_script = "uid://bl1lsyxe2hph1"
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["ComplexBackground"]]
 position = Vector2(813, 336)
-texture = ExtResource("3_djt42")
+texture = ExtResource("3_iionn")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(433, 320)
-texture = ExtResource("3_djt42")
+texture = ExtResource("3_iionn")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." groups=["ComplexBackground"]]
 position = Vector2(126, 371)
-texture = ExtResource("3_djt42")
+texture = ExtResource("3_iionn")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 position = Vector2(653, 236)
-texture = ExtResource("3_djt42")
+texture = ExtResource("3_iionn")
 
 [node name="Sprite2D5" type="Sprite2D" parent="." groups=["ComplexBackground"]]
 position = Vector2(490, 83)
-texture = ExtResource("3_djt42")
+texture = ExtResource("3_iionn")
 
 [node name="Node2D" type="Node2D" parent="." groups=["ComplexBackground"]]
 
 [node name="Sprite2D6" type="Sprite2D" parent="Node2D" groups=["ComplexBackground"]]
 position = Vector2(255, 199)
-texture = ExtResource("3_djt42")
+texture = ExtResource("3_iionn")
 
 [node name="Sprite2D6" type="Sprite2D" parent="." groups=["ComplexBackground"]]
 position = Vector2(80, 88)
-texture = ExtResource("3_djt42")
+texture = ExtResource("3_iionn")
 
 [node name="ComplexAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(619.99994, 401)
 scale = Vector2(12.5, 12.5)
-sprite_frames = ExtResource("4_djt42")
+sprite_frames = ExtResource("4_x5036")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.69354504
-script = ExtResource("4_bs7xx")
+script = ExtResource("5_nmy10")
+animation_to_use_for_static = "idle"
 metadata/_custom_type_script = "uid://b8anel4q6yfuy"

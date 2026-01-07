@@ -4,7 +4,6 @@ class_name ControlsReminder
 @export var sprite: Sprite2D
 @export var controls_image: Texture2D
 
-# TODO: maybe include these as well
 # @export var size: Vector2
 # @export var position: Vector2
 

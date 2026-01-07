@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfcjuo1djf38b"]
-
-[ext_resource type="Script" uid="uid://bw14s0biyh424" path="res://addons/apx-accessibility/total_recall/total_recall_button.gd" id="1_iec6s"]
-
-[node name="TotalRecallButton" type="Button"]
-offset_right = 8.0
-offset_bottom = 8.0
-script = ExtResource("1_iec6s")
-metadata/_custom_type_script = "uid://bw14s0biyh424"
