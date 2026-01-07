@@ -17,18 +17,13 @@ func _update_complex_nodes() -> void:
 	complex_nodes = get_tree().get_nodes_in_group(complex_group_name)
 
 
-# TODO: later do this via event
-func mock_complex_changed(new_hidden: bool) -> void:
-	_on_hide_complex_changed(new_hidden)
-
-
-func _on_hide_complex_changed(hidden: bool) -> void:
+func on_reduce_complexity_changed(new_reduce_complexity: bool) -> void:
 	# search for nodes each update if requested
 	if update_group_during_runtime:
 		_update_complex_nodes()
 	if complex_nodes.is_empty():
 		return
-	_change_visibility_of_group(complex_nodes, hidden)
+	_change_visibility_of_group(complex_nodes, new_reduce_complexity)
 
 
 func _change_visibility_of_group(nodes: Array[Node], new_hidden: bool) -> void:
