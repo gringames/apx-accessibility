@@ -1,5 +1,5 @@
 @tool
-@icon("icons/background_simplifier_icon.svg")
+@icon("icons/BackgroundSimplifier.svg")
 extends Node
 class_name BackgroundSimplifier
 

@@ -1,4 +1,5 @@
 @tool
+@icon("icons/ComplexAnimatedSprite2D.svg")
 extends AnimatedSprite2D
 class_name ComplexAnimatedSprite2D
 
