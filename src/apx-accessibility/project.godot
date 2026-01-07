@@ -16,7 +16,7 @@ config/icon="res://icon.svg"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/apx-accessibility/clear_channels/plugin.cfg")
+enabled=PackedStringArray("res://addons/apx-accessibility/clear_channels/plugin.cfg", "res://addons/apx-accessibility/total_recall/plugin.cfg")
 
 [global_group]
 
