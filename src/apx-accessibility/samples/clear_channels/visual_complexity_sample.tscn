@@ -12,6 +12,8 @@ script = ExtResource("1_ddnwt")
 [node name="BackgroundSimplifier" type="Node" parent="."]
 script = ExtResource("2_7gvj5")
 complex_group_names = Array[String](["ComplexBackground", "MovingBackgroundElement"])
+update_groups_during_runtime = null
+hide_recursively = true
 metadata/_custom_type_script = "uid://bl1lsyxe2hph1"
 
 [node name="ComplexAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -40,4 +42,10 @@ texture = ExtResource("3_iionn")
 
 [node name="Sprite2D6" type="Sprite2D" parent="." groups=["ComplexBackground", "MovingBackgroundElement"]]
 position = Vector2(827, 117)
+texture = ExtResource("3_iionn")
+
+[node name="Node" type="Node" parent="." groups=["ComplexBackground"]]
+
+[node name="Sprite2D6" type="Sprite2D" parent="Node"]
+position = Vector2(887, 423)
 texture = ExtResource("3_iionn")
