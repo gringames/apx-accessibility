@@ -53,4 +53,5 @@ animation = &"idle"
 autoplay = "idle"
 script = ExtResource("5_nmy10")
 animation_to_use_for_static = "idle"
+frame_to_use_for_static = 2
 metadata/_custom_type_script = "uid://b8anel4q6yfuy"

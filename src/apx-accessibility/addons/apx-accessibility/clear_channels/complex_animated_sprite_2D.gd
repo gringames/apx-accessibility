@@ -3,11 +3,15 @@ extends AnimatedSprite2D
 class_name ComplexAnimatedSprite2D
 
 @export_category("Visual Complexity")
-@export var frame_to_use_for_static: int = 0
 @export var autoplay_if_static_turned_off: bool = true
-var animation_to_use_for_static: String
+var frame_to_use_for_static: int = 0
+var animation_to_use_for_static: String:
+	set(value):
+		animation_to_use_for_static = value
+		frame_to_use_for_static = 0 
+		notify_property_list_changed()
 
-# fetch animations from sprite frames resource and store it to "animation_to_use_for_static"
+# fetch data from sprite frames resource
 func _get_property_list():
 	var properties = []
 	var animation_names = ""
@@ -21,6 +25,19 @@ func _get_property_list():
 		"usage": PROPERTY_USAGE_DEFAULT,
 		"hint": PROPERTY_HINT_ENUM,
 		"hint_string": animation_names
+	})
+	
+	var frame_options = ""
+	var frame_max = 0
+	if sprite_frames and sprite_frames.has_animation(animation_to_use_for_static):
+		var count = sprite_frames.get_frame_count(animation_to_use_for_static)
+		frame_max = count - 1
+	properties.append({
+		"name": "frame_to_use_for_static",
+		"type": TYPE_INT,
+		"usage": PROPERTY_USAGE_DEFAULT,
+		"hint": PROPERTY_HINT_RANGE,
+		"hint_string": "0," + str(frame_max) + ",1"
 	})
 	return properties
 
