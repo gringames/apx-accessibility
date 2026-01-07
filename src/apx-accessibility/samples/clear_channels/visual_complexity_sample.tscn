@@ -14,6 +14,18 @@ script = ExtResource("2_7gvj5")
 complex_group_name = "ComplexBackground"
 metadata/_custom_type_script = "uid://bl1lsyxe2hph1"
 
+[node name="ComplexAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(619.99994, 401)
+scale = Vector2(12.5, 12.5)
+sprite_frames = ExtResource("4_x5036")
+animation = &"idle"
+autoplay = "idle"
+script = ExtResource("5_nmy10")
+animation_to_use_for_static = "idle"
+frame_to_use_for_static = 2
+metadata/_custom_type_script = "uid://b8anel4q6yfuy"
+
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["ComplexBackground"]]
 position = Vector2(813, 336)
 texture = ExtResource("3_iionn")
@@ -43,15 +55,3 @@ texture = ExtResource("3_iionn")
 [node name="Sprite2D6" type="Sprite2D" parent="." groups=["ComplexBackground"]]
 position = Vector2(80, 88)
 texture = ExtResource("3_iionn")
-
-[node name="ComplexAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(619.99994, 401)
-scale = Vector2(12.5, 12.5)
-sprite_frames = ExtResource("4_x5036")
-animation = &"idle"
-autoplay = "idle"
-script = ExtResource("5_nmy10")
-animation_to_use_for_static = "idle"
-frame_to_use_for_static = 2
-metadata/_custom_type_script = "uid://b8anel4q6yfuy"
