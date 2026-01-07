@@ -1,17 +1,20 @@
 @tool
 extends Node
 
-@export var all_children_are_complex: bool = true
 @export var complex_group_name: String = "ComplexBackgroundElement"
+@export var update_group_during_runtime: bool = false
 
-var children_with_tag: Array[Node]
+var complex_nodes: Array[Node]
 
 func _ready() -> void:
-	if all_children_are_complex:
-		return
-	for child in get_children():
-		if child.is_in_group(complex_group_name):
-			children_with_tag.append(child)
+	_update_complex_nodes()
+	if complex_nodes.is_empty():
+		print("no complex background elements found in scene!")
+
+
+func _update_complex_nodes() -> void:
+	complex_nodes = get_tree().get_nodes_in_group(complex_group_name)
+
 
 # TODO: later do this via event
 func mock_complex_changed(new_hidden: bool) -> void:
@@ -19,17 +22,13 @@ func mock_complex_changed(new_hidden: bool) -> void:
 
 
 func _on_hide_complex_changed(hidden: bool) -> void:
-	var nodes_to_change: Array[Node] = _get_nodes_to_change()
-	if nodes_to_change.is_empty():
-		print("no complex background elements")
+	# search for nodes each update if requested
+	if update_group_during_runtime:
+		_update_complex_nodes()
+	if complex_nodes.is_empty():
 		return
-	_change_visibility_of_group(nodes_to_change, hidden)
+	_change_visibility_of_group(complex_nodes, hidden)
 
-
-func _get_nodes_to_change() -> Array[Node]:
-	if all_children_are_complex:
-		return get_children()
-	return children_with_tag
 
 func _change_visibility_of_group(nodes: Array[Node], new_hidden: bool) -> void:
 	if not nodes or nodes.is_empty():
@@ -44,12 +43,8 @@ func _change_visibility_of_group(nodes: Array[Node], new_hidden: bool) -> void:
 func _hide_or_disable_node(node: Node) -> void:
 	if node.has_method("hide"):
 		node.hide()
-		return
-	node.process_mode = Node.PROCESS_MODE_DISABLED # TODO: save current status
 
 
 func _show_or_enable_node(node: Node) -> void:
 	if node.has_method("show"):
 		node.show()
-		return
-	node.process_mode = Node.PROCESS_MODE_INHERIT # TODO: reset current status

@@ -18,10 +18,6 @@ config/icon="res://icon.svg"
 
 enabled=PackedStringArray("res://addons/apx-accessibility/clear_channels/plugin.cfg", "res://addons/apx-accessibility/total_recall/plugin.cfg", "res://addons/clear-channels/plugin.cfg")
 
-[global_group]
-
-ComplexBackground=""
-
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

@@ -7,32 +7,34 @@
 [node name="BackgroundTest" type="Node2D"]
 script = ExtResource("1_26dmx")
 
-[node name="BackgroundSimplifier" type="Node" parent="."]
-script = ExtResource("1_rw5li")
-all_children_are_complex = false
-complex_group_name = "ComplexBackground"
-metadata/_custom_type_script = "uid://bl1lsyxe2hph1"
-
-[node name="Sprite2D" type="Sprite2D" parent="BackgroundSimplifier" groups=["ComplexBackground"]]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["ComplexBackground"]]
 position = Vector2(813, 336)
 texture = ExtResource("2_madu7")
 
-[node name="Sprite2D2" type="Sprite2D" parent="BackgroundSimplifier"]
+[node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(433, 320)
 texture = ExtResource("2_madu7")
 
-[node name="Sprite2D3" type="Sprite2D" parent="BackgroundSimplifier" groups=["ComplexBackground"]]
+[node name="Sprite2D3" type="Sprite2D" parent="." groups=["ComplexBackground"]]
 position = Vector2(126, 371)
 texture = ExtResource("2_madu7")
 
-[node name="Sprite2D4" type="Sprite2D" parent="BackgroundSimplifier"]
+[node name="Sprite2D4" type="Sprite2D" parent="."]
 position = Vector2(653, 236)
 texture = ExtResource("2_madu7")
 
-[node name="Sprite2D5" type="Sprite2D" parent="BackgroundSimplifier" groups=["ComplexBackground"]]
+[node name="Sprite2D5" type="Sprite2D" parent="." groups=["ComplexBackground"]]
 position = Vector2(490, 83)
 texture = ExtResource("2_madu7")
 
-[node name="Sprite2D6" type="Sprite2D" parent="BackgroundSimplifier" groups=["ComplexBackground"]]
+[node name="Node2D" type="Node2D" parent="." groups=["ComplexBackground"]]
+
+[node name="Sprite2D6" type="Sprite2D" parent="Node2D" groups=["ComplexBackground"]]
 position = Vector2(255, 199)
 texture = ExtResource("2_madu7")
+
+[node name="BackgroundSimplifier" type="Node" parent="."]
+script = ExtResource("1_rw5li")
+complex_group_name = "ComplexBackground"
+update_group_during_runtime = null
+metadata/_custom_type_script = "uid://bl1lsyxe2hph1"
