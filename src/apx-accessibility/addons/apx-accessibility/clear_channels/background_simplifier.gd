@@ -2,7 +2,7 @@
 extends Node
 class_name BackgroundSimplifier
 
-@export var complex_group_name: String = "ComplexBackgroundElement"
+@export var complex_group_names: Array[String] = ["ComplexBackgroundElement", "MovingBackgroundElement"]
 @export var update_group_during_runtime: bool = false
 
 var complex_nodes: Array[Node]
@@ -14,7 +14,15 @@ func _ready() -> void:
 
 
 func _update_complex_nodes() -> void:
-	complex_nodes = get_tree().get_nodes_in_group(complex_group_name)
+	complex_nodes.clear()
+	if complex_group_names.is_empty(): return
+	# using a dictionary ensures no duplicates if node is in two groups
+	var complex_nodes_dict: Dictionary[Node, bool] = {}
+	for group_name in complex_group_names:
+		for node in get_tree().get_nodes_in_group(group_name):
+			complex_nodes_dict[node] = true
+	complex_nodes = complex_nodes_dict.keys()
+	complex_nodes_dict.clear()
 
 
 func _on_reduce_complexity_changed(new_reduce_complexity: bool) -> void:
@@ -39,7 +47,7 @@ func _change_visibility_of_group(nodes: Array[Node], new_hidden: bool) -> void:
 func _hide_or_disable_node(node: Node) -> void:
 	if node.has_method("hide"):
 		node.hide()
-
+	
 
 func _show_or_enable_node(node: Node) -> void:
 	if node.has_method("show"):

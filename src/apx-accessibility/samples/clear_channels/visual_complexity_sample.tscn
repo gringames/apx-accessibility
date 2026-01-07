@@ -11,7 +11,7 @@ script = ExtResource("1_ddnwt")
 
 [node name="BackgroundSimplifier" type="Node" parent="."]
 script = ExtResource("2_7gvj5")
-complex_group_name = "ComplexBackground"
+complex_group_names = Array[String](["ComplexBackground", "MovingBackgroundElement"])
 metadata/_custom_type_script = "uid://bl1lsyxe2hph1"
 
 [node name="ComplexAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -27,31 +27,17 @@ frame_to_use_for_static = 2
 metadata/_custom_type_script = "uid://b8anel4q6yfuy"
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["ComplexBackground"]]
-position = Vector2(813, 336)
-texture = ExtResource("3_iionn")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(433, 320)
+position = Vector2(250, 129)
 texture = ExtResource("3_iionn")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." groups=["ComplexBackground"]]
-position = Vector2(126, 371)
+position = Vector2(445, 135)
 texture = ExtResource("3_iionn")
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(653, 236)
+[node name="Sprite2D5" type="Sprite2D" parent="." groups=["ComplexBackground", "MovingBackgroundElement"]]
+position = Vector2(635, 114)
 texture = ExtResource("3_iionn")
 
-[node name="Sprite2D5" type="Sprite2D" parent="." groups=["ComplexBackground"]]
-position = Vector2(490, 83)
-texture = ExtResource("3_iionn")
-
-[node name="Node2D" type="Node2D" parent="." groups=["ComplexBackground"]]
-
-[node name="Sprite2D6" type="Sprite2D" parent="Node2D" groups=["ComplexBackground"]]
-position = Vector2(255, 199)
-texture = ExtResource("3_iionn")
-
-[node name="Sprite2D6" type="Sprite2D" parent="." groups=["ComplexBackground"]]
-position = Vector2(80, 88)
+[node name="Sprite2D6" type="Sprite2D" parent="." groups=["ComplexBackground", "MovingBackgroundElement"]]
+position = Vector2(827, 117)
 texture = ExtResource("3_iionn")
