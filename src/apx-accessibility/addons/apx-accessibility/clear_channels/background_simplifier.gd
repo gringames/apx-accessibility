@@ -1,5 +1,6 @@
 @tool
 extends Node
+class_name BackgroundSimplifier
 
 @export var complex_group_name: String = "ComplexBackgroundElement"
 @export var update_group_during_runtime: bool = false
