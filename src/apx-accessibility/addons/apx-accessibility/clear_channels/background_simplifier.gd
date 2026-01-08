@@ -3,9 +3,9 @@
 extends Node
 class_name BackgroundSimplifier
 
-@export var complex_group_names: Array[String] = ["ComplexBackgroundElement", "MovingBackgroundElement"]
+@export var complex_group_names: Array[String] = ["ComplexBackground", "MovingBackgroundElement"]
 @export var update_groups_during_runtime: bool = false
-@export var hide_recursively: bool = false
+@export var hide_recursively: bool = true
 
 const HIDE_METHOD: String = "hide"
 const SHOW_METHOD: String = "show"

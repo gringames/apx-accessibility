@@ -9,6 +9,10 @@
 [node name="VisualComplexityTest" type="Node2D"]
 script = ExtResource("1_ddnwt")
 
+[node name="BackgroundSimplifier" type="Node" parent="."]
+script = ExtResource("2_7gvj5")
+metadata/_custom_type_script = "uid://bl1lsyxe2hph1"
+
 [node name="ComplexAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(619.99994, 401)
@@ -42,7 +46,3 @@ texture = ExtResource("3_iionn")
 [node name="Sprite2D6" type="Sprite2D" parent="Node"]
 position = Vector2(887, 423)
 texture = ExtResource("3_iionn")
-
-[node name="BackgroundSimplifier" type="Node" parent="."]
-script = ExtResource("2_7gvj5")
-metadata/_custom_type_script = "uid://bl1lsyxe2hph1"
