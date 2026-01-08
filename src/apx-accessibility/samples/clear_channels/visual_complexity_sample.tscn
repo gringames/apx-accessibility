@@ -1,10 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://j1t30x17646a"]
+[gd_scene load_steps=41 format=3 uid="uid://j1t30x17646a"]
 
 [ext_resource type="Script" uid="uid://b7wqitpnnxqdy" path="res://samples/clear_channels/background_test.gd" id="1_ddnwt"]
 [ext_resource type="Script" uid="uid://bl1lsyxe2hph1" path="res://addons/apx-accessibility/clear_channels/background_simplifier.gd" id="2_7gvj5"]
-[ext_resource type="Texture2D" uid="uid://ksqpjx02hdfp" path="res://icon.svg" id="3_iionn"]
-[ext_resource type="SpriteFrames" uid="uid://cmb1l0we875mw" path="res://resources/test_sprite_frames.tres" id="4_x5036"]
-[ext_resource type="Script" uid="uid://b8anel4q6yfuy" path="res://addons/apx-accessibility/clear_channels/complex_animated_sprite_2D.gd" id="5_nmy10"]
+[ext_resource type="Texture2D" uid="uid://bq74u74jw224m" path="res://textures/kenney/Backgrounds/backgroundForest.png" id="3_eq4np"]
+[ext_resource type="Texture2D" uid="uid://d3smabvdbasxt" path="res://textures/kenney/Backgrounds/backgroundEmpty.png" id="3_sfaoq"]
+[ext_resource type="Script" uid="uid://cxqc4ki0ug65w" path="res://addons/apx-accessibility/clear_channels/simplifiable_sprite.gd" id="4_d3583"]
+[ext_resource type="Texture2D" uid="uid://4deqjrhsecet" path="res://textures/kenney/Tiles/caneGreen.png" id="4_k2wyt"]
+[ext_resource type="Texture2D" uid="uid://03s52s7rs1t2" path="res://textures/kenney/Tiles/caneGreenSmall.png" id="4_kkta7"]
+[ext_resource type="Texture2D" uid="uid://dhddrm1qk2m5x" path="res://textures/kenney/Tiles/iceWater.png" id="8_ia3tv"]
+[ext_resource type="Texture2D" uid="uid://cpgxi1is3uiag" path="res://textures/kenney/Tiles/caneGreenTop.png" id="15_iaikh"]
+[ext_resource type="Texture2D" uid="uid://ra8y2816yy3s" path="res://textures/kenney/Tiles/igloo.png" id="17_5eayq"]
+[ext_resource type="Texture2D" uid="uid://bo7cl5n1whkqg" path="res://textures/kenney/Tiles/iglooAlt.png" id="18_oqshe"]
+[ext_resource type="Texture2D" uid="uid://d1cx5rix5rmdw" path="res://textures/kenney/Tiles/iglooDoor.png" id="19_ec35g"]
+[ext_resource type="Texture2D" uid="uid://dslftehpcu8lp" path="res://textures/kenney/Tiles/iglooRoof.png" id="20_krmmk"]
+[ext_resource type="Texture2D" uid="uid://32q50yq6t42j" path="res://textures/kenney/Tiles/iglooRoofLeft.png" id="21_8tpyj"]
+[ext_resource type="Texture2D" uid="uid://bpbqsw5jcqcpp" path="res://textures/kenney/Tiles/iglooRoofRight.png" id="22_qepa3"]
+[ext_resource type="Texture2D" uid="uid://ehxfdihihlxi" path="res://textures/kenney/Tiles/pineSaplingAlt.png" id="24_i20p7"]
+[ext_resource type="Texture2D" uid="uid://c8gtjl65w1bxh" path="res://textures/kenney/Tiles/rockAlt.png" id="29_q8o74"]
+[ext_resource type="Texture2D" uid="uid://dkp660yogd64w" path="res://textures/kenney/Tiles/snowBall.png" id="30_4acos"]
+[ext_resource type="Texture2D" uid="uid://vvln802h8tdj" path="res://textures/kenney/Tiles/snowBallGround.png" id="33_n8jat"]
+[ext_resource type="Texture2D" uid="uid://dm6rodjbej25" path="res://textures/kenney/Tiles/snowRight.png" id="41_rvmh6"]
+[ext_resource type="Texture2D" uid="uid://bn1frsr8rmpdy" path="res://textures/kenney/Tiles/spikesBottomAlt2.png" id="44_3gu4f"]
+[ext_resource type="Texture2D" uid="uid://5qtmworucndj" path="res://textures/kenney/Tiles/spikesTop.png" id="46_0bqkg"]
+[ext_resource type="Texture2D" uid="uid://cc78khyx2h8m" path="res://textures/kenney/Tiles/caneRedSmall.png" id="48_vkckp"]
+[ext_resource type="Texture2D" uid="uid://bowny24d5vnji" path="res://textures/kenney/Tiles/spikeTop.png" id="50_85wxi"]
+[ext_resource type="Texture2D" uid="uid://cy31uihr81e8n" path="res://textures/kenney/Tiles/tree.png" id="51_jx3h3"]
+[ext_resource type="Texture2D" uid="uid://ccyojrqasd721" path="res://textures/kenney/Tiles/treeBranchesLeftAlt.png" id="53_61ovq"]
+[ext_resource type="Texture2D" uid="uid://d1hglyxixdymj" path="res://textures/kenney/Tiles/treeBranchesSnowRightAlt.png" id="58_4qfe1"]
+[ext_resource type="Texture2D" uid="uid://bacn4bdwicj8t" path="res://textures/kenney/Tiles/treeTopSnow.png" id="62_hb2ot"]
+[ext_resource type="Texture2D" uid="uid://fvgia4d7ehn4" path="res://textures/kenney/Tiles/treeTrunkBottomAlt3.png" id="66_d6p4g"]
+[ext_resource type="Texture2D" uid="uid://b74vkuarm2220" path="res://textures/kenney/Tiles/treeTrunkTop.png" id="76_l4lt7"]
+[ext_resource type="Texture2D" uid="uid://cqmqsmp67tx1o" path="res://textures/kenney/Tiles/tundraCenter.png" id="78_hcjw0"]
+[ext_resource type="Texture2D" uid="uid://bq3iag24qbqwc" path="res://textures/kenney/Tiles/deadTree.png" id="81_c41ed"]
+[ext_resource type="Texture2D" uid="uid://bwe5syj4jglin" path="res://textures/kenney/Tiles/tundraHalfLeft.png" id="86_kobjm"]
+[ext_resource type="Texture2D" uid="uid://ddr4l1b8cvynb" path="res://textures/kenney/Tiles/tundraHalfMid.png" id="87_gkcxi"]
+[ext_resource type="Texture2D" uid="uid://6hc5e0lug22i" path="res://textures/kenney/Tiles/tundraHalfRight.png" id="88_g5jyj"]
+[ext_resource type="Texture2D" uid="uid://djcx43d54m6mp" path="res://textures/kenney/Tiles/tundraHillRight2.png" id="91_omvfr"]
+[ext_resource type="Texture2D" uid="uid://cungpkd8a2olu" path="res://textures/kenney/Tiles/tundraHillRight.png" id="93_235vr"]
+[ext_resource type="Texture2D" uid="uid://1p72rjsoo2rv" path="res://textures/kenney/Tiles/tundraLeft.png" id="96_feql5"]
+[ext_resource type="Texture2D" uid="uid://byqi33byjqgtp" path="res://textures/kenney/Tiles/tundraMid.png" id="97_la4ti"]
+[ext_resource type="Texture2D" uid="uid://dofyqkt6x2p01" path="res://textures/kenney/Tiles/tundraRight.png" id="98_k28l5"]
 
 [node name="VisualComplexityTest" type="Node2D"]
 script = ExtResource("1_ddnwt")
@@ -13,36 +48,303 @@ script = ExtResource("1_ddnwt")
 script = ExtResource("2_7gvj5")
 metadata/_custom_type_script = "uid://bl1lsyxe2hph1"
 
-[node name="ComplexAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(619.99994, 401)
-scale = Vector2(12.5, 12.5)
-sprite_frames = ExtResource("4_x5036")
-animation = &"idle"
-autoplay = "idle"
-script = ExtResource("5_nmy10")
-animation_to_use_for_static = "idle"
-frame_to_use_for_static = 2
-metadata/_custom_type_script = "uid://b8anel4q6yfuy"
+[node name="BackgroundEmpty" type="Sprite2D" parent="."]
+position = Vector2(579.5, 352)
+scale = Vector2(1.1337892, 1)
+texture = ExtResource("3_eq4np")
+script = ExtResource("4_d3583")
+simplified_texture = ExtResource("3_sfaoq")
+metadata/_custom_type_script = "uid://cxqc4ki0ug65w"
+metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." groups=["ComplexBackground"]]
-position = Vector2(250, 129)
-texture = ExtResource("3_iionn")
+[node name="TundraHalfMid" type="Sprite2D" parent="."]
+position = Vector2(320, 100)
+texture = ExtResource("87_gkcxi")
 
-[node name="Sprite2D3" type="Sprite2D" parent="." groups=["ComplexBackground"]]
-position = Vector2(445, 135)
-texture = ExtResource("3_iionn")
+[node name="TundraHalfRight" type="Sprite2D" parent="."]
+position = Vector2(390, 100)
+texture = ExtResource("88_g5jyj")
 
-[node name="Sprite2D5" type="Sprite2D" parent="." groups=["ComplexBackground", "MovingBackgroundElement"]]
-position = Vector2(635, 114)
-texture = ExtResource("3_iionn")
+[node name="TundraHalfLeft" type="Sprite2D" parent="."]
+position = Vector2(250, 100)
+texture = ExtResource("86_kobjm")
 
-[node name="Sprite2D6" type="Sprite2D" parent="." groups=["ComplexBackground", "MovingBackgroundElement"]]
-position = Vector2(827, 117)
-texture = ExtResource("3_iionn")
+[node name="CaneGreenSmall" type="Sprite2D" parent="."]
+position = Vector2(320, 30)
+texture = ExtResource("4_kkta7")
 
-[node name="Node" type="Node" parent="." groups=["ComplexBackground"]]
+[node name="TundraHalfMid2" type="Sprite2D" parent="."]
+position = Vector2(665, 175)
+texture = ExtResource("87_gkcxi")
 
-[node name="Sprite2D6" type="Sprite2D" parent="Node"]
-position = Vector2(930, 361)
-texture = ExtResource("3_iionn")
+[node name="TundraHalfRight2" type="Sprite2D" parent="."]
+position = Vector2(735, 175)
+texture = ExtResource("88_g5jyj")
+
+[node name="TundraHalfLeft2" type="Sprite2D" parent="."]
+position = Vector2(595, 175)
+texture = ExtResource("86_kobjm")
+
+[node name="RockAlt" type="Sprite2D" parent="."]
+position = Vector2(720, 105)
+texture = ExtResource("29_q8o74")
+
+[node name="Snowballs" type="Node2D" parent="." groups=["ComplexBackground"]]
+
+[node name="SnowBall2" type="Sprite2D" parent="Snowballs"]
+position = Vector2(510, 120)
+texture = ExtResource("30_4acos")
+
+[node name="SnowBall5" type="Sprite2D" parent="Snowballs"]
+position = Vector2(1000, 140)
+texture = ExtResource("30_4acos")
+
+[node name="SnowBall4" type="Sprite2D" parent="Snowballs"]
+position = Vector2(900, 250)
+texture = ExtResource("30_4acos")
+
+[node name="SnowBall3" type="Sprite2D" parent="Snowballs"]
+position = Vector2(370, 280)
+texture = ExtResource("30_4acos")
+
+[node name="SnowBall" type="Sprite2D" parent="Snowballs"]
+position = Vector2(130, 190)
+texture = ExtResource("30_4acos")
+
+[node name="CaneRedSmall" type="Sprite2D" parent="Snowballs"]
+position = Vector2(990, 460)
+texture = ExtResource("48_vkckp")
+
+[node name="CaneGreen" type="Node2D" parent="Snowballs" groups=["ComplexBackground"]]
+position = Vector2(-10, 10)
+
+[node name="CaneGreen" type="Sprite2D" parent="Snowballs/CaneGreen"]
+position = Vector2(1110, 450)
+texture = ExtResource("4_k2wyt")
+
+[node name="CaneGreenTop" type="Sprite2D" parent="Snowballs/CaneGreen"]
+position = Vector2(1110, 380)
+texture = ExtResource("15_iaikh")
+
+[node name="Trees" type="Node2D" parent="Snowballs" groups=["ComplexBackground"]]
+
+[node name="Tree" type="Sprite2D" parent="Snowballs/Trees"]
+position = Vector2(170, 387)
+texture = ExtResource("51_jx3h3")
+
+[node name="TreeBranchesSnowRightAlt" type="Sprite2D" parent="Snowballs/Trees"]
+position = Vector2(240, 387)
+texture = ExtResource("58_4qfe1")
+
+[node name="TreeTrunkBottomAlt3" type="Sprite2D" parent="Snowballs/Trees"]
+position = Vector2(170, 457)
+texture = ExtResource("66_d6p4g")
+
+[node name="PineSaplingAlt" type="Sprite2D" parent="Snowballs/Trees"]
+position = Vector2(120, 456)
+texture = ExtResource("24_i20p7")
+
+[node name="TreeBranchesLeftAlt" type="Sprite2D" parent="Snowballs/Trees"]
+position = Vector2(100, 387)
+texture = ExtResource("53_61ovq")
+
+[node name="Level" type="Node" parent="."]
+
+[node name="TundraCenter2" type="Sprite2D" parent="Level"]
+position = Vector2(100, 595)
+texture = ExtResource("78_hcjw0")
+
+[node name="TundraCenter3" type="Sprite2D" parent="Level"]
+position = Vector2(30, 595)
+texture = ExtResource("78_hcjw0")
+
+[node name="TundraCenter" type="Sprite2D" parent="Level"]
+position = Vector2(170, 595)
+texture = ExtResource("78_hcjw0")
+
+[node name="TundraMid2" type="Sprite2D" parent="Level"]
+position = Vector2(437, 525)
+texture = ExtResource("97_la4ti")
+
+[node name="TundraMid" type="Sprite2D" parent="Level"]
+position = Vector2(105, 525)
+texture = ExtResource("97_la4ti")
+
+[node name="TundraHillRight" type="Sprite2D" parent="Level"]
+position = Vector2(35, 455)
+texture = ExtResource("93_235vr")
+
+[node name="TundraHillRight2" type="Sprite2D" parent="Level"]
+position = Vector2(35, 525)
+texture = ExtResource("91_omvfr")
+
+[node name="TundraRight" type="Sprite2D" parent="Level"]
+position = Vector2(175, 525)
+texture = ExtResource("98_k28l5")
+
+[node name="TundraLeft" type="Sprite2D" parent="Level"]
+position = Vector2(367, 525)
+texture = ExtResource("96_feql5")
+
+[node name="IceWater2" type="Sprite2D" parent="Level"]
+position = Vector2(305, 596)
+texture = ExtResource("8_ia3tv")
+
+[node name="IceWater" type="Sprite2D" parent="Level"]
+position = Vector2(235, 596)
+texture = ExtResource("8_ia3tv")
+
+[node name="TundraMid3" type="Sprite2D" parent="Level"]
+position = Vector2(507, 525)
+texture = ExtResource("97_la4ti")
+
+[node name="TundraMid4" type="Sprite2D" parent="Level"]
+position = Vector2(577, 525)
+texture = ExtResource("97_la4ti")
+
+[node name="TundraMid5" type="Sprite2D" parent="Level"]
+position = Vector2(647, 525)
+texture = ExtResource("97_la4ti")
+
+[node name="TundraMid6" type="Sprite2D" parent="Level"]
+position = Vector2(717, 525)
+texture = ExtResource("97_la4ti")
+
+[node name="TundraMid7" type="Sprite2D" parent="Level"]
+position = Vector2(787, 525)
+texture = ExtResource("97_la4ti")
+
+[node name="TundraMid8" type="Sprite2D" parent="Level"]
+position = Vector2(855, 525)
+texture = ExtResource("97_la4ti")
+
+[node name="TundraMid9" type="Sprite2D" parent="Level"]
+position = Vector2(925, 525)
+texture = ExtResource("97_la4ti")
+
+[node name="TundraMid10" type="Sprite2D" parent="Level"]
+position = Vector2(995, 525)
+texture = ExtResource("97_la4ti")
+
+[node name="TundraMid11" type="Sprite2D" parent="Level"]
+position = Vector2(1065, 525)
+texture = ExtResource("97_la4ti")
+
+[node name="TundraMid12" type="Sprite2D" parent="Level"]
+position = Vector2(1135, 525)
+texture = ExtResource("97_la4ti")
+
+[node name="TundraCenter4" type="Sprite2D" parent="Level"]
+position = Vector2(445, 595)
+texture = ExtResource("78_hcjw0")
+
+[node name="TundraCenter5" type="Sprite2D" parent="Level"]
+position = Vector2(375, 595)
+texture = ExtResource("78_hcjw0")
+
+[node name="TundraCenter6" type="Sprite2D" parent="Level"]
+position = Vector2(515, 595)
+texture = ExtResource("78_hcjw0")
+
+[node name="TundraCenter7" type="Sprite2D" parent="Level"]
+position = Vector2(655, 595)
+texture = ExtResource("78_hcjw0")
+
+[node name="TundraCenter8" type="Sprite2D" parent="Level"]
+position = Vector2(585, 595)
+texture = ExtResource("78_hcjw0")
+
+[node name="TundraCenter9" type="Sprite2D" parent="Level"]
+position = Vector2(725, 595)
+texture = ExtResource("78_hcjw0")
+
+[node name="TundraCenter10" type="Sprite2D" parent="Level"]
+position = Vector2(865, 595)
+texture = ExtResource("78_hcjw0")
+
+[node name="TundraCenter11" type="Sprite2D" parent="Level"]
+position = Vector2(795, 595)
+texture = ExtResource("78_hcjw0")
+
+[node name="TundraCenter12" type="Sprite2D" parent="Level"]
+position = Vector2(935, 595)
+texture = ExtResource("78_hcjw0")
+
+[node name="TundraCenter13" type="Sprite2D" parent="Level"]
+position = Vector2(1075, 595)
+texture = ExtResource("78_hcjw0")
+
+[node name="TundraCenter14" type="Sprite2D" parent="Level"]
+position = Vector2(1005, 595)
+texture = ExtResource("78_hcjw0")
+
+[node name="TundraCenter15" type="Sprite2D" parent="Level"]
+position = Vector2(1145, 595)
+texture = ExtResource("78_hcjw0")
+
+[node name="Igloo" type="Node2D" parent="." groups=["ComplexBackground"]]
+
+[node name="IglooAlt" type="Sprite2D" parent="Igloo"]
+position = Vector2(750, 455)
+texture = ExtResource("18_oqshe")
+
+[node name="IglooAlt2" type="Sprite2D" parent="Igloo"]
+position = Vector2(680, 455)
+texture = ExtResource("19_ec35g")
+
+[node name="Igloo2" type="Sprite2D" parent="Igloo"]
+position = Vector2(820, 455)
+texture = ExtResource("17_5eayq")
+
+[node name="Igloo3" type="Sprite2D" parent="Igloo"]
+position = Vector2(610, 455)
+texture = ExtResource("17_5eayq")
+
+[node name="IglooRoofLeft" type="Sprite2D" parent="Igloo"]
+position = Vector2(610, 385)
+texture = ExtResource("21_8tpyj")
+
+[node name="IglooRoofRight" type="Sprite2D" parent="Igloo"]
+position = Vector2(820, 385)
+texture = ExtResource("22_qepa3")
+
+[node name="IglooRoof" type="Sprite2D" parent="Igloo"]
+position = Vector2(750, 385)
+texture = ExtResource("20_krmmk")
+
+[node name="IglooRoof2" type="Sprite2D" parent="Igloo"]
+position = Vector2(680, 385)
+texture = ExtResource("20_krmmk")
+
+[node name="DeadTree" type="Sprite2D" parent="Igloo"]
+position = Vector2(779, 315)
+texture = ExtResource("81_c41ed")
+
+[node name="SpikesBottomAlt2" type="Sprite2D" parent="Igloo"]
+position = Vector2(690, 315)
+texture = ExtResource("44_3gu4f")
+
+[node name="TreeTopSnow" type="Sprite2D" parent="."]
+position = Vector2(170, 317)
+texture = ExtResource("62_hb2ot")
+
+[node name="SnowRight" type="Sprite2D" parent="."]
+position = Vector2(490, 460)
+texture = ExtResource("41_rvmh6")
+
+[node name="TreeTrunkTop" type="Sprite2D" parent="."]
+position = Vector2(440, 460)
+texture = ExtResource("76_l4lt7")
+
+[node name="SnowBallGround" type="Sprite2D" parent="."]
+position = Vector2(420.00003, 460.99997)
+scale = Vector2(0.71428555, 0.85714287)
+texture = ExtResource("33_n8jat")
+
+[node name="SpikesTop" type="Sprite2D" parent="."]
+position = Vector2(370, 140)
+texture = ExtResource("46_0bqkg")
+
+[node name="SpikeTop" type="Sprite2D" parent="."]
+position = Vector2(240, 140)
+texture = ExtResource("50_85wxi")

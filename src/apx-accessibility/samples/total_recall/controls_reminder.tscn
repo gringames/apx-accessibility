@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://by4enuilo4cr1"]
 
 [ext_resource type="Script" uid="uid://bmq8vpg5pldl5" path="res://addons/apx-accessibility/total_recall/controls_reminder.gd" id="1_1fgb2"]
-[ext_resource type="Texture2D" uid="uid://bu17lpb6nn4dn" path="res://textures/controller template.png" id="2_jf07x"]
+[ext_resource type="Texture2D" uid="uid://bu17lpb6nn4dn" path="res://textures/controls/controller template.png" id="2_jf07x"]
 
 [node name="ControlsReminder" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_1fgb2")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bu17lpb6nn4dn"
-path="res://.godot/imported/controller template.png-55f54269417ebaa2b9a6acdd2b85e1e0.ctex"
+uid="uid://bdugeanr75oqn"
+path="res://.godot/imported/iceWaterMidAlt.png-9e1a7ba0ee36ac6f8233fcbcbc47acf2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/controller template.png"
-dest_files=["res://.godot/imported/controller template.png-55f54269417ebaa2b9a6acdd2b85e1e0.ctex"]
+source_file="res://textures/kenney/Tiles/iceWaterMidAlt.png"
+dest_files=["res://.godot/imported/iceWaterMidAlt.png-9e1a7ba0ee36ac6f8233fcbcbc47acf2.ctex"]
 
 [params]
 
