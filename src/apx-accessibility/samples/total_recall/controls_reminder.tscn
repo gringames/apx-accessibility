@@ -9,5 +9,7 @@ sprite = NodePath("Sprite2D")
 controls_image = ExtResource("2_jf07x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(580, 329)
 scale = Vector2(0.7050781, 0.6979167)
+texture = ExtResource("2_jf07x")

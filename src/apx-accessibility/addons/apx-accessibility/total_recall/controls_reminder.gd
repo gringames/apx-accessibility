@@ -1,3 +1,4 @@
+@icon("icons/ControlsReminder.svg")
 extends Node
 class_name ControlsReminder
 
