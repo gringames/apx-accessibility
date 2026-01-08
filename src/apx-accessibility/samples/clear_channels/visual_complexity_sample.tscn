@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://j1t30x17646a"]
+[gd_scene load_steps=43 format=3 uid="uid://j1t30x17646a"]
 
 [ext_resource type="Script" uid="uid://b7wqitpnnxqdy" path="res://samples/clear_channels/background_test.gd" id="1_ddnwt"]
 [ext_resource type="Script" uid="uid://bl1lsyxe2hph1" path="res://addons/apx-accessibility/clear_channels/background_simplifier.gd" id="2_7gvj5"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://bn1frsr8rmpdy" path="res://textures/kenney/Tiles/spikesBottomAlt2.png" id="44_3gu4f"]
 [ext_resource type="Texture2D" uid="uid://5qtmworucndj" path="res://textures/kenney/Tiles/spikesTop.png" id="46_0bqkg"]
 [ext_resource type="Texture2D" uid="uid://cc78khyx2h8m" path="res://textures/kenney/Tiles/caneRedSmall.png" id="48_vkckp"]
+[ext_resource type="Texture2D" uid="uid://c2qn7qdc7r0wk" path="res://textures/kenney/Tiles/spikesTopAlt.png" id="49_g8th8"]
 [ext_resource type="Texture2D" uid="uid://bowny24d5vnji" path="res://textures/kenney/Tiles/spikeTop.png" id="50_85wxi"]
 [ext_resource type="Texture2D" uid="uid://cy31uihr81e8n" path="res://textures/kenney/Tiles/tree.png" id="51_jx3h3"]
 [ext_resource type="Texture2D" uid="uid://ccyojrqasd721" path="res://textures/kenney/Tiles/treeBranchesLeftAlt.png" id="53_61ovq"]
@@ -130,7 +131,7 @@ position = Vector2(1000, 140)
 texture = ExtResource("30_4acos")
 
 [node name="SnowBall4" type="Sprite2D" parent="Snowballs"]
-position = Vector2(900, 250)
+position = Vector2(820, 230)
 texture = ExtResource("30_4acos")
 
 [node name="SnowBall3" type="Sprite2D" parent="Snowballs"]
@@ -142,6 +143,14 @@ position = Vector2(130, 190)
 texture = ExtResource("30_4acos")
 
 [node name="Level" type="Node" parent="."]
+
+[node name="IceWater2" type="Sprite2D" parent="Level"]
+position = Vector2(305, 596)
+texture = ExtResource("8_ia3tv")
+
+[node name="IceWater" type="Sprite2D" parent="Level"]
+position = Vector2(235, 596)
+texture = ExtResource("8_ia3tv")
 
 [node name="TundraCenter2" type="Sprite2D" parent="Level"]
 position = Vector2(100, 595)
@@ -178,14 +187,6 @@ texture = ExtResource("98_k28l5")
 [node name="TundraLeft" type="Sprite2D" parent="Level"]
 position = Vector2(367, 525)
 texture = ExtResource("96_feql5")
-
-[node name="IceWater2" type="Sprite2D" parent="Level"]
-position = Vector2(305, 596)
-texture = ExtResource("8_ia3tv")
-
-[node name="IceWater" type="Sprite2D" parent="Level"]
-position = Vector2(235, 596)
-texture = ExtResource("8_ia3tv")
 
 [node name="TundraMid3" type="Sprite2D" parent="Level"]
 position = Vector2(507, 525)
@@ -299,6 +300,22 @@ texture = ExtResource("88_g5jyj")
 position = Vector2(595, 175)
 texture = ExtResource("86_kobjm")
 
+[node name="TundraHalfRight3" type="Sprite2D" parent="Level"]
+position = Vector2(745, 385)
+texture = ExtResource("88_g5jyj")
+
+[node name="TundraHalfLeft3" type="Sprite2D" parent="Level"]
+position = Vector2(675, 385)
+texture = ExtResource("86_kobjm")
+
+[node name="TundraHalfRight4" type="Sprite2D" parent="Level"]
+position = Vector2(985, 285)
+texture = ExtResource("88_g5jyj")
+
+[node name="TundraHalfLeft4" type="Sprite2D" parent="Level"]
+position = Vector2(915, 285)
+texture = ExtResource("86_kobjm")
+
 [node name="Igloo" type="Node2D" parent="." groups=["ComplexBackground"]]
 
 [node name="IglooAlt" type="Sprite2D" parent="Igloo"]
@@ -334,7 +351,7 @@ position = Vector2(680, 385)
 texture = ExtResource("20_krmmk")
 
 [node name="DeadTree" type="Sprite2D" parent="Igloo"]
-position = Vector2(779, 315)
+position = Vector2(760, 320)
 texture = ExtResource("81_c41ed")
 
 [node name="SpikesBottomAlt2" type="Sprite2D" parent="Igloo"]
@@ -353,3 +370,11 @@ texture = ExtResource("50_85wxi")
 position = Vector2(90, 460.00003)
 scale = Vector2(0.33471075, 0.33471075)
 texture = ExtResource("41_eq4np")
+
+[node name="SpikesBottomAlt2" type="Sprite2D" parent="." groups=["ComplexBackground"]]
+position = Vector2(980, 215)
+texture = ExtResource("44_3gu4f")
+
+[node name="SpikesTopAlt" type="Sprite2D" parent="." groups=["ComplexBackground"]]
+position = Vector2(600, 210)
+texture = ExtResource("49_g8th8")
