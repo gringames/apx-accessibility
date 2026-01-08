@@ -19,11 +19,12 @@
 [ext_resource type="Texture2D" uid="uid://c8gtjl65w1bxh" path="res://textures/kenney/Tiles/rockAlt.png" id="29_q8o74"]
 [ext_resource type="Texture2D" uid="uid://dkp660yogd64w" path="res://textures/kenney/Tiles/snowBall.png" id="30_4acos"]
 [ext_resource type="Texture2D" uid="uid://vvln802h8tdj" path="res://textures/kenney/Tiles/snowBallGround.png" id="33_n8jat"]
-[ext_resource type="Texture2D" uid="uid://b13xu4yar25xf" path="res://resources/bunny2_walk2.png" id="41_eq4np"]
-[ext_resource type="Texture2D" uid="uid://c678qdhm8dept" path="res://resources/bunny2_walk1.png" id="41_pm8al"]
+[ext_resource type="SpriteFrames" uid="uid://bg1axdoh7jhb" path="res://samples/clear_channels/player_animation.tres" id="41_1frsy"]
 [ext_resource type="Texture2D" uid="uid://dm6rodjbej25" path="res://textures/kenney/Tiles/snowRight.png" id="41_rvmh6"]
 [ext_resource type="Script" uid="uid://b8anel4q6yfuy" path="res://addons/apx-accessibility/clear_channels/simplifiable_animated_sprite_2D.gd" id="41_uw5gu"]
 [ext_resource type="Texture2D" uid="uid://bn1frsr8rmpdy" path="res://textures/kenney/Tiles/spikesBottomAlt2.png" id="44_3gu4f"]
+[ext_resource type="Script" uid="uid://bmq8vpg5pldl5" path="res://addons/apx-accessibility/total_recall/controls_reminder.gd" id="45_1frsy"]
+[ext_resource type="Texture2D" uid="uid://bu17lpb6nn4dn" path="res://textures/controls/controller template.png" id="45_f670w"]
 [ext_resource type="Texture2D" uid="uid://5qtmworucndj" path="res://textures/kenney/Tiles/spikesTop.png" id="46_0bqkg"]
 [ext_resource type="Texture2D" uid="uid://cc78khyx2h8m" path="res://textures/kenney/Tiles/caneRedSmall.png" id="48_vkckp"]
 [ext_resource type="Texture2D" uid="uid://c2qn7qdc7r0wk" path="res://textures/kenney/Tiles/spikesTopAlt.png" id="49_g8th8"]
@@ -44,20 +45,6 @@
 [ext_resource type="Texture2D" uid="uid://1p72rjsoo2rv" path="res://textures/kenney/Tiles/tundraLeft.png" id="96_feql5"]
 [ext_resource type="Texture2D" uid="uid://byqi33byjqgtp" path="res://textures/kenney/Tiles/tundraMid.png" id="97_la4ti"]
 [ext_resource type="Texture2D" uid="uid://dofyqkt6x2p01" path="res://textures/kenney/Tiles/tundraRight.png" id="98_k28l5"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_1frsy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("41_eq4np")
-}, {
-"duration": 1.0,
-"texture": ExtResource("41_pm8al")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
 
 [node name="VisualComplexityTest" type="Node2D"]
 script = ExtResource("1_ddnwt")
@@ -385,8 +372,9 @@ texture = ExtResource("50_85wxi")
 [node name="Player" type="AnimatedSprite2D" parent="."]
 position = Vector2(90, 460.00003)
 scale = Vector2(0.33471075, 0.33471075)
-sprite_frames = SubResource("SpriteFrames_1frsy")
+sprite_frames = ExtResource("41_1frsy")
 animation = &"walk"
+autoplay = "walk"
 frame = 1
 script = ExtResource("41_uw5gu")
 animation_to_use_for_static = "walk"
@@ -400,3 +388,14 @@ texture = ExtResource("44_3gu4f")
 [node name="SpikesTopAlt" type="Sprite2D" parent="." groups=["ComplexBackground"]]
 position = Vector2(600, 210)
 texture = ExtResource("49_g8th8")
+
+[node name="ControlsReminder" type="Sprite2D" parent="."]
+z_index = 7
+position = Vector2(590, 320)
+scale = Vector2(0.5651042, 0.5651042)
+texture = ExtResource("45_f670w")
+script = ExtResource("45_1frsy")
+add_background_box = true
+background_box_size = Vector2(1500, 900)
+background_box_color = Color(0, 0, 0, 0.8)
+metadata/_custom_type_script = "uid://bmq8vpg5pldl5"

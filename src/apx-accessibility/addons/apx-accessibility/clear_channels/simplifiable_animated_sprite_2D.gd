@@ -1,3 +1,4 @@
+@tool
 @icon("icons/CustomSprite2D.svg")
 extends AnimatedSprite2D
 class_name SimplifiableAnimatedSprite2D

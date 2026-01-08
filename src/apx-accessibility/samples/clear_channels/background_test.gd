@@ -3,6 +3,7 @@ extends Node2D
 @onready var background_simplifier: BackgroundSimplifier = $BackgroundSimplifier
 @onready var background_empty: SimplifiableSprite2D = $Background
 @onready var player: SimplifiableAnimatedSprite2D = $Player
+@onready var controls_reminder: ControlsReminder = $ControlsReminder
 
 var current: bool = false
 
@@ -13,3 +14,4 @@ func _unhandled_input(event):
 			background_simplifier.update_complex_node_visibility(current)
 			background_empty.update_texture(current)
 			player.update_animation(current)
+			controls_reminder.call("show_controls" if current else "hide_controls")
