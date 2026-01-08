@@ -12,6 +12,5 @@ func _ready() -> void:
 	original_texture = texture
 
 
-func update_textures(use_complex: bool) -> void:
-	original_texture = texture
-	texture = original_texture if use_complex else simplified_texture
+func update_texture(use_simplified_version: bool) -> void:
+	texture = simplified_texture if use_simplified_version else original_texture

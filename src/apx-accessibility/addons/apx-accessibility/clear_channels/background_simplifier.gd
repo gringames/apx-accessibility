@@ -30,12 +30,12 @@ func _update_complex_nodes() -> void:
 	complex_nodes_dict.clear()
 
 
-func _on_reduce_complexity_changed(new_reduce_complexity: bool) -> void:
+func update_complex_node_visibility(reduce_complexity: bool) -> void:
 	# search for nodes each update if requested
 	if update_groups_during_runtime:
 		_update_complex_nodes()
 	if complex_nodes.is_empty(): return
-	_change_visibility_of_group(complex_nodes, new_reduce_complexity)
+	_change_visibility_of_group(complex_nodes, reduce_complexity)
 
 
 func _change_visibility_of_group(nodes: Array[Node], new_hidden: bool) -> void:

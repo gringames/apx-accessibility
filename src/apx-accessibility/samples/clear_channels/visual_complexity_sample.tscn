@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://j1t30x17646a"]
+[gd_scene load_steps=42 format=3 uid="uid://j1t30x17646a"]
 
 [ext_resource type="Script" uid="uid://b7wqitpnnxqdy" path="res://samples/clear_channels/background_test.gd" id="1_ddnwt"]
 [ext_resource type="Script" uid="uid://bl1lsyxe2hph1" path="res://addons/apx-accessibility/clear_channels/background_simplifier.gd" id="2_7gvj5"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c8gtjl65w1bxh" path="res://textures/kenney/Tiles/rockAlt.png" id="29_q8o74"]
 [ext_resource type="Texture2D" uid="uid://dkp660yogd64w" path="res://textures/kenney/Tiles/snowBall.png" id="30_4acos"]
 [ext_resource type="Texture2D" uid="uid://vvln802h8tdj" path="res://textures/kenney/Tiles/snowBallGround.png" id="33_n8jat"]
+[ext_resource type="Texture2D" uid="uid://b13xu4yar25xf" path="res://resources/bunny2_walk2.png" id="41_eq4np"]
 [ext_resource type="Texture2D" uid="uid://dm6rodjbej25" path="res://textures/kenney/Tiles/snowRight.png" id="41_rvmh6"]
 [ext_resource type="Texture2D" uid="uid://bn1frsr8rmpdy" path="res://textures/kenney/Tiles/spikesBottomAlt2.png" id="44_3gu4f"]
 [ext_resource type="Texture2D" uid="uid://5qtmworucndj" path="res://textures/kenney/Tiles/spikesTop.png" id="46_0bqkg"]
@@ -48,46 +49,75 @@ script = ExtResource("1_ddnwt")
 script = ExtResource("2_7gvj5")
 metadata/_custom_type_script = "uid://bl1lsyxe2hph1"
 
-[node name="BackgroundEmpty" type="Sprite2D" parent="."]
-position = Vector2(579.5, 352)
-scale = Vector2(1.1337892, 1)
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(595.5, 350)
+scale = Vector2(1.1630858, 1)
 texture = ExtResource("3_eq4np")
 script = ExtResource("4_d3583")
 simplified_texture = ExtResource("3_sfaoq")
 metadata/_custom_type_script = "uid://cxqc4ki0ug65w"
-metadata/_edit_lock_ = true
 
-[node name="TundraHalfMid" type="Sprite2D" parent="."]
-position = Vector2(320, 100)
-texture = ExtResource("87_gkcxi")
-
-[node name="TundraHalfRight" type="Sprite2D" parent="."]
-position = Vector2(390, 100)
-texture = ExtResource("88_g5jyj")
-
-[node name="TundraHalfLeft" type="Sprite2D" parent="."]
-position = Vector2(250, 100)
-texture = ExtResource("86_kobjm")
-
-[node name="CaneGreenSmall" type="Sprite2D" parent="."]
+[node name="CaneGreenSmall" type="Sprite2D" parent="." groups=["ComplexBackground"]]
 position = Vector2(320, 30)
 texture = ExtResource("4_kkta7")
 
-[node name="TundraHalfMid2" type="Sprite2D" parent="."]
-position = Vector2(665, 175)
-texture = ExtResource("87_gkcxi")
-
-[node name="TundraHalfRight2" type="Sprite2D" parent="."]
-position = Vector2(735, 175)
-texture = ExtResource("88_g5jyj")
-
-[node name="TundraHalfLeft2" type="Sprite2D" parent="."]
-position = Vector2(595, 175)
-texture = ExtResource("86_kobjm")
-
-[node name="RockAlt" type="Sprite2D" parent="."]
+[node name="RockAlt" type="Sprite2D" parent="." groups=["ComplexBackground"]]
 position = Vector2(720, 105)
 texture = ExtResource("29_q8o74")
+
+[node name="CaneGreen" type="Node2D" parent="." groups=["ComplexBackground"]]
+position = Vector2(-10, 10)
+
+[node name="CaneGreen" type="Sprite2D" parent="CaneGreen"]
+position = Vector2(1110, 450)
+texture = ExtResource("4_k2wyt")
+
+[node name="CaneGreenTop" type="Sprite2D" parent="CaneGreen"]
+position = Vector2(1110, 380)
+texture = ExtResource("15_iaikh")
+
+[node name="Trees" type="Node2D" parent="." groups=["ComplexBackground"]]
+
+[node name="Tree" type="Sprite2D" parent="Trees"]
+position = Vector2(170, 387)
+texture = ExtResource("51_jx3h3")
+
+[node name="TreeBranchesSnowRightAlt" type="Sprite2D" parent="Trees"]
+position = Vector2(240, 387)
+texture = ExtResource("58_4qfe1")
+
+[node name="TreeTrunkBottomAlt3" type="Sprite2D" parent="Trees"]
+position = Vector2(170, 457)
+texture = ExtResource("66_d6p4g")
+
+[node name="PineSaplingAlt" type="Sprite2D" parent="Trees"]
+position = Vector2(120, 456)
+texture = ExtResource("24_i20p7")
+
+[node name="TreeTopSnow" type="Sprite2D" parent="Trees"]
+position = Vector2(170, 317)
+texture = ExtResource("62_hb2ot")
+
+[node name="TreeBranchesLeftAlt" type="Sprite2D" parent="Trees"]
+position = Vector2(100, 387)
+texture = ExtResource("53_61ovq")
+
+[node name="SnowRight" type="Sprite2D" parent="Trees"]
+position = Vector2(490, 460)
+texture = ExtResource("41_rvmh6")
+
+[node name="TreeTrunkTop" type="Sprite2D" parent="Trees"]
+position = Vector2(440, 460)
+texture = ExtResource("76_l4lt7")
+
+[node name="SnowBallGround" type="Sprite2D" parent="Trees"]
+position = Vector2(420.00003, 460.99997)
+scale = Vector2(0.71428555, 0.85714287)
+texture = ExtResource("33_n8jat")
+
+[node name="CaneRedSmall" type="Sprite2D" parent="." groups=["ComplexBackground"]]
+position = Vector2(990, 460)
+texture = ExtResource("48_vkckp")
 
 [node name="Snowballs" type="Node2D" parent="." groups=["ComplexBackground"]]
 
@@ -110,43 +140,6 @@ texture = ExtResource("30_4acos")
 [node name="SnowBall" type="Sprite2D" parent="Snowballs"]
 position = Vector2(130, 190)
 texture = ExtResource("30_4acos")
-
-[node name="CaneRedSmall" type="Sprite2D" parent="Snowballs"]
-position = Vector2(990, 460)
-texture = ExtResource("48_vkckp")
-
-[node name="CaneGreen" type="Node2D" parent="Snowballs" groups=["ComplexBackground"]]
-position = Vector2(-10, 10)
-
-[node name="CaneGreen" type="Sprite2D" parent="Snowballs/CaneGreen"]
-position = Vector2(1110, 450)
-texture = ExtResource("4_k2wyt")
-
-[node name="CaneGreenTop" type="Sprite2D" parent="Snowballs/CaneGreen"]
-position = Vector2(1110, 380)
-texture = ExtResource("15_iaikh")
-
-[node name="Trees" type="Node2D" parent="Snowballs" groups=["ComplexBackground"]]
-
-[node name="Tree" type="Sprite2D" parent="Snowballs/Trees"]
-position = Vector2(170, 387)
-texture = ExtResource("51_jx3h3")
-
-[node name="TreeBranchesSnowRightAlt" type="Sprite2D" parent="Snowballs/Trees"]
-position = Vector2(240, 387)
-texture = ExtResource("58_4qfe1")
-
-[node name="TreeTrunkBottomAlt3" type="Sprite2D" parent="Snowballs/Trees"]
-position = Vector2(170, 457)
-texture = ExtResource("66_d6p4g")
-
-[node name="PineSaplingAlt" type="Sprite2D" parent="Snowballs/Trees"]
-position = Vector2(120, 456)
-texture = ExtResource("24_i20p7")
-
-[node name="TreeBranchesLeftAlt" type="Sprite2D" parent="Snowballs/Trees"]
-position = Vector2(100, 387)
-texture = ExtResource("53_61ovq")
 
 [node name="Level" type="Node" parent="."]
 
@@ -282,6 +275,30 @@ texture = ExtResource("78_hcjw0")
 position = Vector2(1145, 595)
 texture = ExtResource("78_hcjw0")
 
+[node name="TundraHalfMid" type="Sprite2D" parent="Level"]
+position = Vector2(320, 100)
+texture = ExtResource("87_gkcxi")
+
+[node name="TundraHalfRight" type="Sprite2D" parent="Level"]
+position = Vector2(390, 100)
+texture = ExtResource("88_g5jyj")
+
+[node name="TundraHalfLeft" type="Sprite2D" parent="Level"]
+position = Vector2(250, 100)
+texture = ExtResource("86_kobjm")
+
+[node name="TundraHalfMid2" type="Sprite2D" parent="Level"]
+position = Vector2(665, 175)
+texture = ExtResource("87_gkcxi")
+
+[node name="TundraHalfRight2" type="Sprite2D" parent="Level"]
+position = Vector2(735, 175)
+texture = ExtResource("88_g5jyj")
+
+[node name="TundraHalfLeft2" type="Sprite2D" parent="Level"]
+position = Vector2(595, 175)
+texture = ExtResource("86_kobjm")
+
 [node name="Igloo" type="Node2D" parent="." groups=["ComplexBackground"]]
 
 [node name="IglooAlt" type="Sprite2D" parent="Igloo"]
@@ -324,27 +341,15 @@ texture = ExtResource("81_c41ed")
 position = Vector2(690, 315)
 texture = ExtResource("44_3gu4f")
 
-[node name="TreeTopSnow" type="Sprite2D" parent="."]
-position = Vector2(170, 317)
-texture = ExtResource("62_hb2ot")
-
-[node name="SnowRight" type="Sprite2D" parent="."]
-position = Vector2(490, 460)
-texture = ExtResource("41_rvmh6")
-
-[node name="TreeTrunkTop" type="Sprite2D" parent="."]
-position = Vector2(440, 460)
-texture = ExtResource("76_l4lt7")
-
-[node name="SnowBallGround" type="Sprite2D" parent="."]
-position = Vector2(420.00003, 460.99997)
-scale = Vector2(0.71428555, 0.85714287)
-texture = ExtResource("33_n8jat")
-
-[node name="SpikesTop" type="Sprite2D" parent="."]
+[node name="SpikesTop" type="Sprite2D" parent="." groups=["ComplexBackground"]]
 position = Vector2(370, 140)
 texture = ExtResource("46_0bqkg")
 
-[node name="SpikeTop" type="Sprite2D" parent="."]
+[node name="SpikeTop" type="Sprite2D" parent="." groups=["ComplexBackground"]]
 position = Vector2(240, 140)
 texture = ExtResource("50_85wxi")
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(90, 460.00003)
+scale = Vector2(0.33471075, 0.33471075)
+texture = ExtResource("41_eq4np")

@@ -51,8 +51,8 @@ func _set(property, value):
 	return false
 
 
-func _on_reduce_complexity_changed(new_reduce_complexity: bool) -> void:
-	if new_reduce_complexity:
+func update_animation(use_simplified_version: bool) -> void:
+	if use_simplified_version:
 		_change_to_static_sprite()
 	else:
 		_change_to_animated_sprite()
