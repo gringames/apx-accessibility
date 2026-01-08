@@ -44,5 +44,5 @@ texture = ExtResource("3_iionn")
 [node name="Node" type="Node" parent="." groups=["ComplexBackground"]]
 
 [node name="Sprite2D6" type="Sprite2D" parent="Node"]
-position = Vector2(887, 423)
+position = Vector2(930, 361)
 texture = ExtResource("3_iionn")
