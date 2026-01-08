@@ -1,7 +1,7 @@
 @tool
-@icon("icons/ComplexAnimatedSprite2D.svg")
+@icon("icons/CustomSprite2D.svg")
 extends AnimatedSprite2D
-class_name ComplexAnimatedSprite2D
+class_name SimplifiableAnimatedSprite2D
 
 @export_category("Visual Complexity")
 @export var autoplay_if_static_turned_off: bool = true

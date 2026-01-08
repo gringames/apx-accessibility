@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://j1t30x17646a"]
+[gd_scene load_steps=46 format=3 uid="uid://j1t30x17646a"]
 
 [ext_resource type="Script" uid="uid://b7wqitpnnxqdy" path="res://samples/clear_channels/background_test.gd" id="1_ddnwt"]
 [ext_resource type="Script" uid="uid://bl1lsyxe2hph1" path="res://addons/apx-accessibility/clear_channels/background_simplifier.gd" id="2_7gvj5"]
@@ -20,7 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://dkp660yogd64w" path="res://textures/kenney/Tiles/snowBall.png" id="30_4acos"]
 [ext_resource type="Texture2D" uid="uid://vvln802h8tdj" path="res://textures/kenney/Tiles/snowBallGround.png" id="33_n8jat"]
 [ext_resource type="Texture2D" uid="uid://b13xu4yar25xf" path="res://resources/bunny2_walk2.png" id="41_eq4np"]
+[ext_resource type="Texture2D" uid="uid://c678qdhm8dept" path="res://resources/bunny2_walk1.png" id="41_pm8al"]
 [ext_resource type="Texture2D" uid="uid://dm6rodjbej25" path="res://textures/kenney/Tiles/snowRight.png" id="41_rvmh6"]
+[ext_resource type="Script" uid="uid://b8anel4q6yfuy" path="res://addons/apx-accessibility/clear_channels/simplifiable_animated_sprite_2D.gd" id="41_uw5gu"]
 [ext_resource type="Texture2D" uid="uid://bn1frsr8rmpdy" path="res://textures/kenney/Tiles/spikesBottomAlt2.png" id="44_3gu4f"]
 [ext_resource type="Texture2D" uid="uid://5qtmworucndj" path="res://textures/kenney/Tiles/spikesTop.png" id="46_0bqkg"]
 [ext_resource type="Texture2D" uid="uid://cc78khyx2h8m" path="res://textures/kenney/Tiles/caneRedSmall.png" id="48_vkckp"]
@@ -42,6 +44,20 @@
 [ext_resource type="Texture2D" uid="uid://1p72rjsoo2rv" path="res://textures/kenney/Tiles/tundraLeft.png" id="96_feql5"]
 [ext_resource type="Texture2D" uid="uid://byqi33byjqgtp" path="res://textures/kenney/Tiles/tundraMid.png" id="97_la4ti"]
 [ext_resource type="Texture2D" uid="uid://dofyqkt6x2p01" path="res://textures/kenney/Tiles/tundraRight.png" id="98_k28l5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1frsy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("41_eq4np")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_pm8al")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
 
 [node name="VisualComplexityTest" type="Node2D"]
 script = ExtResource("1_ddnwt")
@@ -366,10 +382,17 @@ texture = ExtResource("46_0bqkg")
 position = Vector2(240, 140)
 texture = ExtResource("50_85wxi")
 
-[node name="Player" type="Sprite2D" parent="."]
+[node name="Player" type="AnimatedSprite2D" parent="."]
 position = Vector2(90, 460.00003)
 scale = Vector2(0.33471075, 0.33471075)
-texture = ExtResource("41_eq4np")
+sprite_frames = SubResource("SpriteFrames_1frsy")
+animation = &"walk"
+autoplay = "walk"
+frame_progress = 0.19282223
+script = ExtResource("41_uw5gu")
+animation_to_use_for_static = "walk"
+frame_to_use_for_static = 0
+metadata/_custom_type_script = "uid://b8anel4q6yfuy"
 
 [node name="SpikesBottomAlt2" type="Sprite2D" parent="." groups=["ComplexBackground"]]
 position = Vector2(980, 215)
