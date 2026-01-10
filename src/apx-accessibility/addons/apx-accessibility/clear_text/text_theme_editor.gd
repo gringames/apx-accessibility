@@ -100,3 +100,7 @@ func _on_background_color_picker_button_picker_clicked_first() -> void:
 	var style_box: StyleBox = theme_to_edit.get_stylebox("normal", THEME_TYPE_LABEL)
 	if style_box is not StyleBoxFlat:
 		background_color_picker_button.color.a = 1
+
+
+func _on_font_selected(index: int) -> void:
+	theme_to_edit.set_font("font", THEME_TYPE_LABEL, fonts[index])
