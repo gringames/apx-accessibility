@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bg4h5rxaec70b"]
+[gd_scene load_steps=8 format=3 uid="uid://bg4h5rxaec70b"]
 
 [ext_resource type="Script" uid="uid://d11g0rb5hmgte" path="res://addons/apx-accessibility/clear_text/text_theme_editor.gd" id="1_xspe3"]
 [ext_resource type="Theme" uid="uid://kge11y23leuo" path="res://addons/apx-accessibility/clear_text/TextTheme.tres" id="2_f18u0"]
+[ext_resource type="FontFile" uid="uid://bv10spnesanjd" path="res://fonts/dejavu-sans/DejaVuSans.ttf" id="3_rw5ft"]
+[ext_resource type="FontFile" uid="uid://bx3j5n7c1vewd" path="res://fonts/Open_Sans/static/OpenSans_Condensed-Medium.ttf" id="4_5hbog"]
+[ext_resource type="FontFile" uid="uid://byauliifs1gl5" path="res://fonts/Atkinson Hyperlegible Mono_Final/Atkinson Hyperlegible Mono/AtkinsonHyperlegibleMono-Bold.otf" id="5_68h3r"]
+[ext_resource type="FontFile" uid="uid://708sshpucb66" path="res://fonts/Atkinson Hyperlegible Next_Final/Atkinson Hyperlegible Next/AtkinsonHyperlegibleNext-Bold.otf" id="6_g6rit"]
+[ext_resource type="FontFile" uid="uid://c7nertl23eo2d" path="res://fonts/Atkinson-Hyperlegible-Font-Print-and-Web-Final/Atkinson-Hyperlegible-Font-Print-and-Web-2020-0514/Print Fonts/Atkinson-Hyperlegible-Bold-102.otf" id="7_pab6q"]
 
 [node name="TextThemeEditor" type="Control" node_paths=PackedStringArray("preview_text")]
 layout_mode = 3
@@ -9,6 +14,7 @@ anchors_preset = 0
 script = ExtResource("1_xspe3")
 preview_text = NodePath("PreviewLabel")
 theme_to_edit = ExtResource("2_f18u0")
+fonts = Array[Font]([ExtResource("3_rw5ft"), ExtResource("4_5hbog"), ExtResource("5_68h3r"), ExtResource("6_g6rit"), ExtResource("7_pab6q")])
 
 [node name="PreviewLabel" type="Label" parent="."]
 layout_mode = 0
@@ -27,6 +33,20 @@ offset_top = 160.0
 offset_right = 508.0
 offset_bottom = 227.0
 theme_override_constants/separation = 7
+
+[node name="HBoxContainer (Fonts)" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer (Fonts)"]
+layout_mode = 2
+text = "Font"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer (Fonts)"]
+custom_minimum_size = Vector2(100, 30)
+layout_direction = 2
+layout_mode = 2
 
 [node name="HBoxContainer (Font Color)" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

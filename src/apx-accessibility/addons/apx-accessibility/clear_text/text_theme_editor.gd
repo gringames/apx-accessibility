@@ -8,6 +8,8 @@ const THEME_TYPE_LABEL: String = "Label"
 @onready var line_spacing_spin_box: SpinBox = $"VBoxContainer/HBoxContainer (Font VSpacing)/SpinBox"
 @onready var font_color_picker_button: ColorPickerButton = $"VBoxContainer/HBoxContainer (Font Color)/ColorPickerButton"
 @onready var background_color_picker_button: ColorPickerButton = $"VBoxContainer/HBoxContainer (Back Color)/ColorPickerButton"
+@onready var font_option_button: OptionButton = $"VBoxContainer/HBoxContainer (Fonts)/OptionButton"
+@onready var h_box_container_fonts_: HBoxContainer = $"VBoxContainer/HBoxContainer (Fonts)"
 
 @export var preview_text: Label
 @export var theme_to_edit: Theme
@@ -19,22 +21,33 @@ const THEME_TYPE_LABEL: String = "Label"
 @export var max_line_spacing: float = 15
 
 @export_group("Fonts")
-@export var fonts: Array[Font]
+@export var use_fonts: bool = true
+@export var fonts: Array[Font] = []
 
 var style_box: StyleBoxFlat = StyleBoxFlat.new()
+
+var font_name_to_index: Dictionary[String, int] = {"Open Sans SemiBold":-1}
 
 
 func _ready() -> void:
 	preview_text.theme = theme_to_edit
+	_remove_font_options_if_not_checked()
 	_setup_default_values()
 
+
+func _remove_font_options_if_not_checked() -> void:
+	if fonts.is_empty() or not use_fonts:
+		printerr("[TextThemeEditor] no fonts specified, removing from editor!")
+		h_box_container_fonts_.queue_free()
+		use_fonts = false
+	
 
 func _setup_default_values() -> void:
 	_set_spin_box_values(font_size_spin_box, min_font_size, max_font_size, theme_to_edit.get_font_size("font_size", THEME_TYPE_LABEL))
 	_set_spin_box_values(line_spacing_spin_box, min_line_spacing, max_line_spacing, theme_to_edit.get_constant("line_spacing", THEME_TYPE_LABEL))
 	_set_color_button_color(font_color_picker_button, theme_to_edit.get_color("font_color", THEME_TYPE_LABEL))
 	_set_color_button_color(background_color_picker_button, _get_theme_background_color())
-	
+	_prepare_font_dropdown()
 
 func _set_spin_box_values(spin_box: SpinBox, min: float, max: float, default: float) -> void:
 	spin_box.min_value = min
@@ -50,6 +63,18 @@ func _get_theme_background_color() -> Color:
 		return Color(0,0,0,0)
 	style_box = style_box as StyleBoxFlat
 	return style_box.bg_color
+
+func _prepare_font_dropdown() -> void:
+	for i in range(fonts.size()):
+		var font_name: String = fonts[i].get_font_name()
+		font_option_button.add_item(font_name, i)
+		font_name_to_index[font_name] = i
+	
+	var theme_font_name: String = theme_to_edit.get_font("font", THEME_TYPE_LABEL).get_font_name()
+	font_option_button.selected = font_name_to_index[theme_font_name]
+	
+
+
 
 func _on_font_color_changed(color: Color) -> void:
 	theme_to_edit.set_color("font_color", THEME_TYPE_LABEL, color)
