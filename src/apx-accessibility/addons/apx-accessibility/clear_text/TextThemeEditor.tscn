@@ -12,10 +12,10 @@ theme_to_edit = ExtResource("2_f18u0")
 
 [node name="PreviewLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 870.0
-offset_top = 250.0
-offset_right = 969.0
-offset_bottom = 273.0
+offset_left = 730.0
+offset_top = 160.0
+offset_right = 922.0
+offset_bottom = 218.0
 theme = ExtResource("2_f18u0")
 text = "Preview Text
 This is a second line"

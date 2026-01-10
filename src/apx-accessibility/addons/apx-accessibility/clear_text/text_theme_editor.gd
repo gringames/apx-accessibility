@@ -6,6 +6,8 @@ const THEME_TYPE_LABEL: String = "Label"
 
 @onready var font_size_spin_box: SpinBox = $"VBoxContainer/HBoxContainer (Font Size)/SpinBox"
 @onready var line_spacing_spin_box: SpinBox = $"VBoxContainer/HBoxContainer (Font VSpacing)/SpinBox"
+@onready var font_color_picker_button: ColorPickerButton = $"VBoxContainer/HBoxContainer (Font Color)/ColorPickerButton"
+@onready var background_color_picker_button: ColorPickerButton = $"VBoxContainer/HBoxContainer (Back Color)/ColorPickerButton"
 
 @export var preview_text: Label
 @export var theme_to_edit: Theme
@@ -24,16 +26,27 @@ var style_box: StyleBoxFlat = StyleBoxFlat.new()
 
 func _ready() -> void:
 	preview_text.theme = theme_to_edit
+	_setup_default_values()
+
+
+func _setup_default_values() -> void:
 	_set_spin_box_values(font_size_spin_box, min_font_size, max_font_size, theme_to_edit.get_font_size("font_size", THEME_TYPE_LABEL))
 	_set_spin_box_values(line_spacing_spin_box, min_line_spacing, max_line_spacing, theme_to_edit.get_constant("line_spacing", THEME_TYPE_LABEL))
+	_set_color_button_color(font_color_picker_button, theme_to_edit.get_color("font_color", THEME_TYPE_LABEL))
+	_set_color_button_color(background_color_picker_button, _get_theme_background_color())
+	
 
-
-func _set_spin_box_values(spin_box:SpinBox, min: float, max: float, default: float) -> void:
+func _set_spin_box_values(spin_box: SpinBox, min: float, max: float, default: float) -> void:
 	spin_box.min_value = min
 	spin_box.max_value = max
 	spin_box.value = default
 
+func _set_color_button_color(color_button: ColorPickerButton, color: Color) -> void:
+	color_button.color = color
 
+func _get_theme_background_color() -> Color:
+	# theme_to_edit.get_color("font_color", THEME_TYPE_LABEL)
+	return Color.BLACK
 
 func _on_font_color_changed(color: Color) -> void:
 	theme_to_edit.set_color("font_color", THEME_TYPE_LABEL, color)
