@@ -8,20 +8,20 @@
 [ext_resource type="FontFile" uid="uid://708sshpucb66" path="res://fonts/Atkinson Hyperlegible Next_Final/Atkinson Hyperlegible Next/AtkinsonHyperlegibleNext-Bold.otf" id="6_g6rit"]
 [ext_resource type="FontFile" uid="uid://c7nertl23eo2d" path="res://fonts/Atkinson-Hyperlegible-Font-Print-and-Web-Final/Atkinson-Hyperlegible-Font-Print-and-Web-2020-0514/Print Fonts/Atkinson-Hyperlegible-Bold-102.otf" id="7_pab6q"]
 
-[node name="TextThemeEditor" type="Control" node_paths=PackedStringArray("preview_text")]
+[node name="TextThemeEditor" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_xspe3")
-preview_text = NodePath("PreviewLabel")
 theme_to_edit = ExtResource("2_f18u0")
+max_font_size = 40.0
 fonts = Array[Font]([ExtResource("3_rw5ft"), ExtResource("4_5hbog"), ExtResource("5_68h3r"), ExtResource("6_g6rit"), ExtResource("7_pab6q")])
 
 [node name="PreviewLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 730.0
-offset_top = 160.0
-offset_right = 922.0
-offset_bottom = 218.0
+offset_left = 720.0
+offset_top = 170.0
+offset_right = 916.0
+offset_bottom = 228.0
 theme = ExtResource("2_f18u0")
 text = "Preview Text
 This is a second line"

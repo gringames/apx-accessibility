@@ -11,8 +11,11 @@ const THEME_TYPE_LABEL: String = "Label"
 @onready var font_option_button: OptionButton = $"VBoxContainer/HBoxContainer (Fonts)/OptionButton"
 @onready var h_box_container_fonts_: HBoxContainer = $"VBoxContainer/HBoxContainer (Fonts)"
 
-@export var preview_text: Label
+@onready var preview_text: Label = $PreviewLabel
 @export var theme_to_edit: Theme
+
+@export_group("Preview Text")
+@export_multiline var text_for_preview: String = "Preview Text\nThis is a second line"
 
 @export_group("Constraints")
 @export var min_font_size: float = 10
@@ -21,7 +24,7 @@ const THEME_TYPE_LABEL: String = "Label"
 @export var max_line_spacing: float = 15
 
 @export_group("Fonts")
-@export var use_fonts: bool = true
+@export var allow_font_changes: bool = true
 @export var fonts: Array[Font] = []
 
 var style_box: StyleBoxFlat = StyleBoxFlat.new()
@@ -31,15 +34,16 @@ var font_name_to_index: Dictionary[String, int] = {"Open Sans SemiBold":-1}
 
 func _ready() -> void:
 	preview_text.theme = theme_to_edit
+	preview_text.text = text_for_preview
 	_remove_font_options_if_not_checked()
 	_setup_default_values()
 
 
 func _remove_font_options_if_not_checked() -> void:
-	if fonts.is_empty() or not use_fonts:
+	if fonts.is_empty() or not allow_font_changes:
 		printerr("[TextThemeEditor] no fonts specified, removing from editor!")
 		h_box_container_fonts_.queue_free()
-		use_fonts = false
+		allow_font_changes = false
 	
 
 func _setup_default_values() -> void:
@@ -66,6 +70,9 @@ func _get_theme_background_color() -> Color:
 	return style_box.bg_color
 
 func _prepare_font_dropdown() -> void:
+	if not allow_font_changes:
+		return
+	
 	for i in range(fonts.size()):
 		var font_name: String = fonts[i].get_font_name()
 		font_option_button.add_item(font_name, i)
@@ -73,8 +80,6 @@ func _prepare_font_dropdown() -> void:
 	
 	var theme_font_name: String = theme_to_edit.get_font("font", THEME_TYPE_LABEL).get_font_name()
 	font_option_button.selected = font_name_to_index[theme_font_name]
-	
-
 
 
 func _on_font_color_changed(color: Color) -> void:
