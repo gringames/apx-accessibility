@@ -48,6 +48,44 @@ custom_minimum_size = Vector2(100, 30)
 layout_direction = 2
 layout_mode = 2
 
+[node name="HBoxContainer (Font Size)" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer (Font Size)"]
+layout_mode = 2
+text = "Font Size"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer (Font Size)"]
+custom_minimum_size = Vector2(100, 30)
+layout_direction = 2
+layout_mode = 2
+min_value = 10.0
+value = 10.0
+rounded = true
+custom_arrow_step = 1.0
+select_all_on_focus = true
+
+[node name="HBoxContainer (Font VSpacing)" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer (Font VSpacing)"]
+layout_mode = 2
+text = "Line Spacing"
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer (Font VSpacing)"]
+custom_minimum_size = Vector2(100, 30)
+layout_direction = 2
+layout_mode = 2
+max_value = 15.0
+value = 10.0
+rounded = true
+custom_arrow_step = 1.0
+select_all_on_focus = true
+
 [node name="HBoxContainer (Font Color)" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
@@ -97,48 +135,10 @@ rounded = true
 custom_arrow_step = 1.0
 select_all_on_focus = true
 
-[node name="HBoxContainer (Font Size)" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
-alignment = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer (Font Size)"]
-layout_mode = 2
-text = "Font Size"
-
-[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer (Font Size)"]
-custom_minimum_size = Vector2(100, 30)
-layout_direction = 2
-layout_mode = 2
-min_value = 10.0
-value = 10.0
-rounded = true
-custom_arrow_step = 1.0
-select_all_on_focus = true
-
-[node name="HBoxContainer (Font VSpacing)" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
-alignment = 2
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer (Font VSpacing)"]
-layout_mode = 2
-text = "Line Spacing"
-
-[node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer (Font VSpacing)"]
-custom_minimum_size = Vector2(100, 30)
-layout_direction = 2
-layout_mode = 2
-max_value = 15.0
-value = 10.0
-rounded = true
-custom_arrow_step = 1.0
-select_all_on_focus = true
-
 [connection signal="item_selected" from="VBoxContainer/HBoxContainer (Fonts)/OptionButton" to="." method="_on_font_selected"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (Font Size)/SpinBox" to="." method="_on_font_size_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (Font VSpacing)/SpinBox" to="." method="_on_line_spacing_changed"]
 [connection signal="color_changed" from="VBoxContainer/HBoxContainer (Font Color)/ColorPickerButton" to="." method="_on_font_color_changed"]
 [connection signal="color_changed" from="VBoxContainer/HBoxContainer (Back Color)/ColorPickerButton" to="." method="_on_background_color_changed"]
 [connection signal="picker_created" from="VBoxContainer/HBoxContainer (Back Color)/ColorPickerButton" to="." method="_on_background_color_picker_button_picker_clicked_first"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (Back Margins)/SpinBox" to="." method="_on_back_margins_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (Font Size)/SpinBox" to="." method="_on_font_size_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (Font VSpacing)/SpinBox" to="." method="_on_line_spacing_changed"]

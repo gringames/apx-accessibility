@@ -62,7 +62,8 @@ func _set_spin_box_values(spin_box: SpinBox, min: float, max: float, default: fl
 	spin_box.value = default
 
 func _get_theme_margins() -> int:
-	return 2
+	var style_box: StyleBox = theme_to_edit.get_stylebox("normal", THEME_TYPE_LABEL)
+	return style_box.get_margin(SIDE_BOTTOM)
 
 
 func _set_color_button_color(color_button: ColorPickerButton, color: Color) -> void:
