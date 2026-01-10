@@ -56,6 +56,7 @@ func _set_spin_box_values(spin_box: SpinBox, min: float, max: float, default: fl
 
 func _set_color_button_color(color_button: ColorPickerButton, color: Color) -> void:
 	color_button.color = color
+	color_button.get_picker().presets_visible = false
 
 func _get_theme_background_color() -> Color:
 	var style_box: StyleBox = theme_to_edit.get_stylebox("normal", THEME_TYPE_LABEL)
