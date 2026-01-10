@@ -1,19 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://bg4h5rxaec70b"]
+[gd_scene load_steps=3 format=3 uid="uid://bg4h5rxaec70b"]
 
 [ext_resource type="Script" uid="uid://d11g0rb5hmgte" path="res://addons/apx-accessibility/clear_text/text_theme_editor.gd" id="1_xspe3"]
+[ext_resource type="Theme" uid="uid://kge11y23leuo" path="res://addons/apx-accessibility/clear_text/TextTheme.tres" id="2_f18u0"]
 
 [node name="TextThemeEditor" type="Control" node_paths=PackedStringArray("preview_text")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_xspe3")
 preview_text = NodePath("PreviewLabel")
+theme_to_edit = ExtResource("2_f18u0")
 
 [node name="PreviewLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 520.0
-offset_top = 380.0
-offset_right = 619.0
-offset_bottom = 403.0
+offset_left = 870.0
+offset_top = 250.0
+offset_right = 969.0
+offset_bottom = 273.0
 text = "Preview Text"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -52,6 +54,15 @@ text = "Background Color"
 custom_minimum_size = Vector2(100, 30)
 layout_direction = 2
 layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 990.0
+offset_top = 440.0
+offset_right = 1087.0
+offset_bottom = 463.0
+theme = ExtResource("2_f18u0")
+text = "another text"
 
 [connection signal="color_changed" from="VBoxContainer/HBoxContainer (Font Color)/ColorPickerButton" to="." method="_on_font_color_changed"]
 [connection signal="color_changed" from="VBoxContainer/HBoxContainer (Back Color)/ColorPickerButton" to="." method="_on_background_color_changed"]

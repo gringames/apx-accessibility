@@ -15,6 +15,10 @@ run/main_scene="uid://j1t30x17646a"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://ksqpjx02hdfp"
 
+[autoload]
+
+TextThemeEvents="*res://addons/apx-accessibility/clear_text/text_theme_events.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/apx-accessibility/clear_channels/plugin.cfg", "res://addons/apx-accessibility/total_recall/plugin.cfg")
