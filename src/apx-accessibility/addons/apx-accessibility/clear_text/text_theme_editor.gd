@@ -45,8 +45,11 @@ func _set_color_button_color(color_button: ColorPickerButton, color: Color) -> v
 	color_button.color = color
 
 func _get_theme_background_color() -> Color:
-	# theme_to_edit.get_color("font_color", THEME_TYPE_LABEL)
-	return Color.BLACK
+	var style_box: StyleBox = theme_to_edit.get_stylebox("normal", THEME_TYPE_LABEL)
+	if style_box is not StyleBoxFlat:
+		return Color(0,0,0,0)
+	style_box = style_box as StyleBoxFlat
+	return style_box.bg_color
 
 func _on_font_color_changed(color: Color) -> void:
 	theme_to_edit.set_color("font_color", THEME_TYPE_LABEL, color)
@@ -65,3 +68,10 @@ func _on_font_size_changed(value: float) -> void:
 func _on_line_spacing_changed(value: float) -> void:
 	var spacing: int = int(value)
 	theme_to_edit.set_constant("line_spacing", THEME_TYPE_LABEL, spacing)
+
+
+# without this, editing color with a = 0 may be confusing for the player
+func _on_background_color_picker_button_picker_clicked_first() -> void:
+	var style_box: StyleBox = theme_to_edit.get_stylebox("normal", THEME_TYPE_LABEL)
+	if style_box is not StyleBoxFlat:
+		background_color_picker_button.color.a = 1
