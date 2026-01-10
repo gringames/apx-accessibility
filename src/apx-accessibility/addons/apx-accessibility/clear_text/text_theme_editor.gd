@@ -10,6 +10,7 @@ const THEME_TYPE_LABEL: String = "Label"
 @onready var background_color_picker_button: ColorPickerButton = $"VBoxContainer/HBoxContainer (Back Color)/ColorPickerButton"
 @onready var font_option_button: OptionButton = $"VBoxContainer/HBoxContainer (Fonts)/OptionButton"
 @onready var h_box_container_fonts_: HBoxContainer = $"VBoxContainer/HBoxContainer (Fonts)"
+@onready var back_margins_spin_box: SpinBox = $"VBoxContainer/HBoxContainer (Back Margins)/SpinBox"
 
 @onready var preview_text: Label = $PreviewLabel
 @export var theme_to_edit: Theme
@@ -22,13 +23,14 @@ const THEME_TYPE_LABEL: String = "Label"
 @export var max_font_size: float = 140
 @export var min_line_spacing: float = 0
 @export var max_line_spacing: float = 15
+@export var min_margins: float = 0
+@export var max_margins: float = 10
 
 @export_group("Fonts")
 @export var allow_font_changes: bool = true
 @export var fonts: Array[Font] = []
 
 var style_box: StyleBoxFlat = StyleBoxFlat.new()
-
 var font_name_to_index: Dictionary[String, int] = {"Open Sans SemiBold":-1}
 
 
@@ -49,6 +51,7 @@ func _remove_font_options_if_not_checked() -> void:
 func _setup_default_values() -> void:
 	_set_spin_box_values(font_size_spin_box, min_font_size, max_font_size, theme_to_edit.get_font_size("font_size", THEME_TYPE_LABEL))
 	_set_spin_box_values(line_spacing_spin_box, min_line_spacing, max_line_spacing, theme_to_edit.get_constant("line_spacing", THEME_TYPE_LABEL))
+	_set_spin_box_values(back_margins_spin_box, min_margins, max_margins, _get_theme_margins())
 	_set_color_button_color(font_color_picker_button, theme_to_edit.get_color("font_color", THEME_TYPE_LABEL))
 	_set_color_button_color(background_color_picker_button, _get_theme_background_color())
 	_prepare_font_dropdown()
@@ -57,6 +60,10 @@ func _set_spin_box_values(spin_box: SpinBox, min: float, max: float, default: fl
 	spin_box.min_value = min
 	spin_box.max_value = max
 	spin_box.value = default
+
+func _get_theme_margins() -> int:
+	return 2
+
 
 func _set_color_button_color(color_button: ColorPickerButton, color: Color) -> void:
 	color_button.color = color
@@ -90,6 +97,12 @@ func _on_background_color_changed(color: Color) -> void:
 	style_box.bg_color = color
 	theme_to_edit.set_stylebox("normal", THEME_TYPE_LABEL, style_box)
 
+# without this, editing color with a = 0 may be confusing for the player
+func _on_background_color_picker_button_picker_clicked_first() -> void:
+	var style_box: StyleBox = theme_to_edit.get_stylebox("normal", THEME_TYPE_LABEL)
+	if style_box is not StyleBoxFlat:
+		background_color_picker_button.color.a = 1
+
 
 func _on_font_size_changed(value: float) -> void:
 	var size: int = int(value)
@@ -101,12 +114,15 @@ func _on_line_spacing_changed(value: float) -> void:
 	theme_to_edit.set_constant("line_spacing", THEME_TYPE_LABEL, spacing)
 
 
-# without this, editing color with a = 0 may be confusing for the player
-func _on_background_color_picker_button_picker_clicked_first() -> void:
-	var style_box: StyleBox = theme_to_edit.get_stylebox("normal", THEME_TYPE_LABEL)
-	if style_box is not StyleBoxFlat:
-		background_color_picker_button.color.a = 1
-
 
 func _on_font_selected(index: int) -> void:
 	theme_to_edit.set_font("font", THEME_TYPE_LABEL, fonts[index])
+
+
+func _on_back_margins_changed(value: float) -> void:
+	var margins: int = int(value)
+	style_box.expand_margin_bottom = margins
+	style_box.expand_margin_top = margins
+	style_box.expand_margin_left = margins / 2
+	style_box.expand_margin_right = margins / 2
+	theme_to_edit.set_stylebox("normal", THEME_TYPE_LABEL, style_box)
