@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bg4h5rxaec70b"]
+[gd_scene load_steps=10 format=3 uid="uid://bg4h5rxaec70b"]
 
 [ext_resource type="Script" uid="uid://d11g0rb5hmgte" path="res://addons/apx-accessibility/clear_text/text_theme_editor.gd" id="1_xspe3"]
 [ext_resource type="Theme" uid="uid://kge11y23leuo" path="res://addons/apx-accessibility/clear_text/TextTheme.tres" id="2_f18u0"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://708sshpucb66" path="res://fonts/Atkinson Hyperlegible Next_Final/Atkinson Hyperlegible Next/AtkinsonHyperlegibleNext-Bold.otf" id="6_g6rit"]
 [ext_resource type="FontFile" uid="uid://c7nertl23eo2d" path="res://fonts/Atkinson-Hyperlegible-Font-Print-and-Web-Final/Atkinson-Hyperlegible-Font-Print-and-Web-2020-0514/Print Fonts/Atkinson-Hyperlegible-Bold-102.otf" id="7_pab6q"]
 [ext_resource type="FontFile" uid="uid://cpol651bqbb1h" path="res://fonts/OpenDyslexic 3 (Beta - Windows, MacOS, Linux TTF)/OpenDyslexic3-Bold.ttf" id="8_5hbog"]
+[ext_resource type="FontFile" uid="uid://ldivqwenutlk" path="res://fonts/intel-mono-tff/IntelOneMono-Bold.ttf" id="9_68h3r"]
 
 [node name="TextThemeEditor" type="Control"]
 layout_mode = 3
@@ -15,7 +16,7 @@ anchors_preset = 0
 script = ExtResource("1_xspe3")
 theme_to_edit = ExtResource("2_f18u0")
 max_font_size = 40.0
-fonts = Array[Font]([ExtResource("3_rw5ft"), ExtResource("4_5hbog"), ExtResource("5_68h3r"), ExtResource("6_g6rit"), ExtResource("7_pab6q"), ExtResource("8_5hbog")])
+fonts = Array[Font]([ExtResource("3_rw5ft"), ExtResource("4_5hbog"), ExtResource("5_68h3r"), ExtResource("6_g6rit"), ExtResource("7_pab6q"), ExtResource("8_5hbog"), ExtResource("9_68h3r")])
 
 [node name="PreviewLabel" type="Label" parent="."]
 layout_mode = 0
