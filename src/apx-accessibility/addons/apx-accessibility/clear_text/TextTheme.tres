@@ -1,4 +1,11 @@
-[gd_resource type="Theme" format=3 uid="uid://kge11y23leuo"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://kge11y23leuo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chcg0"]
+bg_color = Color(0, 0, 0, 1)
 
 [resource]
 default_font_size = 20
+Label/colors/font_color = Color(0.05490196, 1, 1, 1)
+Label/constants/line_spacing = 2
+Label/font_sizes/font_size = 20
+Label/styles/normal = SubResource("StyleBoxFlat_chcg0")
