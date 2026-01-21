@@ -6,11 +6,12 @@ var description: String
 var completed: bool
 var image: Texture2D
 
-func _init(title: String, description: String, image: Texture2D) -> void:
+func _init(title: String, description: String, completed: bool, image: Texture2D) -> void:
 	self.title = title
 	self.description = description
+	self.completed = completed
 	self.image = image
 
 
 func _to_string() -> String:
-	return "[" + title + ", " + description + "]"
+	return "[" + title + ", " + description + "]" + " (" + ("done" if completed else "current") + ")"
