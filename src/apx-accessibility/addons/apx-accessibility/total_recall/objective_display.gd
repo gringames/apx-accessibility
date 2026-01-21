@@ -2,11 +2,20 @@
 extends Control
 class_name ObjectiveDisplay
 
-# Called when the node enters the scene tree for the first time.
+var key_to_objective: Dictionary[String, Objective] = {}
+
 func _ready() -> void:
-	pass # Replace with function body.
+	add_objective("test", make_objective("title", "description", null))
+	add_objective("fight", make_objective("Talo's Tale", "Fight the boss Talo and redeem your reward!", null))
+	print_objectives()
+
+func add_objective(key: String, objective: Objective) -> void:
+	key_to_objective[key] = objective
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func make_objective(title: String, description: String, image: Texture2D) -> Objective:
+	return Objective.new(title, description, image)
+
+
+func print_objectives() -> void:
+	print(JSON.stringify(key_to_objective, "\t"))
