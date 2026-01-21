@@ -10,3 +10,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6ax6h")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/tab_separation = 5
+current_tab = 0
+clip_tabs = false
+tab_focus_mode = 1
+
+[node name="Button" type="Button" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Button2" type="Button" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Button3" type="Button" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
