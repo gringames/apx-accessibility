@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvrkwmej0pymd"]
+[gd_scene load_steps=3 format=3 uid="uid://cvrkwmej0pymd"]
 
 [ext_resource type="Script" uid="uid://dutu3q6prbdup" path="res://addons/apx-accessibility/total_recall/objective_display.gd" id="1_6ax6h"]
+[ext_resource type="PackedScene" uid="uid://c5ubmkw3ebtvx" path="res://addons/apx-accessibility/total_recall/ObjectiveTab.tscn" id="2_60n4v"]
 
 [node name="ObjectiveDisplay" type="Control"]
 layout_mode = 3
@@ -20,11 +21,10 @@ current_tab = 0
 clip_tabs = false
 tab_focus_mode = 1
 
-[node name="Current" type="Label" parent="TabContainer"]
+[node name="Current" parent="TabContainer" instance=ExtResource("2_60n4v")]
 layout_mode = 2
-metadata/_tab_index = 0
 
-[node name="Done" type="Label" parent="TabContainer"]
+[node name="Completed" parent="TabContainer" instance=ExtResource("2_60n4v")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
