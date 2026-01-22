@@ -4,13 +4,13 @@ class_name Objective
 var title: String
 var description: String
 var completed: bool
-var image: Texture2D
+var image_path: String
 
-func _init(title: String, description: String, completed: bool, image: Texture2D) -> void:
+func _init(title: String, description: String, completed: bool, image_path: String = "") -> void:
 	self.title = title
 	self.description = description
 	self.completed = completed
-	self.image = image
+	self.image_path = image_path
 
 
 func _to_string() -> String:
