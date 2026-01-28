@@ -13,21 +13,32 @@ func _ready() -> void:
 	current_objective_tab.create_side_bar_buttons_for_objectives(get_current_objectives())
 	completed_objective_tab.create_side_bar_buttons_for_objectives(get_completed_objectives())
 
+
 func add_objective(key: String, objective: Objective) -> void:
 	key_to_objective[key] = objective
+	_append_objective(key, objective)
 
+#TODO: func remove_objective()
+#TODO: func update_objective()
+#TODO: func complete_objective()
 
 func make_objective(title: String, description: String, completed: bool, image_path: String = "") -> Objective:
 	return Objective.new(title, description, completed, image_path)
 
+func _append_objective(key: String, objective: Objective) -> void:
+	if objective.completed:
+		completed_objective_tab.objective_side_bar_buttons.append_objective(key, objective)
+	else:
+		current_objective_tab.objective_side_bar_buttons.append_objective(key, objective)
+
 
 func get_completed_objectives() -> Dictionary[String, Objective]:
-	return filter_dict_by_completion(true)
+	return _filter_dict_by_completion(true)
 
 func get_current_objectives() -> Dictionary[String, Objective]:
-	return filter_dict_by_completion(false)
+	return _filter_dict_by_completion(false)
 
-func filter_dict_by_completion(completed: bool) -> Dictionary[String, Objective]:
+func _filter_dict_by_completion(completed: bool) -> Dictionary[String, Objective]:
 	var dict: Dictionary[String, Objective] = {}
 	if key_to_objective.is_empty(): return dict
 	for key in key_to_objective:
