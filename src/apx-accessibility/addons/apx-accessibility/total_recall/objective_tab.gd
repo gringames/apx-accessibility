@@ -16,6 +16,12 @@ func create_side_bar_buttons_for_objectives(objectives: Dictionary[String, Objec
 	objective_side_bar_buttons.create_side_bar_buttons_for_objectives(objectives)
 	objective_side_bar_buttons.set_objective_tab(self)
 
+func add_objective(key: String, objective: Objective) -> void:
+	objective_side_bar_buttons.append_objective(key, objective)
+
+func remove_objective(key: String) -> void:
+	objective_side_bar_buttons.remove_objective(key)
+
 func _on_side_bar_button_pressed(key: String) -> void:
 	_update_content(key)
 

@@ -14,23 +14,57 @@ func _ready() -> void:
 	completed_objective_tab.create_side_bar_buttons_for_objectives(get_completed_objectives())
 
 
-func add_objective(key: String, objective: Objective) -> void:
-	key_to_objective[key] = objective
-	_append_objective(key, objective)
-
-#TODO: func remove_objective()
-#TODO: func update_objective()
-#TODO: func complete_objective()
-
 func make_objective(title: String, description: String, completed: bool, image_path: String = "") -> Objective:
 	return Objective.new(title, description, completed, image_path)
 
-func _append_objective(key: String, objective: Objective) -> void:
-	if objective.completed:
-		completed_objective_tab.objective_side_bar_buttons.append_objective(key, objective)
-	else:
-		current_objective_tab.objective_side_bar_buttons.append_objective(key, objective)
+func add_objective(key: String, objective: Objective) -> void:
+	if key_to_objective.has(key):
+		push_warning("trying to add objective with existing key (", key,  "), use update_objective instead.")
+		return
+	key_to_objective[key] = objective
+	_append_objective(key, objective)
 
+func remove_objective(key: String) -> void:
+	var objective = key_to_objective[key]
+	if !objective: 
+		push_warning("trying to remove non-existent objective, (key: ", key, ")")
+		return
+	_remove_objective_from_tab(key)
+	key_to_objective.erase(key)
+
+func update_objective(key: String, updated_objective: Objective) -> void:
+	var objective = key_to_objective[key]
+	if !objective: 
+		push_warning("trying to update non-existent objective, (key: ", key, "). Adding it instead")
+		add_objective(key, updated_objective)
+		return
+	if not objective.completed and updated_objective.completed:
+		complete_objective(key)
+	key_to_objective[key] = updated_objective
+
+
+func complete_objective(key: String) -> void:
+	var objective = key_to_objective[key]
+	if !objective: 
+		push_warning("trying to complete non-existent objective, (key: ", key, ")")
+		return
+	objective.completed = true
+	current_objective_tab.remove_objective(key)
+	completed_objective_tab.add_objective(key, objective)
+
+
+func _append_objective(key: String, objective: Objective) -> void:
+	var tab: ObjectiveTab = completed_objective_tab if objective.completed else current_objective_tab
+	tab.add_objective(key, objective)
+
+func _remove_objective_from_tab(key: String) -> void:
+	_get_tab(key).remove_objective(key)
+
+func _get_tab(key) -> ObjectiveTab:
+	var objective: Objective = key_to_objective[key]
+	if !objective: return null
+	return completed_objective_tab if objective.completed else current_objective_tab
+	
 
 func get_completed_objectives() -> Dictionary[String, Objective]:
 	return _filter_dict_by_completion(true)
