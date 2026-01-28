@@ -23,6 +23,7 @@ func append_objective(objective_key: String, objective: Objective) -> void:
 	if buttons.has(objective_key): return
 	var objective_title: String = objective.title
 	var objective_button: ObjectiveButton = ObjectiveButton.new(objective_key, objective_title)
+	objective_button.autowrap_mode = TextServer.AUTOWRAP_WORD
 	add_child(objective_button)
 	buttons[objective_key] = objective_button
 

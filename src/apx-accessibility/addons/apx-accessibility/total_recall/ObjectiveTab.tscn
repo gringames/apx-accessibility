@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bjeeahdfsdo71" path="res://addons/apx-accessibility/total_recall/objective_content.gd" id="3_yism1"]
 
 [node name="TabName" type="HBoxContainer"]
-custom_minimum_size = Vector2(550, 256)
+custom_minimum_size = Vector2(512, 256)
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_1wdap")
@@ -34,7 +34,8 @@ text = "Title here"
 
 [node name="Button2" type="Button" parent="HBoxContainer/SideBarButtons"]
 layout_mode = 2
-text = "Title here"
+text = "marathon runner!"
+autowrap_mode = 2
 
 [node name="Button3" type="Button" parent="HBoxContainer/SideBarButtons"]
 layout_mode = 2
@@ -81,12 +82,16 @@ stretch_mode = 5
 layout_mode = 2
 
 [node name="ContentTitle" type="Label" parent="Contents/VBoxContainer Texts"]
+custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Title"
+autowrap_mode = 2
 
 [node name="ContentDescription" type="Label" parent="Contents/VBoxContainer Texts"]
+custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 text = "This is a long description of the objective.
 It may stretch over multiple lines."
+autowrap_mode = 2
