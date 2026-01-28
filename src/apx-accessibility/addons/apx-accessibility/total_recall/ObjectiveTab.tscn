@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://bjeeahdfsdo71" path="res://addons/apx-accessibility/total_recall/objective_content.gd" id="3_yism1"]
 
 [node name="TabName" type="HBoxContainer"]
+custom_minimum_size = Vector2(550, 256)
+size_flags_horizontal = 0
+size_flags_vertical = 0
 script = ExtResource("1_1wdap")
 metadata/_tab_index = 0
 
@@ -18,19 +21,60 @@ visible = false
 layout_mode = 2
 
 [node name="SideBarButtons" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 256)
 layout_mode = 2
-theme_override_constants/separation = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 2
 script = ExtResource("2_tkau1")
 
-[node name="Contents" type="HBoxContainer" parent="."]
+[node name="Button" type="Button" parent="HBoxContainer/SideBarButtons"]
 layout_mode = 2
-theme_override_constants/separation = 2
+text = "Title here"
+
+[node name="Button2" type="Button" parent="HBoxContainer/SideBarButtons"]
+layout_mode = 2
+text = "Title here"
+
+[node name="Button3" type="Button" parent="HBoxContainer/SideBarButtons"]
+layout_mode = 2
+text = "Title here"
+
+[node name="Button4" type="Button" parent="HBoxContainer/SideBarButtons"]
+layout_mode = 2
+text = "Title here"
+
+[node name="Button5" type="Button" parent="HBoxContainer/SideBarButtons"]
+layout_mode = 2
+text = "Title here"
+
+[node name="Button6" type="Button" parent="HBoxContainer/SideBarButtons"]
+layout_mode = 2
+text = "Title here"
+
+[node name="Button7" type="Button" parent="HBoxContainer/SideBarButtons"]
+layout_mode = 2
+text = "Title here"
+
+[node name="Button8" type="Button" parent="HBoxContainer/SideBarButtons"]
+layout_mode = 2
+text = "Title here"
+
+[node name="Contents" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(400, 256)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 11
 script = ExtResource("3_yism1")
 
 [node name="ContentImage" type="TextureRect" parent="Contents"]
+custom_minimum_size = Vector2(128, 192)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 texture = ExtResource("1_fx03o")
-expand_mode = 2
+expand_mode = 1
 stretch_mode = 5
 
 [node name="VBoxContainer Texts" type="VBoxContainer" parent="Contents"]

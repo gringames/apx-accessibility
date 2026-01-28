@@ -13,9 +13,10 @@ grow_vertical = 2
 script = ExtResource("1_6ax6h")
 
 [node name="TabContainer" type="TabContainer" parent="."]
+custom_minimum_size = Vector2(550, 300)
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 550.0
+offset_bottom = 300.0
 theme_override_constants/tab_separation = 5
 current_tab = 0
 clip_tabs = false
