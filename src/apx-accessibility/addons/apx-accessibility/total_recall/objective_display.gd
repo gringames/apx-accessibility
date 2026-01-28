@@ -2,11 +2,16 @@
 extends Control
 class_name ObjectiveDisplay
 
+@onready var current_objective_tab: ObjectiveTab = $TabContainer/Current
+@onready var completed_objective_tab: ObjectiveTab = $TabContainer/Completed
+
 var key_to_objective: Dictionary[String, Objective] = {}
 
 func _ready() -> void:
 	add_example_objectives()
-	print_objectives(true)
+	# print_objectives(true)
+	current_objective_tab.create_side_bar_buttons_for_objectives(get_current_objectives())
+	completed_objective_tab.create_side_bar_buttons_for_objectives(get_completed_objectives())
 
 func add_objective(key: String, objective: Objective) -> void:
 	key_to_objective[key] = objective
@@ -14,7 +19,6 @@ func add_objective(key: String, objective: Objective) -> void:
 
 func make_objective(title: String, description: String, completed: bool, image_path: String = "") -> Objective:
 	return Objective.new(title, description, completed, image_path)
-
 
 
 func get_completed_objectives() -> Dictionary[String, Objective]:
@@ -40,9 +44,8 @@ func print_objectives(grouped: bool) -> void:
 		print("completed: ", JSON.stringify(get_completed_objectives(), "\t"))
 		print("current: ", JSON.stringify(get_current_objectives(), "\t"))
 
-
 func add_example_objectives() -> void:
-	add_objective("test", make_objective("title", "description", true))
+	add_objective("test", make_objective("title", "description", false))
 	add_objective("talo", make_objective("Talo's Tale", "Fight the boss Talo and redeem your reward!", false))
 	add_objective("5seeds", make_objective("Seedy Situation", "Find 5 seeds and bring them to X!", false))
 	add_objective("first_seed", make_objective("Take a Seed", "Find your first seed!", true))
