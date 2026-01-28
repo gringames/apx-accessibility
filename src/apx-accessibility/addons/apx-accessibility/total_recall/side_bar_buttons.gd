@@ -18,7 +18,10 @@ func create_side_bar_buttons_for_objectives(objectives: Dictionary[String, Objec
 		var objective_title: String = objectives[objective_key].title
 		var objective_button: ObjectiveButton = ObjectiveButton.new(objective_key, objective_title)
 		add_child(objective_button)
+	_display_first_objective(objectives)
 
+func _display_first_objective(objectives: Dictionary[String, Objective]) -> void:
+	notify_button_pressed(objectives.keys()[0])
 
 func notify_button_pressed(key: String) -> void:
 	side_bar_button_pressed.emit(key)

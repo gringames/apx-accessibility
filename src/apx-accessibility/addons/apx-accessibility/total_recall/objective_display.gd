@@ -45,8 +45,8 @@ func print_objectives(grouped: bool) -> void:
 		print("current: ", JSON.stringify(get_current_objectives(), "\t"))
 
 func add_example_objectives() -> void:
-	add_objective("test", make_objective("title", "description", false))
 	add_objective("talo", make_objective("Talo's Tale", "Fight the boss Talo and redeem your reward!", false))
+	add_objective("test", make_objective("title", "description", false))
 	add_objective("5seeds", make_objective("Seedy Situation", "Find 5 seeds and bring them to X!", false))
 	add_objective("first_seed", make_objective("Take a Seed", "Find your first seed!", true))
 	add_objective("first_gold", make_objective("It's Gold!", "Find your first gold!", true))
