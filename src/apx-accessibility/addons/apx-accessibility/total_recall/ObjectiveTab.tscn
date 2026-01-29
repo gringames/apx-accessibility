@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5ubmkw3ebtvx"]
+[gd_scene load_steps=5 format=3 uid="uid://c5ubmkw3ebtvx"]
 
 [ext_resource type="Script" uid="uid://bptidccgpgntf" path="res://addons/apx-accessibility/total_recall/objective_tab.gd" id="1_1wdap"]
-[ext_resource type="Texture2D" uid="uid://c678qdhm8dept" path="res://resources/bunny2_walk1.png" id="1_fx03o"]
 [ext_resource type="Script" uid="uid://b4fnlih1uvyoo" path="res://addons/apx-accessibility/total_recall/side_bar_buttons.gd" id="2_tkau1"]
 [ext_resource type="Script" uid="uid://bjeeahdfsdo71" path="res://addons/apx-accessibility/total_recall/objective_content.gd" id="3_yism1"]
 [ext_resource type="Texture2D" uid="uid://c53yrar48nbqa" path="res://addons/apx-accessibility/total_recall/objective_standin.png" id="4_jxy3m"]
@@ -44,7 +43,7 @@ custom_minimum_size = Vector2(128, 192)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("1_fx03o")
+texture = ExtResource("4_jxy3m")
 expand_mode = 1
 stretch_mode = 5
 
