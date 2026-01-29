@@ -29,4 +29,4 @@ func _update_content(key: String) -> void:
 	if !objective_content: return
 	var objective: Objective = objective_display.key_to_objective[key]
 	if !objective: return
-	objective_content.update_contents(objective.title, objective.description)
+	objective_content.update_contents(objective.title, objective.description, objective.image_path)

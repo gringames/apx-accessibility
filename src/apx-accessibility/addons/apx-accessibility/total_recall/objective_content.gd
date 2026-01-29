@@ -8,13 +8,13 @@ class_name ObjectiveContent
 @onready var content_description: Label = $"VBoxContainer Texts/ContentDescription"
 
 
-func _ready() -> void:
-	pass
-	# TODO: use stand ins / create empty representation
-
 func update_contents(title: String, description: String, image_path: String = "") -> void:
 	content_title.text = title
 	content_description.text = description
-	# TODO: update image as well
-	# if image_path != "":
-	# 	content_image.texture = ??
+	if image_path != "":
+		_set_content_image_texture(load(image_path))
+	else:
+		_set_content_image_texture(stand_in_image)
+
+func _set_content_image_texture(texture: Texture2D) -> void:
+	content_image.texture = texture
