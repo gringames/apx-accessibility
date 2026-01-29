@@ -29,24 +29,6 @@ size_flags_vertical = 0
 theme_override_constants/separation = 2
 script = ExtResource("2_tkau1")
 
-[node name="Button" type="Button" parent="ScrollView/SideBarButtons"]
-layout_mode = 2
-text = "Title here"
-alignment = 0
-autowrap_mode = 2
-
-[node name="Button2" type="Button" parent="ScrollView/SideBarButtons"]
-layout_mode = 2
-text = "marathon runner!"
-alignment = 0
-autowrap_mode = 2
-
-[node name="Button3" type="Button" parent="ScrollView/SideBarButtons"]
-layout_mode = 2
-text = "Title hereao"
-alignment = 0
-autowrap_mode = 2
-
 [node name="Contents" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(400, 256)
 layout_mode = 2
