@@ -91,7 +91,7 @@ func print_objectives(grouped: bool) -> void:
 func _create_example_objectives() -> void:
 	_add_objective_to_dict("talo", make_objective("Talo's Tale", "Fight the boss Talo and redeem your reward!", false))
 	_add_objective_to_dict("100steps", make_objective("You Can Move!", "Walk 100 steps in total.", false))
-	_add_objective_to_dict("5seeds", make_objective("Seedy Situation", "Find 5 seeds and bring them to X!", true))
+	_add_objective_to_dict("5seeds", make_objective("Seedy Situation", "Find 5 seeds and bring them to X!", false))
 	_add_objective_to_dict("first_seed", make_objective("Take a Seed", "Find your first seed!", true))
 	_add_objective_to_dict("first_gold", make_objective("It's Gold!", "Find your first gold!", true))
 	_add_objective_to_dict("first_task", make_objective("You're Welcome!", "Complete your first NPC quest!", true))
