@@ -12,13 +12,13 @@ size_flags_vertical = 0
 script = ExtResource("1_1wdap")
 metadata/_tab_index = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(0, 256)
 layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="VScrollBar" type="VScrollBar" parent="HBoxContainer"]
-visible = false
-layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+draw_focus_border = true
+horizontal_scroll_mode = 0
 
 [node name="SideBarButtons" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(128, 256)
