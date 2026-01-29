@@ -1,26 +1,26 @@
 extends HBoxContainer
 class_name ObjectiveTab
 
-@onready var objective_side_bar_buttons: SideBarButtons = $HBoxContainer/SideBarButtons
+@onready var side_bar_buttons: SideBarButtons = $ScrollView/SideBarButtons
 @onready var objective_content: ObjectiveContent = $"Contents"
 
 var objective_display: ObjectiveDisplay
 
 func _ready() -> void:
 	objective_display = get_parent().get_parent() as ObjectiveDisplay
-	if !objective_side_bar_buttons: return
-	objective_side_bar_buttons.side_bar_button_pressed.connect(_on_side_bar_button_pressed)
+	if !side_bar_buttons: return
+	side_bar_buttons.side_bar_button_pressed.connect(_on_side_bar_button_pressed)
 
 
 func create_side_bar_buttons_for_objectives(objectives: Dictionary[String, Objective]) -> void:
-	objective_side_bar_buttons.create_side_bar_buttons_for_objectives(objectives)
-	objective_side_bar_buttons.set_objective_tab(self)
+	side_bar_buttons.create_side_bar_buttons_for_objectives(objectives)
+	side_bar_buttons.set_objective_tab(self)
 
 func add_objective(key: String, objective: Objective) -> void:
-	objective_side_bar_buttons.append_objective(key, objective)
+	side_bar_buttons.append_objective(key, objective)
 
 func remove_objective(key: String) -> void:
-	objective_side_bar_buttons.remove_objective(key)
+	side_bar_buttons.remove_objective(key)
 
 func _on_side_bar_button_pressed(key: String) -> void:
 	_update_content(key)

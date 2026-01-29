@@ -12,15 +12,15 @@ size_flags_vertical = 0
 script = ExtResource("1_1wdap")
 metadata/_tab_index = 0
 
-[node name="HBoxContainer" type="ScrollContainer" parent="."]
-custom_minimum_size = Vector2(0, 256)
+[node name="ScrollView" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(136, 256)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 draw_focus_border = true
 horizontal_scroll_mode = 0
 
-[node name="SideBarButtons" type="VBoxContainer" parent="HBoxContainer"]
+[node name="SideBarButtons" type="VBoxContainer" parent="ScrollView"]
 custom_minimum_size = Vector2(128, 256)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -28,38 +28,53 @@ size_flags_vertical = 0
 theme_override_constants/separation = 2
 script = ExtResource("2_tkau1")
 
-[node name="Button" type="Button" parent="HBoxContainer/SideBarButtons"]
+[node name="Button" type="Button" parent="ScrollView/SideBarButtons"]
 layout_mode = 2
 text = "Title here"
-
-[node name="Button2" type="Button" parent="HBoxContainer/SideBarButtons"]
-layout_mode = 2
-text = "marathon runner!"
+alignment = 0
 autowrap_mode = 2
 
-[node name="Button3" type="Button" parent="HBoxContainer/SideBarButtons"]
+[node name="Button2" type="Button" parent="ScrollView/SideBarButtons"]
 layout_mode = 2
-text = "Title here"
+text = "marathon runner!"
+alignment = 0
+autowrap_mode = 2
 
-[node name="Button4" type="Button" parent="HBoxContainer/SideBarButtons"]
+[node name="Button3" type="Button" parent="ScrollView/SideBarButtons"]
 layout_mode = 2
-text = "Title here"
+text = "Title hereao"
+alignment = 0
+autowrap_mode = 2
 
-[node name="Button5" type="Button" parent="HBoxContainer/SideBarButtons"]
+[node name="Button4" type="Button" parent="ScrollView/SideBarButtons"]
 layout_mode = 2
 text = "Title here"
+alignment = 0
+autowrap_mode = 2
 
-[node name="Button6" type="Button" parent="HBoxContainer/SideBarButtons"]
+[node name="Button5" type="Button" parent="ScrollView/SideBarButtons"]
 layout_mode = 2
 text = "Title here"
+alignment = 0
+autowrap_mode = 2
 
-[node name="Button7" type="Button" parent="HBoxContainer/SideBarButtons"]
+[node name="Button6" type="Button" parent="ScrollView/SideBarButtons"]
 layout_mode = 2
 text = "Title here"
+alignment = 0
+autowrap_mode = 2
 
-[node name="Button8" type="Button" parent="HBoxContainer/SideBarButtons"]
+[node name="Button7" type="Button" parent="ScrollView/SideBarButtons"]
 layout_mode = 2
 text = "Title here"
+alignment = 0
+autowrap_mode = 2
+
+[node name="Button8" type="Button" parent="ScrollView/SideBarButtons"]
+layout_mode = 2
+text = "Title here"
+alignment = 0
+autowrap_mode = 2
 
 [node name="Contents" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(400, 256)

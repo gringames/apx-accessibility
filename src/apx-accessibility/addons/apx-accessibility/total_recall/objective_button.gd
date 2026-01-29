@@ -13,6 +13,7 @@ func _ready() -> void:
 func _init(key: String, title: String) -> void:
 	set_title_and_key(title, key)
 	alignment = HORIZONTAL_ALIGNMENT_LEFT
+	autowrap_mode = TextServer.AUTOWRAP_WORD
 
 func set_title_and_key(title: String, key: String) -> void:
 	set_title(title)

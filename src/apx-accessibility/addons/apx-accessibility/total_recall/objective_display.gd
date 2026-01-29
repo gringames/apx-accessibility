@@ -8,8 +8,7 @@ class_name ObjectiveDisplay
 var key_to_objective: Dictionary[String, Objective] = {}
 
 func _ready() -> void:
-	add_example_objectives()
-	# print_objectives(true)
+	_create_example_objectives()
 	current_objective_tab.create_side_bar_buttons_for_objectives(get_current_objectives())
 	completed_objective_tab.create_side_bar_buttons_for_objectives(get_completed_objectives())
 
@@ -89,16 +88,20 @@ func print_objectives(grouped: bool) -> void:
 		print("completed: ", JSON.stringify(get_completed_objectives(), "\t"))
 		print("current: ", JSON.stringify(get_current_objectives(), "\t"))
 
-func add_example_objectives() -> void:
-	add_objective("talo", make_objective("Talo's Tale", "Fight the boss Talo and redeem your reward!", false))
-	add_objective("test", make_objective("title", "description", false))
-	add_objective("5seeds", make_objective("Seedy Situation", "Find 5 seeds and bring them to X!", false))
-	add_objective("first_seed", make_objective("Take a Seed", "Find your first seed!", true))
-	add_objective("first_gold", make_objective("It's Gold!", "Find your first gold!", true))
-	add_objective("first_task", make_objective("You're Welcome!", "Complete your first NPC quest!", true))
-	add_objective("first_steps", make_objective("Your First Steps", "Move by using the arrow keys.", true))
-	add_objective("100steps", make_objective("You Can Move!", "Walk 100 steps in total.", true))
-	add_objective("1000steps", make_objective("Runner!", "Walk 1000 steps in total.", true))
-	add_objective("10000steps", make_objective("Marathon Runner!", "Walk 10000 steps in total.", true))
-	add_objective("100000steps", make_objective("Around the World!", "Walk 100000 steps in total.", true))
-	add_objective("first_death", make_objective("Game Over!", "Die for the first time.", true))
+func _create_example_objectives() -> void:
+	_add_objective_to_dict("talo", make_objective("Talo's Tale", "Fight the boss Talo and redeem your reward!", false))
+	_add_objective_to_dict("test", make_objective("title", "description", false))
+	_add_objective_to_dict("5seeds", make_objective("Seedy Situation", "Find 5 seeds and bring them to X!", false))
+	_add_objective_to_dict("first_seed", make_objective("Take a Seed", "Find your first seed!", true))
+	_add_objective_to_dict("first_gold", make_objective("It's Gold!", "Find your first gold!", true))
+	_add_objective_to_dict("first_task", make_objective("You're Welcome!", "Complete your first NPC quest!", true))
+	_add_objective_to_dict("first_steps", make_objective("Your First Steps", "Move by using the arrow keys.", true))
+	_add_objective_to_dict("100steps", make_objective("You Can Move!", "Walk 100 steps in total.", false))
+	_add_objective_to_dict("1000steps", make_objective("Runner!", "Walk 1000 steps in total.", true))
+	_add_objective_to_dict("10000steps", make_objective("Marathon Runner!", "Walk 10000 steps in total.", true))
+	_add_objective_to_dict("100000steps", make_objective("Around the World!", "Walk 100000 steps in total.", true))
+	_add_objective_to_dict("first_death", make_objective("Game Over!", "Die for the first time.", true))
+
+
+func _add_objective_to_dict(key: String, objective: Objective) -> void:
+	key_to_objective[key] = objective
