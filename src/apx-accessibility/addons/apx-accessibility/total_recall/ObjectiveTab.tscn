@@ -19,6 +19,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 draw_focus_border = true
 horizontal_scroll_mode = 0
+vertical_scroll_mode = 4
 
 [node name="SideBarButtons" type="VBoxContainer" parent="ScrollView"]
 custom_minimum_size = Vector2(128, 256)
