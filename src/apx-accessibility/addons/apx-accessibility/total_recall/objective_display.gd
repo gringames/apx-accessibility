@@ -94,7 +94,7 @@ func _create_example_objectives() -> void:
 	_add_objective_to_dict("5seeds", make_objective("Seedy Situation", "Find 5 seeds and bring them to X!", false))
 	_add_objective_to_dict("first_seed", make_objective("Take a Seed", "Find your first seed!", true))
 	_add_objective_to_dict("first_gold", make_objective("It's Gold!", "Find your first gold!", true))
-	_add_objective_to_dict("first_task", make_objective("You're Welcome!", "Complete your first NPC quest!", true))
+	_add_objective_to_dict("first_task", make_objective("You're Welcome!", "Complete your first NPC quest!", true, "res://addons/apx-accessibility/total_recall/icons/DoYourFirstQuestIcon.png"))
 	_add_objective_to_dict("first_steps", make_objective("Your First Steps", "Move by using the arrow keys.", true))
 	_add_objective_to_dict("1000steps", make_objective("Runner!", "Walk 1000 steps in total.", true))
 	_add_objective_to_dict("10000steps", make_objective("Marathon Runner!", "Walk 10000 steps in total.", true))
