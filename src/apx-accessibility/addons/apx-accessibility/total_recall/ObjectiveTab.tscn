@@ -22,7 +22,7 @@ horizontal_scroll_mode = 0
 vertical_scroll_mode = 4
 
 [node name="SideBarButtons" type="VBoxContainer" parent="ScrollView"]
-custom_minimum_size = Vector2(128, 256)
+custom_minimum_size = Vector2(128, 10)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -44,36 +44,6 @@ autowrap_mode = 2
 [node name="Button3" type="Button" parent="ScrollView/SideBarButtons"]
 layout_mode = 2
 text = "Title hereao"
-alignment = 0
-autowrap_mode = 2
-
-[node name="Button4" type="Button" parent="ScrollView/SideBarButtons"]
-layout_mode = 2
-text = "Title here"
-alignment = 0
-autowrap_mode = 2
-
-[node name="Button5" type="Button" parent="ScrollView/SideBarButtons"]
-layout_mode = 2
-text = "Title here"
-alignment = 0
-autowrap_mode = 2
-
-[node name="Button6" type="Button" parent="ScrollView/SideBarButtons"]
-layout_mode = 2
-text = "Title here"
-alignment = 0
-autowrap_mode = 2
-
-[node name="Button7" type="Button" parent="ScrollView/SideBarButtons"]
-layout_mode = 2
-text = "Title here"
-alignment = 0
-autowrap_mode = 2
-
-[node name="Button8" type="Button" parent="ScrollView/SideBarButtons"]
-layout_mode = 2
-text = "Title here"
 alignment = 0
 autowrap_mode = 2
 
