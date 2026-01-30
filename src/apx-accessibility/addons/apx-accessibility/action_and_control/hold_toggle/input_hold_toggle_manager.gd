@@ -1,11 +1,8 @@
 extends Node
 
-enum InputMode {Hold, Toggle}
-
 var actions: Dictionary[String, HoldToggleInputAction] = {}
 
 func _ready() -> void:
-	add_action("print_hello", make_action("print_hello", InputMode.Toggle))
 	if actions and actions.is_empty():
 		set_process(false)
 
@@ -15,28 +12,34 @@ func is_action_active(action_name: String) -> bool:
 	return actions[action_name].is_active
 
 
-func add_action(action_name: String, action: HoldToggleInputAction) -> void:
+func add_action(action_name: String, mode: InputMode.Type = InputMode.Type.Hold) -> void:
 	if !actions.has(action_name):
-		actions[action_name] = action
+		actions[action_name] = _make_action(action_name, mode)
 	if actions.size() == 1:
 		set_process(true)
+	print("adding action ", action_name, " with mode ", mode)
 
 func remove_action(action_name: String) -> void:
 	if actions.has(action_name):
 		actions.erase(action_name)
 	if actions.is_empty():
 		set_process(false)
+	print("removing action ", action_name)
+	
 
-func update_action(action_name: String, hold: bool) -> void:
+func update_action(action_name: String, mode: InputMode.Type) -> void:
 	if actions.has(action_name):
-		actions[action_name].has_to_be_held = hold
+		actions[action_name].mode = mode
+	print("updating action ", action_name, " to mode ", mode)
+
+
 
 func reset_all_actions() -> void:
 	if actions.is_empty(): return
 	for key in actions:
 		actions[key].is_active = false
 
-func make_action(action_name: String, mode: InputMode, active: bool = false) -> HoldToggleInputAction:
+func _make_action(action_name: String, mode: InputMode.Type, active: bool = false) -> HoldToggleInputAction:
 	return HoldToggleInputAction.new(action_name, mode, active)
 
 
