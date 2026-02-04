@@ -6,18 +6,13 @@ func _ready() -> void:
 	if actions and actions.is_empty():
 		set_process(false)
 
-func is_action_active(action_name: String) -> bool:
-	if !actions.has(action_name):
-		return false
-	return actions[action_name].is_active
-
 
 func add_action(action_name: String, mode: InputMode.Type = InputMode.Type.Hold) -> void:
 	if !actions.has(action_name):
 		actions[action_name] = _make_action(action_name, mode)
 	if actions.size() == 1:
 		set_process(true)
-	print("adding action ", action_name, " with mode ", mode)
+	print("adding action ", action_name, " with mode ", InputMode.TYPE_TO_STRING[mode])
 
 func remove_action(action_name: String) -> void:
 	if actions.has(action_name):
@@ -30,8 +25,16 @@ func remove_action(action_name: String) -> void:
 func update_action(action_name: String, mode: InputMode.Type) -> void:
 	if actions.has(action_name):
 		actions[action_name].mode = mode
-	print("updating action ", action_name, " to mode ", mode)
+	print("updating action ", action_name, " to mode ", InputMode.TYPE_TO_STRING[mode])
 
+func is_action_active(action_name: String) -> bool:
+	if !actions.has(action_name):
+		return false
+	return actions[action_name].is_active
+
+func get_action_input_mode(action_name: String) -> InputMode.Type:
+	if !actions.has(action_name): return InputMode.Type.None
+	return actions[action_name].mode
 
 
 func reset_all_actions() -> void:

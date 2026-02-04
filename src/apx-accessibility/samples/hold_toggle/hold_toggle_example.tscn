@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1n82u50xk4ir"]
+
+[ext_resource type="Script" uid="uid://d0ljlscn71u3y" path="res://samples/hold_toggle/hold_toggle_example_usage.gd" id="1_0ekk1"]
+
+[node name="HoldToggleExample" type="Node"]
+script = ExtResource("1_0ekk1")
