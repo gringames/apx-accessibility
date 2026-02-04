@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://do8hhxkuxr64k"]
 
-[ext_resource type="Script" uid="uid://cm3n7gta1d42m" path="res://addons/apx-accessibility/action_and_control/hold_toggle/hold_toggle_settings.gd" id="1_gdjiy"]
-[ext_resource type="Script" uid="uid://cmcvyk6i4dd7c" path="res://addons/apx-accessibility/action_and_control/hold_toggle/action_with_display_name.gd" id="2_gdjiy"]
-[ext_resource type="PackedScene" uid="uid://cfwtoobpewg0g" path="res://addons/apx-accessibility/action_and_control/hold_toggle/ActionHoldToggleEntry.tscn" id="3_kgyxh"]
+[ext_resource type="Script" uid="uid://cm3n7gta1d42m" path="res://addons/apx-accessibility/same_controls_but_different/hold_toggle/hold_toggle_settings.gd" id="1_gdjiy"]
+[ext_resource type="Script" uid="uid://cmcvyk6i4dd7c" path="res://addons/apx-accessibility/same_controls_but_different/hold_toggle/action_with_display_name.gd" id="2_gdjiy"]
+[ext_resource type="PackedScene" uid="uid://cfwtoobpewg0g" path="res://addons/apx-accessibility/same_controls_but_different/hold_toggle/ActionHoldToggleEntry.tscn" id="3_kgyxh"]
 
 [sub_resource type="Resource" id="Resource_3xhub"]
 script = ExtResource("2_gdjiy")

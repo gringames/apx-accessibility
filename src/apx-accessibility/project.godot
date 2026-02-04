@@ -17,12 +17,12 @@ config/icon="uid://ksqpjx02hdfp"
 
 [autoload]
 
-InputHoldToggleManager="*res://addons/apx-accessibility/action_and_control/hold_toggle/input_hold_toggle_manager.gd"
-InputMode="*res://addons/apx-accessibility/action_and_control/hold_toggle/input_mode.gd"
+InputHoldToggleManager="*res://addons/apx-accessibility/same_controls_but_different/hold_toggle/input_hold_toggle_manager.gd"
+InputMode="*res://addons/apx-accessibility/same_controls_but_different/hold_toggle/input_mode.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/apx-accessibility/action_and_control/hold_toggle/plugin.cfg", "res://addons/apx-accessibility/clear_channels/plugin.cfg", "res://addons/apx-accessibility/total_recall/plugin.cfg")
+enabled=PackedStringArray("res://addons/apx-accessibility/clear_channels/plugin.cfg", "res://addons/apx-accessibility/same_controls_but_different/hold_toggle/plugin.cfg", "res://addons/apx-accessibility/total_recall/plugin.cfg")
 
 [global_group]
 

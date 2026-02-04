@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ht8wxqsnrit0"
-path="res://.godot/imported/HoldToggleSettings.svg-8621a8523f4c8ee6549a933c1a65e612.ctex"
+path="res://.godot/imported/HoldToggleSettings.svg-999827e5a8561b4ba354d7458c2f66ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/apx-accessibility/action_and_control/hold_toggle/icons/HoldToggleSettings.svg"
-dest_files=["res://.godot/imported/HoldToggleSettings.svg-8621a8523f4c8ee6549a933c1a65e612.ctex"]
+source_file="res://addons/apx-accessibility/same_controls_but_different/hold_toggle/icons/HoldToggleSettings.svg"
+dest_files=["res://.godot/imported/HoldToggleSettings.svg-999827e5a8561b4ba354d7458c2f66ca.ctex"]
 
 [params]
 
