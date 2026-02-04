@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://do8hhxkuxr64k"]
 
 [ext_resource type="Script" uid="uid://cm3n7gta1d42m" path="res://addons/apx-accessibility/action_and_control/hold_toggle/hold_toggle_settings.gd" id="1_gdjiy"]
-[ext_resource type="Script" uid="uid://d0ljlscn71u3y" path="res://samples/hold_toggle/hold_toggle_example_usage.gd" id="3_gdjiy"]
+[ext_resource type="PackedScene" uid="uid://c1n82u50xk4ir" path="res://samples/hold_toggle/hold_toggle_example.tscn" id="3_gdjiy"]
 [ext_resource type="PackedScene" uid="uid://cfwtoobpewg0g" path="res://addons/apx-accessibility/action_and_control/hold_toggle/ActionHoldToggleEntry.tscn" id="3_kgyxh"]
 
 [node name="HoldToggleSettings" type="Control"]
@@ -33,5 +33,4 @@ offset_top = 120.0
 offset_right = 800.0
 offset_bottom = 640.0
 
-[node name="HoldToggleExample" type="Node" parent="."]
-script = ExtResource("3_gdjiy")
+[node name="HoldToggleExample" parent="." instance=ExtResource("3_gdjiy")]
