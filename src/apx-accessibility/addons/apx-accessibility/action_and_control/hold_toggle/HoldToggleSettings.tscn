@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://do8hhxkuxr64k"]
+[gd_scene load_steps=6 format=3 uid="uid://do8hhxkuxr64k"]
 
 [ext_resource type="Script" uid="uid://cm3n7gta1d42m" path="res://addons/apx-accessibility/action_and_control/hold_toggle/hold_toggle_settings.gd" id="1_gdjiy"]
 [ext_resource type="Script" uid="uid://cmcvyk6i4dd7c" path="res://addons/apx-accessibility/action_and_control/hold_toggle/action_with_display_name.gd" id="2_gdjiy"]
 [ext_resource type="PackedScene" uid="uid://cfwtoobpewg0g" path="res://addons/apx-accessibility/action_and_control/hold_toggle/ActionHoldToggleEntry.tscn" id="3_kgyxh"]
-[ext_resource type="PackedScene" uid="uid://c1n82u50xk4ir" path="res://samples/hold_toggle/hold_toggle_example.tscn" id="4_3xhub"]
 
 [sub_resource type="Resource" id="Resource_3xhub"]
 script = ExtResource("2_gdjiy")
@@ -27,8 +26,6 @@ grow_vertical = 2
 script = ExtResource("1_gdjiy")
 input_action_names = Array[ExtResource("2_gdjiy")]([SubResource("Resource_3xhub"), SubResource("Resource_gdjiy")])
 action_hold_entry_template = ExtResource("3_kgyxh")
-
-[node name="HoldToggleExample" parent="." instance=ExtResource("4_3xhub")]
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
