@@ -1,3 +1,4 @@
+@icon("res://addons/apx-accessibility/action_and_control/icons/HoldToggleSettings.svg")
 extends Node
 
 var actions: Dictionary[String, HoldToggleInputAction] = {}

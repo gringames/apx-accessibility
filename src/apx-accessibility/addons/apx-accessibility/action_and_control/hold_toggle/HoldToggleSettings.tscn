@@ -1,8 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://do8hhxkuxr64k"]
+[gd_scene load_steps=7 format=3 uid="uid://do8hhxkuxr64k"]
 
 [ext_resource type="Script" uid="uid://cm3n7gta1d42m" path="res://addons/apx-accessibility/action_and_control/hold_toggle/hold_toggle_settings.gd" id="1_gdjiy"]
-[ext_resource type="PackedScene" uid="uid://c1n82u50xk4ir" path="res://samples/hold_toggle/hold_toggle_example.tscn" id="3_gdjiy"]
+[ext_resource type="Script" uid="uid://cmcvyk6i4dd7c" path="res://addons/apx-accessibility/action_and_control/hold_toggle/action_with_display_name.gd" id="2_gdjiy"]
 [ext_resource type="PackedScene" uid="uid://cfwtoobpewg0g" path="res://addons/apx-accessibility/action_and_control/hold_toggle/ActionHoldToggleEntry.tscn" id="3_kgyxh"]
+[ext_resource type="PackedScene" uid="uid://c1n82u50xk4ir" path="res://samples/hold_toggle/hold_toggle_example.tscn" id="4_3xhub"]
+
+[sub_resource type="Resource" id="Resource_3xhub"]
+script = ExtResource("2_gdjiy")
+action_name = "print_hello"
+display_name = "say hello"
+metadata/_custom_type_script = "uid://cmcvyk6i4dd7c"
+
+[sub_resource type="Resource" id="Resource_gdjiy"]
+script = ExtResource("2_gdjiy")
+action_name = "print_bye_bye"
+display_name = "say bye"
+metadata/_custom_type_script = "uid://cmcvyk6i4dd7c"
 
 [node name="HoldToggleSettings" type="Control"]
 layout_mode = 3
@@ -12,8 +25,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gdjiy")
-input_action_names = Array[String](["print_hello", "print_bye_bye"])
+input_action_names = Array[ExtResource("2_gdjiy")]([SubResource("Resource_3xhub"), SubResource("Resource_gdjiy")])
 action_hold_entry_template = ExtResource("3_kgyxh")
+
+[node name="HoldToggleExample" parent="." instance=ExtResource("4_3xhub")]
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -32,5 +47,3 @@ offset_left = 420.0
 offset_top = 120.0
 offset_right = 800.0
 offset_bottom = 640.0
-
-[node name="HoldToggleExample" parent="." instance=ExtResource("3_gdjiy")]
