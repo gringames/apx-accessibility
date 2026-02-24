@@ -4,6 +4,14 @@ class_name TextThemeEditor
 
 const THEME_TYPE_LABEL: String = "Label"
 
+# WCAG CONSTANTS
+const ALPHA: float = 0.05
+const LUMINANCE_BLACK: float = 0.0
+const LUMINANCE_WHITE: float = 1.0
+const LINEAR_FACTOR_R: float = 0.2126
+const LINEAR_FACTOR_G: float = 0.7152
+const LINEAR_FACTOR_B: float = 0.0722
+
 @onready var font_size_spin_box: SpinBox = $"VBoxContainer/HBoxContainer (Font Size)/SpinBox"
 @onready var line_spacing_spin_box: SpinBox = $"VBoxContainer/HBoxContainer (Font VSpacing)/SpinBox"
 @onready var font_color_picker_button: ColorPickerButton = $"VBoxContainer/HBoxContainer (Font Color)/ColorPickerButton"
@@ -11,8 +19,9 @@ const THEME_TYPE_LABEL: String = "Label"
 @onready var font_option_button: OptionButton = $"VBoxContainer/HBoxContainer (Fonts)/OptionButton"
 @onready var h_box_container_fonts_: HBoxContainer = $"VBoxContainer/HBoxContainer (Fonts)"
 @onready var back_margins_spin_box: SpinBox = $"VBoxContainer/HBoxContainer (Back Margins)/SpinBox"
-
 @onready var preview_text: Label = $PreviewLabel
+
+@export_group("Theme")
 @export var theme_to_edit: Theme
 
 @export_group("Preview Text")
@@ -141,21 +150,18 @@ func _on_back_margins_changed(value: float) -> void:
 
 func get_best_contrasting_color(input_color: Color) -> Color:
 	var color_luminance = get_luminance(input_color)
-	var contrast_white = (1.0 + 0.05) / (color_luminance + 0.05)
-	var contrast_black = (color_luminance + 0.05) / (0.0 + 0.05)
-
-	if contrast_white > contrast_black:
-		return Color.WHITE
-	else:
-		return Color.BLACK
+	var contrast_white = (LUMINANCE_WHITE + ALPHA) / (color_luminance + ALPHA)
+	var contrast_black = (color_luminance + ALPHA) / (LUMINANCE_BLACK + ALPHA)
+	if contrast_white > contrast_black: return Color.WHITE
+	else: return Color.BLACK
 
 func get_luminance(color: Color) -> float:
 	var r_linear: float = color_component_to_linear(color.r)
 	var g_linear: float = color_component_to_linear(color.g)
 	var b_linear: float = color_component_to_linear(color.b)
-	return 0.2126 * r_linear + 0.7152 * g_linear + 0.0722 * b_linear
+	return LINEAR_FACTOR_R * r_linear + LINEAR_FACTOR_G * g_linear + LINEAR_FACTOR_B * b_linear
 
-func color_component_to_linear(comp: float) -> float:
-	if comp <= 0.04045:
-		return comp / 12.92
-	return ((comp + 0.055) / 1.055) ** 2.4
+func color_component_to_linear(color_component: float) -> float:
+	if color_component <= 0.04045:
+		return color_component / 12.92
+	return ((color_component + 0.055) / 1.055) ** 2.4
