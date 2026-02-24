@@ -2,16 +2,16 @@
 extends Control
 class_name TextThemeEditor
 
+## CONSTANTS
 const THEME_TYPE_LABEL: String = "Label"
 
-# WCAG CONSTANTS
-const ALPHA: float = 0.05
-const LUMINANCE_BLACK: float = 0.0
-const LUMINANCE_WHITE: float = 1.0
+## WCAG CONSTANTS
 const LINEAR_FACTOR_R: float = 0.2126
 const LINEAR_FACTOR_G: float = 0.7152
 const LINEAR_FACTOR_B: float = 0.0722
+const LUMINANCE_THRESHOLD: float = 0.179
 
+## READY VARIABLES
 @onready var font_size_spin_box: SpinBox = $"VBoxContainer/HBoxContainer (Font Size)/SpinBox"
 @onready var line_spacing_spin_box: SpinBox = $"VBoxContainer/HBoxContainer (Font VSpacing)/SpinBox"
 @onready var h_box_container_contrast: HBoxContainer = $"VBoxContainer/HBoxContainer (Contrast)"
@@ -23,6 +23,7 @@ const LINEAR_FACTOR_B: float = 0.0722
 @onready var back_margins_spin_box: SpinBox = $"VBoxContainer/HBoxContainer (Back Margins)/SpinBox"
 @onready var preview_text: Label = $PreviewLabel
 
+## EXPORT VARS
 @export_group("Theme")
 @export var theme_to_edit: Theme
 
@@ -45,18 +46,19 @@ const LINEAR_FACTOR_B: float = 0.0722
 @export var add_contrast_button: bool = true
 @export_enum("WCAG2", "APCA") var contrast_method
 
+## REGULAR VARIABLES
 var style_box: StyleBoxFlat = StyleBoxFlat.new()
 var font_name_to_index: Dictionary[String, int] = {"Open Sans SemiBold":-1}
 var auto_contrast_enabled: bool = false
 
 
+## SETUP
 func _ready() -> void:
 	preview_text.theme = theme_to_edit
 	preview_text.text = text_for_preview
 	_remove_font_options_if_not_checked()
 	_remove_contrast_button_if_not_checked()
 	_setup_default_values()
-
 
 func _remove_font_options_if_not_checked() -> void:
 	if fonts.is_empty() or not allow_font_changes:
@@ -177,9 +179,7 @@ func _set_text_to_best_contrast(back_color: Color) -> void:
 
 func get_best_contrasting_color(input_color: Color) -> Color:
 	var color_luminance = get_luminance(input_color)
-	var contrast_white = (LUMINANCE_WHITE + ALPHA) / (color_luminance + ALPHA)
-	var contrast_black = (color_luminance + ALPHA) / (LUMINANCE_BLACK + ALPHA)
-	if contrast_white > contrast_black: return Color.WHITE
+	if color_luminance < LUMINANCE_THRESHOLD: return Color.WHITE
 	else: return Color.BLACK
 
 func get_luminance(color: Color) -> float:
