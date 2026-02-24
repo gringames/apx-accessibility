@@ -4,9 +4,10 @@ class_name TextThemeEditor
 
 ## CONSTANTS
 const THEME_TYPE_LABEL: String = "Label"
-
-## WCAG CONSTANTS
+const METHOD_WCAG_2_1: String = "WCAG"
+const METHOD_APCA: String = "APCA"
 const LUMINANCE_THRESHOLD: float = 0.179
+const APCA_THRESHOLD: float = 60.0
 
 ## READY VARIABLES
 @onready var font_size_spin_box: SpinBox = $"VBoxContainer/HBoxContainer (Font Size)/SpinBox"
@@ -24,6 +25,16 @@ const LUMINANCE_THRESHOLD: float = 0.179
 @export_group("Theme")
 @export var theme_to_edit: Theme
 
+@export_group("Fonts")
+@export var allow_font_changes: bool = true
+@export var fonts: Array[Font] = []
+
+@export_group("Contrast")
+@export var add_contrast_button: bool = true
+@export var font_dictates_background_color: bool = true
+@export var background_dictates_font_color: bool = true
+@export_enum(METHOD_WCAG_2_1, METHOD_APCA) var contrast_method: String = METHOD_WCAG_2_1
+
 @export_group("Preview Text")
 @export_multiline var text_for_preview: String = "Preview Text\nThis is a second line"
 
@@ -35,13 +46,6 @@ const LUMINANCE_THRESHOLD: float = 0.179
 @export var min_margins: float = 0
 @export var max_margins: float = 10
 
-@export_group("Fonts")
-@export var allow_font_changes: bool = true
-@export var fonts: Array[Font] = []
-
-@export_group("Contrast")
-@export var add_contrast_button: bool = true
-@export_enum("WCAG2", "APCA") var contrast_method
 
 ## REGULAR VARIABLES
 var style_box: StyleBoxFlat = StyleBoxFlat.new()
@@ -114,7 +118,7 @@ func _on_contrast_check_button_toggled(toggled_on: bool) -> void:
 
 func _on_font_color_changed(color: Color) -> void:
 	_update_theme_font_color(color)
-	if auto_contrast_enabled:
+	if auto_contrast_enabled and font_dictates_background_color:
 		_set_back_to_best_contrast(color)
 
 func _update_theme_font_color(color: Color) -> void:
@@ -122,7 +126,7 @@ func _update_theme_font_color(color: Color) -> void:
 
 func _on_background_color_changed(color: Color) -> void:
 	_update_theme_back_color(color)
-	if auto_contrast_enabled:
+	if auto_contrast_enabled and background_dictates_font_color:
 		_set_text_to_best_contrast(color)
 
 func _update_theme_back_color(color: Color) -> void:
@@ -162,35 +166,61 @@ func _on_back_margins_changed(value: float) -> void:
 ## CONTRAST HELPERS
 
 func _set_back_to_best_contrast(text_color: Color) -> void:
-	var contrast_color: Color = get_best_contrasting_color(text_color)
+	var contrast_color: Color = _get_best_contrast_color(text_color)
 	background_color_picker_button.color = contrast_color
 	_update_theme_back_color(contrast_color)
 
 func _set_text_to_best_contrast(back_color: Color) -> void:
-	var contrast_color: Color = get_best_contrasting_color(back_color)
+	var contrast_color: Color = _get_best_contrast_color(back_color)
 	font_color_picker_button.color = contrast_color
 	_update_theme_font_color(contrast_color)
+
+func _get_best_contrast_color(color: Color) -> Color:
+	if contrast_method == METHOD_WCAG_2_1:
+		return _get_best_contrasting_color_wcag(color)
+	return _get_best_contrasting_color_apca(color)
+
+func _get_luminance(color: Color) -> float:
+	var r_linear: float = _srgb_to_linear(color.r)
+	var g_linear: float = _srgb_to_linear(color.g)
+	var b_linear: float = _srgb_to_linear(color.b)
+	# from the definition of luminance
+	return 0.2126 * r_linear + 0.7152 * g_linear + 0.0722 * b_linear
+
+func _srgb_to_linear(color_component: float) -> float:
+	# from sRGB (undo gamma)
+	if color_component <= 0.04045:
+		return color_component / 12.92
+	return pow(((color_component + 0.055) / 1.055), 2.4)
 
 
 ## COLOR CONTRAST CALCULATIONS (WCAG 2.1)
 
-func get_best_contrasting_color(input_color: Color) -> Color:
-	var color_luminance = get_luminance(input_color)
+func _get_best_contrasting_color_wcag(input_color: Color) -> Color:
+	var color_luminance = _get_luminance(input_color)
 	if color_luminance < LUMINANCE_THRESHOLD: return Color.WHITE
 	else: return Color.BLACK
 
-func get_luminance(color: Color) -> float:
-	var r_linear: float = color_component_to_linear(color.r)
-	var g_linear: float = color_component_to_linear(color.g)
-	var b_linear: float = color_component_to_linear(color.b)
-	# from the definition of luminance
-	return 0.2126 * r_linear + 0.7152 * g_linear + 0.0722 * b_linear
-
-func color_component_to_linear(color_component: float) -> float:
-	# from sRGB (undo gamma)
-	if color_component <= 0.04045:
-		return color_component / 12.92
-	return ((color_component + 0.055) / 1.055) ** 2.4
-
 
 ## COLOR CONTRAST CALCULATIONS (APCA)
+
+func _get_best_contrasting_color_apca(input_color: Color) -> Color:
+	var color_luminance = _get_luminance(input_color)
+	var hue: float = input_color.h
+	var saturation: float = input_color.s
+	# Search from light to dark
+	for i in range(0, 100):
+		var v = i / 100.0
+		var candidate_color = Color.from_hsv(hue, saturation, v)
+		if abs(_apca_contrast(input_color, candidate_color)) >= APCA_THRESHOLD:
+			return candidate_color
+	# use wcag as a fallback if no score is high enough
+	return _get_best_contrasting_color_wcag(input_color)
+
+func _apca_contrast(color1: Color, color2: Color) -> float:
+	var Ytxt = _get_luminance(color1)
+	var Ybg = _get_luminance(color2)
+	# perceptual power curve
+	Ytxt = pow(Ytxt, 0.65)
+	Ybg = pow(Ybg, 0.65)
+	return (Ybg - Ytxt) * 100.0

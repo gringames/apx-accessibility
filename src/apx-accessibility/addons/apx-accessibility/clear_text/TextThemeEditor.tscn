@@ -13,8 +13,8 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_xspe3")
 theme_to_edit = ExtResource("2_f18u0")
-max_font_size = 40.0
 fonts = Array[Font]([ExtResource("3_rw5ft"), ExtResource("4_5hbog"), ExtResource("7_pab6q"), ExtResource("8_5hbog"), ExtResource("9_68h3r")])
+max_font_size = 40.0
 
 [node name="PreviewLabel" type="Label" parent="."]
 layout_mode = 0
