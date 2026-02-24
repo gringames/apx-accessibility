@@ -30,6 +30,10 @@ const THEME_TYPE_LABEL: String = "Label"
 @export var allow_font_changes: bool = true
 @export var fonts: Array[Font] = []
 
+@export_group("Contrast")
+@export var add_contrast_button: bool = true
+@export_enum("WCAG2", "ACAG") var contrast_method
+
 var style_box: StyleBoxFlat = StyleBoxFlat.new()
 var font_name_to_index: Dictionary[String, int] = {"Open Sans SemiBold":-1}
 
@@ -92,7 +96,13 @@ func _prepare_font_dropdown() -> void:
 
 func _on_font_color_changed(color: Color) -> void:
 	theme_to_edit.set_color("font_color", THEME_TYPE_LABEL, color)
+	_set_back_to_best_contrast(color)
 
+func _set_back_to_best_contrast(text_color: Color) -> void:
+	var contrast_color: Color = get_best_contrasting_color(text_color)
+	background_color_picker_button.color = contrast_color
+	_on_background_color_changed(contrast_color)
+	
 
 func _on_background_color_changed(color: Color) -> void:
 	style_box.bg_color = color
@@ -127,3 +137,25 @@ func _on_back_margins_changed(value: float) -> void:
 	style_box.expand_margin_left = margins / 2
 	style_box.expand_margin_right = margins / 2
 	theme_to_edit.set_stylebox("normal", THEME_TYPE_LABEL, style_box)
+
+
+func get_best_contrasting_color(input_color: Color) -> Color:
+	var color_luminance = get_luminance(input_color)
+	var contrast_white = (1.0 + 0.05) / (color_luminance + 0.05)
+	var contrast_black = (color_luminance + 0.05) / (0.0 + 0.05)
+
+	if contrast_white > contrast_black:
+		return Color.WHITE
+	else:
+		return Color.BLACK
+
+func get_luminance(color: Color) -> float:
+	var r_linear: float = color_component_to_linear(color.r)
+	var g_linear: float = color_component_to_linear(color.g)
+	var b_linear: float = color_component_to_linear(color.b)
+	return 0.2126 * r_linear + 0.7152 * g_linear + 0.0722 * b_linear
+
+func color_component_to_linear(comp: float) -> float:
+	if comp <= 0.04045:
+		return comp / 12.92
+	return ((comp + 0.055) / 1.055) ** 2.4
