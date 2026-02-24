@@ -6,9 +6,6 @@ class_name TextThemeEditor
 const THEME_TYPE_LABEL: String = "Label"
 
 ## WCAG CONSTANTS
-const LINEAR_FACTOR_R: float = 0.2126
-const LINEAR_FACTOR_G: float = 0.7152
-const LINEAR_FACTOR_B: float = 0.0722
 const LUMINANCE_THRESHOLD: float = 0.179
 
 ## READY VARIABLES
@@ -186,9 +183,11 @@ func get_luminance(color: Color) -> float:
 	var r_linear: float = color_component_to_linear(color.r)
 	var g_linear: float = color_component_to_linear(color.g)
 	var b_linear: float = color_component_to_linear(color.b)
-	return LINEAR_FACTOR_R * r_linear + LINEAR_FACTOR_G * g_linear + LINEAR_FACTOR_B * b_linear
+	# from the definition of luminance
+	return 0.2126 * r_linear + 0.7152 * g_linear + 0.0722 * b_linear
 
 func color_component_to_linear(color_component: float) -> float:
+	# from sRGB (undo gamma)
 	if color_component <= 0.04045:
 		return color_component / 12.92
 	return ((color_component + 0.055) / 1.055) ** 2.4
