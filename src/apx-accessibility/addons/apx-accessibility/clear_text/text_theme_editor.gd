@@ -14,6 +14,8 @@ const LINEAR_FACTOR_B: float = 0.0722
 
 @onready var font_size_spin_box: SpinBox = $"VBoxContainer/HBoxContainer (Font Size)/SpinBox"
 @onready var line_spacing_spin_box: SpinBox = $"VBoxContainer/HBoxContainer (Font VSpacing)/SpinBox"
+@onready var h_box_container_contrast: HBoxContainer = $"VBoxContainer/HBoxContainer (Contrast)"
+@onready var contrast_check_button: CheckButton = $"VBoxContainer/HBoxContainer (Contrast)/ContrastCheckButton"
 @onready var font_color_picker_button: ColorPickerButton = $"VBoxContainer/HBoxContainer (Font Color)/ColorPickerButton"
 @onready var background_color_picker_button: ColorPickerButton = $"VBoxContainer/HBoxContainer (Back Color)/ColorPickerButton"
 @onready var font_option_button: OptionButton = $"VBoxContainer/HBoxContainer (Fonts)/OptionButton"
@@ -41,16 +43,18 @@ const LINEAR_FACTOR_B: float = 0.0722
 
 @export_group("Contrast")
 @export var add_contrast_button: bool = true
-@export_enum("WCAG2", "ACAG") var contrast_method
+@export_enum("WCAG2", "APCA") var contrast_method
 
 var style_box: StyleBoxFlat = StyleBoxFlat.new()
 var font_name_to_index: Dictionary[String, int] = {"Open Sans SemiBold":-1}
+var auto_contrast_enabled: bool = false
 
 
 func _ready() -> void:
 	preview_text.theme = theme_to_edit
 	preview_text.text = text_for_preview
 	_remove_font_options_if_not_checked()
+	_remove_contrast_button_if_not_checked()
 	_setup_default_values()
 
 
@@ -59,7 +63,10 @@ func _remove_font_options_if_not_checked() -> void:
 		printerr("[TextThemeEditor] no fonts specified, removing from editor!")
 		h_box_container_fonts_.queue_free()
 		allow_font_changes = false
-	
+
+func _remove_contrast_button_if_not_checked() -> void:
+	if not add_contrast_button:
+		h_box_container_contrast.queue_free()
 
 func _setup_default_values() -> void:
 	_set_spin_box_values(font_size_spin_box, min_font_size, max_font_size, theme_to_edit.get_font_size("font_size", THEME_TYPE_LABEL))
@@ -78,7 +85,6 @@ func _get_theme_margins() -> int:
 	var style_box: StyleBox = theme_to_edit.get_stylebox("normal", THEME_TYPE_LABEL)
 	return style_box.get_margin(SIDE_BOTTOM)
 
-
 func _set_color_button_color(color_button: ColorPickerButton, color: Color) -> void:
 	color_button.color = color
 	color_button.get_picker().presets_visible = false
@@ -91,29 +97,36 @@ func _get_theme_background_color() -> Color:
 	return style_box.bg_color
 
 func _prepare_font_dropdown() -> void:
-	if not allow_font_changes:
-		return
-	
+	if not allow_font_changes: return
 	for i in range(fonts.size()):
 		var font_name: String = fonts[i].get_font_name()
 		font_option_button.add_item(font_name, i)
 		font_name_to_index[font_name] = i
-	
 	var theme_font_name: String = theme_to_edit.get_font("font", THEME_TYPE_LABEL).get_font_name()
 	font_option_button.selected = font_name_to_index[theme_font_name]
 
 
-func _on_font_color_changed(color: Color) -> void:
-	theme_to_edit.set_color("font_color", THEME_TYPE_LABEL, color)
-	_set_back_to_best_contrast(color)
 
-func _set_back_to_best_contrast(text_color: Color) -> void:
-	var contrast_color: Color = get_best_contrasting_color(text_color)
-	background_color_picker_button.color = contrast_color
-	_on_background_color_changed(contrast_color)
-	
+## ON VALUE CHANGE EVENTS
+
+func _on_contrast_check_button_toggled(toggled_on: bool) -> void:
+	auto_contrast_enabled = toggled_on
+
+
+func _on_font_color_changed(color: Color) -> void:
+	_update_theme_font_color(color)
+	if auto_contrast_enabled:
+		_set_back_to_best_contrast(color)
+
+func _update_theme_font_color(color: Color) -> void:
+	theme_to_edit.set_color("font_color", THEME_TYPE_LABEL, color)
 
 func _on_background_color_changed(color: Color) -> void:
+	_update_theme_back_color(color)
+	if auto_contrast_enabled:
+		_set_text_to_best_contrast(color)
+
+func _update_theme_back_color(color: Color) -> void:
 	style_box.bg_color = color
 	theme_to_edit.set_stylebox("normal", THEME_TYPE_LABEL, style_box)
 
@@ -134,7 +147,6 @@ func _on_line_spacing_changed(value: float) -> void:
 	theme_to_edit.set_constant("line_spacing", THEME_TYPE_LABEL, spacing)
 
 
-
 func _on_font_selected(index: int) -> void:
 	theme_to_edit.set_font("font", THEME_TYPE_LABEL, fonts[index])
 
@@ -147,6 +159,21 @@ func _on_back_margins_changed(value: float) -> void:
 	style_box.expand_margin_right = margins / 2
 	theme_to_edit.set_stylebox("normal", THEME_TYPE_LABEL, style_box)
 
+
+## CONTRAST HELPERS
+
+func _set_back_to_best_contrast(text_color: Color) -> void:
+	var contrast_color: Color = get_best_contrasting_color(text_color)
+	background_color_picker_button.color = contrast_color
+	_update_theme_back_color(contrast_color)
+
+func _set_text_to_best_contrast(back_color: Color) -> void:
+	var contrast_color: Color = get_best_contrasting_color(back_color)
+	font_color_picker_button.color = contrast_color
+	_update_theme_font_color(contrast_color)
+
+
+## COLOR CONTRAST CALCULATIONS (WCAG 2.1)
 
 func get_best_contrasting_color(input_color: Color) -> Color:
 	var color_luminance = get_luminance(input_color)
@@ -165,3 +192,6 @@ func color_component_to_linear(color_component: float) -> float:
 	if color_component <= 0.04045:
 		return color_component / 12.92
 	return ((color_component + 0.055) / 1.055) ** 2.4
+
+
+## COLOR CONTRAST CALCULATIONS (APCA)

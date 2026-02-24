@@ -19,9 +19,9 @@ fonts = Array[Font]([ExtResource("3_rw5ft"), ExtResource("4_5hbog"), ExtResource
 [node name="PreviewLabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 390.0
-offset_top = 420.0
+offset_top = 480.0
 offset_right = 586.0
-offset_bottom = 478.0
+offset_bottom = 538.0
 theme = ExtResource("2_f18u0")
 text = "Preview Text
 This is a second line"
@@ -86,6 +86,23 @@ rounded = true
 custom_arrow_step = 1.0
 select_all_on_focus = true
 
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer (Contrast)" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer (Contrast)"]
+layout_mode = 2
+text = "Auto Contrast"
+
+[node name="ContrastCheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer (Contrast)"]
+custom_minimum_size = Vector2(100, 30)
+layout_direction = 2
+layout_mode = 2
+
 [node name="HBoxContainer (Font Color)" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
@@ -116,6 +133,9 @@ layout_direction = 2
 layout_mode = 2
 color = Color(0, 0, 0, 0)
 
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
 [node name="HBoxContainer (Back Margins)" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 8
@@ -138,6 +158,7 @@ select_all_on_focus = true
 [connection signal="item_selected" from="VBoxContainer/HBoxContainer (Fonts)/OptionButton" to="." method="_on_font_selected"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (Font Size)/SpinBox" to="." method="_on_font_size_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (Font VSpacing)/SpinBox" to="." method="_on_line_spacing_changed"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer (Contrast)/ContrastCheckButton" to="." method="_on_contrast_check_button_toggled"]
 [connection signal="color_changed" from="VBoxContainer/HBoxContainer (Font Color)/ColorPickerButton" to="." method="_on_font_color_changed"]
 [connection signal="color_changed" from="VBoxContainer/HBoxContainer (Back Color)/ColorPickerButton" to="." method="_on_background_color_changed"]
 [connection signal="picker_created" from="VBoxContainer/HBoxContainer (Back Color)/ColorPickerButton" to="." method="_on_background_color_picker_button_picker_clicked_first"]
