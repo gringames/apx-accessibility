@@ -390,6 +390,7 @@ position = Vector2(600, 210)
 texture = ExtResource("49_g8th8")
 
 [node name="ControlsReminder" type="Sprite2D" parent="."]
+visible = false
 z_index = 7
 position = Vector2(590, 320)
 scale = Vector2(0.5651042, 0.5651042)

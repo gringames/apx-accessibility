@@ -27,6 +27,7 @@ enabled=PackedStringArray("res://addons/apx-accessibility/clear_channels/plugin.
 [global_group]
 
 MovingBackgroundElement=""
+ComplexBackground=""
 
 [input]
 
