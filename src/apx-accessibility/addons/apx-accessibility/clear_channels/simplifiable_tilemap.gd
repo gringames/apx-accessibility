@@ -1,5 +1,5 @@
 extends TileMapLayer
-class_name SimplifiableTilemap
+class_name SimplifiableTilemapLayer
 
 func _on_hide_complex_changed(hide_complex: bool) -> void:
 # gets the atlas coords for the cell in the tilemap layer in the level

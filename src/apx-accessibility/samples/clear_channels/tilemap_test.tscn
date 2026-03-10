@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://6wneo8bh8e72"]
+
+[ext_resource type="Script" uid="uid://8787jkuf214i" path="res://addons/apx-accessibility/clear_channels/simplifiable_tilemap.gd" id="1_jyqhr"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="SimplifiableTilemapLayer" type="TileMapLayer" parent="."]
+script = ExtResource("1_jyqhr")
+metadata/_custom_type_script = "uid://8787jkuf214i"
