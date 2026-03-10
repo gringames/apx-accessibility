@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3u0853qsmdwd"]
+
+[ext_resource type="Script" uid="uid://bl1lsyxe2hph1" path="res://addons/clear_channels/visual_simplifier/visual_simplifier.gd" id="1_80vq8"]
+
+[node name="VisualSimplifier" type="Node"]
+script = ExtResource("1_80vq8")
+metadata/_custom_type_script = "uid://bl1lsyxe2hph1"

@@ -1,10 +1,10 @@
 [gd_scene load_steps=46 format=3 uid="uid://j1t30x17646a"]
 
 [ext_resource type="Script" uid="uid://b7wqitpnnxqdy" path="res://samples/clear_channels/background_test.gd" id="1_ddnwt"]
-[ext_resource type="Script" uid="uid://bl1lsyxe2hph1" path="res://addons/apx-accessibility/clear_channels/background_simplifier.gd" id="2_7gvj5"]
+[ext_resource type="PackedScene" uid="uid://b3u0853qsmdwd" path="res://addons/clear_channels/visual_simplifier/visual_simplifier.tscn" id="2_1frsy"]
 [ext_resource type="Texture2D" uid="uid://bq74u74jw224m" path="res://textures/kenney/Backgrounds/backgroundForest.png" id="3_eq4np"]
 [ext_resource type="Texture2D" uid="uid://d3smabvdbasxt" path="res://textures/kenney/Backgrounds/backgroundEmpty.png" id="3_sfaoq"]
-[ext_resource type="Script" uid="uid://cxqc4ki0ug65w" path="res://addons/apx-accessibility/clear_channels/simplifiable_sprite.gd" id="4_d3583"]
+[ext_resource type="Script" uid="uid://cxqc4ki0ug65w" path="res://addons/clear_channels/simplifiable_sprites/simplifiable_sprite.gd" id="4_d3583"]
 [ext_resource type="Texture2D" uid="uid://4deqjrhsecet" path="res://textures/kenney/Tiles/caneGreen.png" id="4_k2wyt"]
 [ext_resource type="Texture2D" uid="uid://03s52s7rs1t2" path="res://textures/kenney/Tiles/caneGreenSmall.png" id="4_kkta7"]
 [ext_resource type="Texture2D" uid="uid://dhddrm1qk2m5x" path="res://textures/kenney/Tiles/iceWater.png" id="8_ia3tv"]
@@ -21,9 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://vvln802h8tdj" path="res://textures/kenney/Tiles/snowBallGround.png" id="33_n8jat"]
 [ext_resource type="SpriteFrames" uid="uid://bg1axdoh7jhb" path="res://samples/clear_channels/player_animation.tres" id="41_1frsy"]
 [ext_resource type="Texture2D" uid="uid://dm6rodjbej25" path="res://textures/kenney/Tiles/snowRight.png" id="41_rvmh6"]
-[ext_resource type="Script" uid="uid://b8anel4q6yfuy" path="res://addons/apx-accessibility/clear_channels/simplifiable_animated_sprite_2D.gd" id="41_uw5gu"]
+[ext_resource type="Script" uid="uid://b8anel4q6yfuy" path="res://addons/clear_channels/simplifiable_sprites/simplifiable_animated_sprite_2D.gd" id="41_uw5gu"]
 [ext_resource type="Texture2D" uid="uid://bn1frsr8rmpdy" path="res://textures/kenney/Tiles/spikesBottomAlt2.png" id="44_3gu4f"]
-[ext_resource type="Script" uid="uid://bmq8vpg5pldl5" path="res://addons/apx-accessibility/total_recall/controls_reminder.gd" id="45_1frsy"]
+[ext_resource type="Script" uid="uid://bmq8vpg5pldl5" path="res://addons/total_recall/controls_reminder/controls_reminder.gd" id="45_1frsy"]
 [ext_resource type="Texture2D" uid="uid://bu17lpb6nn4dn" path="res://textures/controls/controller template.png" id="45_f670w"]
 [ext_resource type="Texture2D" uid="uid://5qtmworucndj" path="res://textures/kenney/Tiles/spikesTop.png" id="46_0bqkg"]
 [ext_resource type="Texture2D" uid="uid://cc78khyx2h8m" path="res://textures/kenney/Tiles/caneRedSmall.png" id="48_vkckp"]
@@ -49,9 +49,7 @@
 [node name="VisualComplexityTest" type="Node2D"]
 script = ExtResource("1_ddnwt")
 
-[node name="BackgroundSimplifier" type="Node" parent="."]
-script = ExtResource("2_7gvj5")
-metadata/_custom_type_script = "uid://bl1lsyxe2hph1"
+[node name="VisualSimplifier" parent="." instance=ExtResource("2_1frsy")]
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(595.5, 350)
