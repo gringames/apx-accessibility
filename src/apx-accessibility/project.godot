@@ -17,8 +17,8 @@ config/icon="uid://ksqpjx02hdfp"
 
 [autoload]
 
-InputHoldToggleManager="*res://addons/same_controls_but_different/hold_toggle/input_hold_toggle_manager.gd"
 InputMode="*res://addons/same_controls_but_different/hold_toggle/helpers/input_mode.gd"
+InputHoldToggleManager="*res://addons/same_controls_but_different/hold_toggle/input_hold_toggle_manager.gd"
 
 [editor_plugins]
 
