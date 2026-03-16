@@ -53,8 +53,9 @@ func _set(property, value):
 
 
 func _ready() -> void:
-	animation_changed.connect(_on_anim_changed)
-	VisibilityReductionSettings.visibility_reduction_toggled.connect(update_animation)
+	if not Engine.is_editor_hint():
+		animation_changed.connect(_on_anim_changed)
+		VisibilityReductionSettings.visibility_reduction_toggled.connect(update_animation)
 
 func _on_anim_changed() -> void:
 	update_animation.call_deferred(visual_reduction_on)
