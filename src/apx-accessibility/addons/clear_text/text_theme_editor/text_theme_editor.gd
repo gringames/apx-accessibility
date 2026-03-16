@@ -74,8 +74,8 @@ func _remove_contrast_button_if_not_checked() -> void:
 func _setup_default_values() -> void:
 	_set_spin_box_values(font_size_spin_box, min_font_size, max_font_size, theme_to_edit.get_font_size("font_size", THEME_TYPE_LABEL))
 	_set_spin_box_values(line_spacing_spin_box, min_line_spacing, max_line_spacing, theme_to_edit.get_constant("line_spacing", THEME_TYPE_LABEL))
-	_set_spin_box_values(back_margins_spin_box, min_margins, max_margins, _get_theme_margins())
-	_set_color_button_color(font_color_picker_button, theme_to_edit.get_color("font_color", THEME_TYPE_LABEL))
+	_set_spin_box_values(back_margins_spin_box, min_margins, max_margins, back_margins_spin_box.value)
+	_set_color_button_color(font_color_picker_button, _get_theme_font_color())
 	_set_color_button_color(background_color_picker_button, _get_theme_background_color())
 	_prepare_font_dropdown()
 
@@ -92,12 +92,17 @@ func _set_color_button_color(color_button: ColorPickerButton, color: Color) -> v
 	color_button.color = color
 	color_button.get_picker().presets_visible = false
 
+func _get_theme_font_color() -> Color:
+	# otherwise returns default color
+	if not theme_to_edit.has_color("font_color", THEME_TYPE_LABEL):
+		return Color.WHITE
+	return theme_to_edit.get_color("font_color", THEME_TYPE_LABEL)
+
 func _get_theme_background_color() -> Color:
 	var style_box: StyleBox = theme_to_edit.get_stylebox("normal", THEME_TYPE_LABEL)
 	if style_box is not StyleBoxFlat:
 		return Color(0,0,0,0)
-	style_box = style_box as StyleBoxFlat
-	return style_box.bg_color
+	return (style_box as StyleBoxFlat).get_bg_color()
 
 func _prepare_font_dropdown() -> void:
 	if not allow_font_changes: return
