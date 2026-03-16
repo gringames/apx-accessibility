@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://pyqqrm217mgb"]
+
+[ext_resource type="Script" uid="uid://bmq8vpg5pldl5" path="res://addons/total_recall/controls_reminder/controls_reminder.gd" id="1_m24nn"]
+
+[node name="ControlsReminder" type="Sprite2D"]
+script = ExtResource("1_m24nn")
