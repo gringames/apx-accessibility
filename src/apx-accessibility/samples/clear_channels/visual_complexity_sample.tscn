@@ -371,11 +371,12 @@ texture = ExtResource("50_85wxi")
 position = Vector2(90, 460.00003)
 scale = Vector2(0.33471075, 0.33471075)
 sprite_frames = ExtResource("41_1frsy")
-animation = &"walk"
-autoplay = "walk"
+animation = &"idle"
+autoplay = "idle"
 frame = 1
+frame_progress = 0.11073785
 script = ExtResource("41_uw5gu")
-animation_to_use_for_static = "walk"
+animation_to_use_for_static = "idle"
 frame_to_use_for_static = 0
 metadata/_custom_type_script = "uid://b8anel4q6yfuy"
 

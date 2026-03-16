@@ -5,6 +5,7 @@ class_name SimplifiableAnimatedSprite2D
 
 @export_category("Visual Complexity")
 @export var autoplay_if_static_turned_off: bool = true
+var visual_reduction_on: bool = false
 var frame_to_use_for_static: int = 0
 var animation_to_use_for_static: String:
 	set(value):
@@ -51,7 +52,14 @@ func _set(property, value):
 	return false
 
 
+func _ready() -> void:
+	animation_changed.connect(_on_anim_changed)
+
+func _on_anim_changed() -> void:
+	update_animation.call_deferred(visual_reduction_on)
+
 func update_animation(use_simplified_version: bool) -> void:
+	visual_reduction_on = use_simplified_version
 	if use_simplified_version:
 		_change_to_static_sprite()
 	else:
@@ -59,10 +67,11 @@ func update_animation(use_simplified_version: bool) -> void:
 
 
 func _change_to_static_sprite() -> void:
+	if animation_to_use_for_static != animation_to_use_for_static:
+		animation = animation_to_use_for_static
 	stop()
 	frame = frame_to_use_for_static
 
 func _change_to_animated_sprite() -> void:
-	animation = animation_to_use_for_static
 	if autoplay_if_static_turned_off:
 		play()

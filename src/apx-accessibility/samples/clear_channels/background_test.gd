@@ -14,4 +14,4 @@ func _unhandled_input(event):
 			visual_simplifier.update_complex_node_visibility(current)
 			background_empty.update_texture(current)
 			player.update_animation(current)
-			controls_reminder.call("show_controls" if current else "hide_controls")
+			# controls_reminder.call("show_controls" if current else "hide_controls")
