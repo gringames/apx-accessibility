@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqwfutlyn6d2d"]
+
+[ext_resource type="Script" uid="uid://g1rc256addhj" path="res://samples/menu/sample_menu.gd" id="1_ryd6p"]
+
+[node name="SampleMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ryd6p")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.59900004
+anchor_bottom = 0.15400001
+offset_right = 1.9519653
+offset_bottom = 0.20799255
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.99700004
+anchor_bottom = 1.0
+offset_right = 0.07598877
+grow_horizontal = 2
+alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="Panel/HBoxContainer"]
+layout_mode = 2
+text = "Reduce Visual Complexity"
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
