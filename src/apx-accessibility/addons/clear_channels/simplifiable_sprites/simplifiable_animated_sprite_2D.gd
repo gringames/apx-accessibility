@@ -69,7 +69,7 @@ func update_animation(use_simplified_version: bool) -> void:
 
 
 func _change_to_static_sprite() -> void:
-	if animation_to_use_for_static != animation_to_use_for_static:
+	if animation != animation_to_use_for_static:
 		animation = animation_to_use_for_static
 	stop()
 	frame = frame_to_use_for_static
