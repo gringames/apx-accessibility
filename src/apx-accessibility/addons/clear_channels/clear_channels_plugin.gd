@@ -12,3 +12,9 @@ func _exit_tree() -> void:
 	remove_custom_type("VisualSimplifier")
 	remove_custom_type("SimplifiableAnimatedSprite2D")
 	remove_custom_type("SimplifiableSprite2D")
+
+func _enable_plugin() -> void:
+	add_autoload_singleton("VisibilityReductionSettings", "res://addons/clear_channels/visibility_reduction_settings.gd")
+
+func _disable_plugin() -> void:
+	remove_autoload_singleton("VisibilityReductionSettings")

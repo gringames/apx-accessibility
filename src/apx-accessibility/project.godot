@@ -19,7 +19,7 @@ config/icon="uid://ksqpjx02hdfp"
 
 InputMode="*res://addons/same_controls_but_different/hold_toggle/helpers/input_mode.gd"
 InputHoldToggleManager="*res://addons/same_controls_but_different/hold_toggle/input_hold_toggle_manager.gd"
-GlobalSettings="*res://samples/menu/global_settings.gd"
+VisibilityReductionSettings="*res://addons/clear_channels/visibility_reduction_settings.gd"
 
 [editor_plugins]
 
