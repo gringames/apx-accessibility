@@ -9,6 +9,7 @@ var original_texture: Texture2D
 
 func _ready() -> void:
 	original_texture = texture
+	VisibilityReductionSettings.visibility_reduction_toggled.connect(update_texture)
 
 
 func update_texture(use_simplified_version: bool) -> void:

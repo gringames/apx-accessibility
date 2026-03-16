@@ -12,10 +12,8 @@ const SHOW_METHOD: String = "show"
 var complex_nodes: Array[Node]
 
 func _ready() -> void:
+	VisibilityReductionSettings.visibility_reduction_toggled.connect(update_complex_node_visibility)
 	_update_complex_nodes()
-	if complex_nodes.is_empty():
-		print("no complex background elements found in scene!")
-
 
 func _update_complex_nodes() -> void:
 	complex_nodes.clear()
@@ -27,6 +25,8 @@ func _update_complex_nodes() -> void:
 			complex_nodes_dict[node] = true
 	complex_nodes = complex_nodes_dict.keys()
 	complex_nodes_dict.clear()
+	if complex_nodes.is_empty():
+		print("no complex background elements found in scene!")
 
 
 func update_complex_node_visibility(reduce_complexity: bool) -> void:

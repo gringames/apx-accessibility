@@ -1,9 +1,9 @@
 [gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://bg1axdoh7jhb"]
 
-[ext_resource type="Texture2D" uid="uid://b13xu4yar25xf" path="res://resources/bunny2_walk2.png" id="1_okku6"]
-[ext_resource type="Texture2D" uid="uid://c678qdhm8dept" path="res://resources/bunny2_walk1.png" id="2_k64a3"]
-[ext_resource type="Texture2D" uid="uid://d14eigef0syen" path="res://resources/bunny2_walk3.png" id="2_oljjp"]
-[ext_resource type="Texture2D" uid="uid://bs1jgbp7kqhjv" path="res://resources/bunny2_walk4.png" id="3_f04o8"]
+[ext_resource type="Texture2D" uid="uid://b13xu4yar25xf" path="res://samples/resources/bunny2_walk2.png" id="1_okku6"]
+[ext_resource type="Texture2D" uid="uid://c678qdhm8dept" path="res://samples/resources/bunny2_walk1.png" id="2_k64a3"]
+[ext_resource type="Texture2D" uid="uid://d14eigef0syen" path="res://samples/resources/bunny2_walk3.png" id="2_oljjp"]
+[ext_resource type="Texture2D" uid="uid://bs1jgbp7kqhjv" path="res://samples/resources/bunny2_walk4.png" id="3_f04o8"]
 
 [resource]
 animations = [{

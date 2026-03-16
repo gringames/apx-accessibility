@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://kge11y23leuo"]
 
-[ext_resource type="FontFile" uid="uid://c7nertl23eo2d" path="res://fonts/Atkinson-Hyperlegible-Font-Print-and-Web-Final/Atkinson-Hyperlegible-Font-Print-and-Web-2020-0514/Print Fonts/Atkinson-Hyperlegible-Bold-102.otf" id="1_ancyl"]
+[ext_resource type="FontFile" uid="uid://c7nertl23eo2d" path="res://addons/clear_text/fonts/Atkinson-Hyperlegible-Font-Print-and-Web-Final/Atkinson-Hyperlegible-Font-Print-and-Web-2020-0514/Print Fonts/Atkinson-Hyperlegible-Bold-102.otf" id="1_ancyl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chcg0"]
 bg_color = Color(0.7921569, 0.3764706, 0.99215686, 0.20784314)

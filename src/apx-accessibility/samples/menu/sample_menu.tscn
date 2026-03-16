@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://g1rc256addhj" path="res://samples/menu/sample_menu.gd" id="1_ryd6p"]
 
 [node name="SampleMenu" type="Control"]
+z_index = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_ryd6p")
 
 [node name="Panel" type="Panel" parent="."]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.59900004

@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://bg4h5rxaec70b"]
 
-[ext_resource type="Script" uid="uid://d11g0rb5hmgte" path="res://addons/apx-accessibility/clear_text/text_theme_editor.gd" id="1_xspe3"]
-[ext_resource type="Theme" uid="uid://kge11y23leuo" path="res://addons/apx-accessibility/clear_text/TextTheme.tres" id="2_f18u0"]
-[ext_resource type="FontFile" uid="uid://bv10spnesanjd" path="res://fonts/dejavu-sans/DejaVuSans.ttf" id="3_rw5ft"]
-[ext_resource type="FontFile" uid="uid://bx3j5n7c1vewd" path="res://fonts/Open_Sans/static/OpenSans_Condensed-Medium.ttf" id="4_5hbog"]
-[ext_resource type="FontFile" uid="uid://c7nertl23eo2d" path="res://fonts/Atkinson-Hyperlegible-Font-Print-and-Web-Final/Atkinson-Hyperlegible-Font-Print-and-Web-2020-0514/Print Fonts/Atkinson-Hyperlegible-Bold-102.otf" id="7_pab6q"]
-[ext_resource type="FontFile" uid="uid://cpol651bqbb1h" path="res://fonts/OpenDyslexic 3 (Beta - Windows, MacOS, Linux TTF)/OpenDyslexic3-Bold.ttf" id="8_5hbog"]
-[ext_resource type="FontFile" uid="uid://ldivqwenutlk" path="res://fonts/intel-mono-tff/IntelOneMono-Bold.ttf" id="9_68h3r"]
+[ext_resource type="Script" uid="uid://d11g0rb5hmgte" path="res://addons/clear_text/text_theme_editor/text_theme_editor.gd" id="1_xspe3"]
+[ext_resource type="Theme" uid="uid://kge11y23leuo" path="res://addons/clear_text/text_theme_editor/TextTheme.tres" id="2_f18u0"]
+[ext_resource type="FontFile" uid="uid://bv10spnesanjd" path="res://addons/clear_text/fonts/dejavu-sans/DejaVuSans.ttf" id="3_rw5ft"]
+[ext_resource type="FontFile" uid="uid://bx3j5n7c1vewd" path="res://addons/clear_text/fonts/Open_Sans/static/OpenSans_Condensed-Medium.ttf" id="4_5hbog"]
+[ext_resource type="FontFile" uid="uid://c7nertl23eo2d" path="res://addons/clear_text/fonts/Atkinson-Hyperlegible-Font-Print-and-Web-Final/Atkinson-Hyperlegible-Font-Print-and-Web-2020-0514/Print Fonts/Atkinson-Hyperlegible-Bold-102.otf" id="7_pab6q"]
+[ext_resource type="FontFile" uid="uid://cpol651bqbb1h" path="res://addons/clear_text/fonts/OpenDyslexic 3 (Beta - Windows, MacOS, Linux TTF)/OpenDyslexic3-Bold.ttf" id="8_5hbog"]
+[ext_resource type="FontFile" uid="uid://ldivqwenutlk" path="res://addons/clear_text/fonts/intel-mono-tff/IntelOneMono-Bold.ttf" id="9_68h3r"]
 
 [node name="TextThemeEditor" type="Control"]
 layout_mode = 3
