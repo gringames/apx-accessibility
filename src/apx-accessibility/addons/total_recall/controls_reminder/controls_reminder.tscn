@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://bmq8vpg5pldl5" path="res://addons/total_recall/controls_reminder/controls_reminder.gd" id="1_m24nn"]
 
 [node name="ControlsReminder" type="Sprite2D"]
+visible = false
 script = ExtResource("1_m24nn")

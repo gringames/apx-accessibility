@@ -7,6 +7,9 @@ class_name ObjectiveContent
 @onready var content_title: Label = $"VBoxContainer Texts/ContentTitle"
 @onready var content_description: Label = $"VBoxContainer Texts/ContentDescription"
 
+func _ready() -> void:
+	update_contents("", "")
+
 
 func update_contents(title: String, description: String, image_path: String = "") -> void:
 	content_title.text = title
