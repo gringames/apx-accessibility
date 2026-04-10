@@ -13,11 +13,15 @@ func _ready() -> void:
 
 func update_contents(title: String, description: String, image_path: String = "") -> void:
 	content_title.text = title
+	content_title.accessibility_name = title
 	content_description.text = description
+	content_description.accessibility_name = description
 	if image_path != "":
 		_set_content_image_texture(load(image_path))
 	else:
 		_set_content_image_texture(stand_in_image)
+	# for screen readers
+	content_title.grab_focus()
 
 func _set_content_image_texture(texture: Texture2D) -> void:
 	content_image.texture = texture

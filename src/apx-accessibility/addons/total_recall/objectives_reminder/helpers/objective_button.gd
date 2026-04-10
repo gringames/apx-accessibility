@@ -14,6 +14,7 @@ func _init(key: String, title: String) -> void:
 	set_title_and_key(title, key)
 	alignment = HORIZONTAL_ALIGNMENT_LEFT
 	autowrap_mode = TextServer.AUTOWRAP_WORD
+	focus_mode = Control.FOCUS_ACCESSIBILITY
 
 func set_title_and_key(title: String, key: String) -> void:
 	set_title(title)
@@ -22,6 +23,7 @@ func set_title_and_key(title: String, key: String) -> void:
 func set_title(title: String) -> void:
 	self.title = title
 	text = title
+	accessibility_name = title
 
 func set_key(key: String) -> void:
 	self.key = key

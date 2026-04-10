@@ -43,6 +43,8 @@ custom_minimum_size = Vector2(128, 192)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+focus_mode = 3
+accessibility_name = "Image for Objective"
 expand_mode = 1
 stretch_mode = 5
 
@@ -52,6 +54,8 @@ layout_mode = 2
 [node name="ContentTitle" type="Label" parent="Contents/VBoxContainer Texts"]
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
+focus_mode = 3
+accessibility_name = "Title for Objective"
 theme_override_font_sizes/font_size = 25
 text = "Title"
 autowrap_mode = 2
@@ -59,6 +63,8 @@ autowrap_mode = 2
 [node name="ContentDescription" type="Label" parent="Contents/VBoxContainer Texts"]
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
+focus_mode = 3
+accessibility_name = "Description for Objective"
 theme_override_font_sizes/font_size = 14
 text = "This is a long description of the objective.
 It may stretch over multiple lines."

@@ -8,7 +8,7 @@ class_name ObjectiveDisplay
 var key_to_objective: Dictionary[String, Objective] = {}
 
 func _ready() -> void:
-	#_create_example_objectives()
+	_create_example_objectives()
 	current_objective_tab.create_side_bar_buttons_for_objectives(get_current_objectives())
 	completed_objective_tab.create_side_bar_buttons_for_objectives(get_completed_objectives())
 

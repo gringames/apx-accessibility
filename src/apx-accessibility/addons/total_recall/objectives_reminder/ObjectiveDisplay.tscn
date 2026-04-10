@@ -28,8 +28,12 @@ tab_focus_mode = 1
 
 [node name="Current" parent="TabContainer" instance=ExtResource("2_60n4v")]
 layout_mode = 2
+focus_mode = 3
+accessibility_name = "Tab for Current Objectives"
 
 [node name="Completed" parent="TabContainer" instance=ExtResource("2_60n4v")]
 visible = false
 layout_mode = 2
+focus_mode = 3
+accessibility_name = "Tab for Completed Objectives"
 metadata/_tab_index = 1
