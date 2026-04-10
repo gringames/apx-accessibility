@@ -63,7 +63,7 @@ func _ready() -> void:
 
 func _remove_font_options_if_not_checked() -> void:
 	if fonts.is_empty() or not allow_font_changes:
-		printerr("[TextThemeEditor] no fonts specified, removing from editor!")
+		push_warning("[TextThemeEditor] no fonts specified, removing from editor!")
 		h_box_container_fonts_.queue_free()
 		allow_font_changes = false
 
@@ -74,7 +74,7 @@ func _remove_contrast_button_if_not_checked() -> void:
 func _setup_default_values() -> void:
 	_set_spin_box_values(font_size_spin_box, min_font_size, max_font_size, theme_to_edit.get_font_size("font_size", THEME_TYPE_LABEL))
 	_set_spin_box_values(line_spacing_spin_box, min_line_spacing, max_line_spacing, theme_to_edit.get_constant("line_spacing", THEME_TYPE_LABEL))
-	_set_spin_box_values(back_margins_spin_box, min_margins, max_margins, back_margins_spin_box.value)
+	_set_spin_box_values(back_margins_spin_box, min_margins, max_margins, _get_theme_margins())
 	_set_color_button_color(font_color_picker_button, _get_theme_font_color())
 	_set_color_button_color(background_color_picker_button, _get_theme_background_color())
 	_prepare_font_dropdown()
@@ -86,7 +86,7 @@ func _set_spin_box_values(spin_box: SpinBox, min: float, max: float, default: fl
 
 func _get_theme_margins() -> int:
 	var style_box: StyleBox = theme_to_edit.get_stylebox("normal", THEME_TYPE_LABEL)
-	return style_box.get_margin(SIDE_BOTTOM)
+	return style_box.get_content_margin(SIDE_BOTTOM)
 
 func _set_color_button_color(color_button: ColorPickerButton, color: Color) -> void:
 	color_button.color = color
@@ -161,10 +161,11 @@ func _on_font_selected(index: int) -> void:
 
 func _on_back_margins_changed(value: float) -> void:
 	var margins: int = int(value)
-	style_box.expand_margin_bottom = margins
-	style_box.expand_margin_top = margins
-	style_box.expand_margin_left = margins / 2
-	style_box.expand_margin_right = margins / 2
+	style_box = theme_to_edit.get_stylebox("normal", THEME_TYPE_LABEL)
+	style_box.set_content_margin(SIDE_LEFT, margins)
+	style_box.set_content_margin(SIDE_RIGHT, margins)
+	style_box.set_content_margin(SIDE_TOP, margins / 2)
+	style_box.set_content_margin(SIDE_BOTTOM, margins / 2)
 	theme_to_edit.set_stylebox("normal", THEME_TYPE_LABEL, style_box)
 
 
