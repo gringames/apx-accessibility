@@ -13,7 +13,7 @@ config_version=5
 config/name="APX Accessibility"
 run/main_scene="uid://do8hhxkuxr64k"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="uid://ksqpjx02hdfp"
+config/icon="uid://do8uq7bljgnqg"
 
 [autoload]
 
