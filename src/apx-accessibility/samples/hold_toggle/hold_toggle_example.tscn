@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1n82u50xk4ir"]
+[gd_scene load_steps=5 format=3 uid="uid://c1n82u50xk4ir"]
 
 [ext_resource type="Script" uid="uid://d0ljlscn71u3y" path="res://samples/hold_toggle/hold_toggle_example_usage.gd" id="1_0ekk1"]
+[ext_resource type="PackedScene" uid="uid://do8hhxkuxr64k" path="res://addons/same_controls_but_different/hold_toggle/HoldToggleSettings.tscn" id="2_cdi5j"]
+[ext_resource type="Script" uid="uid://cmcvyk6i4dd7c" path="res://addons/same_controls_but_different/hold_toggle/helpers/action_with_display_name.gd" id="3_yp4kp"]
+
+[sub_resource type="Resource" id="Resource_mnd1j"]
+script = ExtResource("3_yp4kp")
+action_name = "print_hello"
+display_name = "Print Hello"
+metadata/_custom_type_script = "uid://cmcvyk6i4dd7c"
 
 [node name="HoldToggleExample" type="Node"]
 script = ExtResource("1_0ekk1")
+
+[node name="HoldToggleSettings" parent="." instance=ExtResource("2_cdi5j")]
+input_action_names = Array[ExtResource("3_yp4kp")]([SubResource("Resource_mnd1j")])

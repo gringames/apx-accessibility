@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cfwtoobpewg0g"]
 
-[ext_resource type="Script" uid="uid://dwissf0jpabs5" path="res://addons/apx-accessibility/same_controls_but_different/hold_toggle/action_hold_toggle_entry.gd" id="1_2lrq8"]
+[ext_resource type="Script" uid="uid://dwissf0jpabs5" path="res://addons/same_controls_but_different/hold_toggle/helpers/action_hold_toggle_entry.gd" id="1_2lrq8"]
 
 [node name="ActionHoldToggleEntry" type="HBoxContainer"]
 script = ExtResource("1_2lrq8")
@@ -10,6 +10,8 @@ custom_minimum_size = Vector2(200, 20)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+focus_mode = 3
+accessibility_name = "input action"
 text = "Action Name"
 
 [node name="ToggleCheckButton" type="CheckButton" parent="."]

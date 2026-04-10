@@ -16,6 +16,7 @@ func set_action_name(new_action_name: String) -> void:
 
 func set_display_name(display_name: String) -> void:
 	action_name_label.text = display_name
+	accessibility_name = display_name
 
 func set_hold_toggle(toggled_on: bool) -> void:
 	toggle_check_button.button_pressed = toggled_on
