@@ -43,6 +43,7 @@ alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer (Fonts)"]
 layout_mode = 2
+focus_mode = 3
 accessibility_name = "Font"
 text = "Font"
 
@@ -50,6 +51,7 @@ text = "Font"
 custom_minimum_size = Vector2(100, 30)
 layout_direction = 2
 layout_mode = 2
+focus_mode = 3
 
 [node name="HBoxContainer (Font Size)" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -58,12 +60,16 @@ alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer (Font Size)"]
 layout_mode = 2
+focus_mode = 3
+accessibility_name = "Font Size"
 text = "Font Size"
 
 [node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer (Font Size)"]
 custom_minimum_size = Vector2(100, 30)
 layout_direction = 2
 layout_mode = 2
+focus_mode = 3
+accessibility_name = "Font Size Spin Box"
 min_value = 10.0
 value = 10.0
 rounded = true
@@ -77,12 +83,16 @@ alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer (Font VSpacing)"]
 layout_mode = 2
+focus_mode = 3
+accessibility_name = "Line Spacing"
 text = "Line Spacing"
 
 [node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer (Font VSpacing)"]
 custom_minimum_size = Vector2(100, 30)
 layout_direction = 2
 layout_mode = 2
+focus_mode = 3
+accessibility_name = "Line Spacing Spin Box"
 max_value = 15.0
 value = 10.0
 rounded = true
@@ -99,12 +109,17 @@ alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer (Contrast)"]
 layout_mode = 2
+focus_mode = 3
+accessibility_name = "Auto Contrast"
+accessibility_description = "If this is on, font and background color are optimized for contrast"
 text = "Auto Contrast"
 
 [node name="ContrastCheckButton" type="CheckButton" parent="VBoxContainer/HBoxContainer (Contrast)"]
 custom_minimum_size = Vector2(100, 30)
 layout_direction = 2
 layout_mode = 2
+focus_mode = 3
+accessibility_name = "auto contrast"
 
 [node name="HBoxContainer (Font Color)" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -113,12 +128,16 @@ alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer (Font Color)"]
 layout_mode = 2
+focus_mode = 3
+accessibility_name = "Font Color"
 text = "Font Color"
 
 [node name="ColorPickerButton" type="ColorPickerButton" parent="VBoxContainer/HBoxContainer (Font Color)"]
 custom_minimum_size = Vector2(100, 30)
 layout_direction = 2
 layout_mode = 2
+focus_mode = 3
+accessibility_name = "Picker for Font Color"
 color = Color(1, 1, 1, 1)
 
 [node name="HBoxContainer (Back Color)" type="HBoxContainer" parent="VBoxContainer"]
@@ -128,12 +147,16 @@ alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer (Back Color)"]
 layout_mode = 2
+focus_mode = 3
+accessibility_name = "Background Color"
 text = "Background Color"
 
 [node name="ColorPickerButton" type="ColorPickerButton" parent="VBoxContainer/HBoxContainer (Back Color)"]
 custom_minimum_size = Vector2(100, 30)
 layout_direction = 2
 layout_mode = 2
+focus_mode = 3
+accessibility_name = "Picker for Background Color"
 color = Color(0, 0, 0, 0)
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
@@ -146,12 +169,17 @@ alignment = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer (Back Margins)"]
 layout_mode = 2
+focus_mode = 3
+accessibility_name = "Margins"
+accessibility_description = "Margins around the text"
 text = "Background Margins"
 
 [node name="SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer (Back Margins)"]
 custom_minimum_size = Vector2(100, 30)
 layout_direction = 2
 layout_mode = 2
+focus_mode = 3
+accessibility_name = "Margins Spin Box"
 max_value = 15.0
 value = 10.0
 rounded = true
